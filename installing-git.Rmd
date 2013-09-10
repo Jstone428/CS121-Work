@@ -1,0 +1,4 @@
+# Installing git on Mac OS-X
+
+We had to do a 
+```sudo chflags nohidden /usr```
