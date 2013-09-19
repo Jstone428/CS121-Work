@@ -5,7 +5,7 @@ polygon(50+28*cos(angles), 50+28*sin(angles), col="#C2D6FF99", border="NA")
 #E(radius smaller)
 polygon(25+18*cos(angles), 67+28*sin(angles), col="#FFBDFF98", border="NA")
 #SquareG
-polygon(c(15,43,43,15), c(39,39,70,70), col="#00FF0080", border="#0000FF")
+polygon(c(15,43,43,15), c(39,39,70,70), col="#00FF0080", border="#0000FF", lwd=6)
 #SquareR
 polygon(c(23,42,42,23),c(11,11,30,30), col="#FF000099", border="black")
 #Pentagon
