@@ -19,10 +19,10 @@ I attend [Macalester College](http://www.macalester.edu) in Saint Paul, MN. I am
 
 * Schooling Plan
     * Major: Applied Math and Statistics
-    * Minors: Sociology and Women's, Gender and Sexuality Studies
+    * Minor: Women's, Gender and Sexuality Studies
 * Activities
     * Varsity Golf
-    * Club Sports
+    * Club Sports-Dodgeball
     * Theatre
     * Relay for Life
     * MacCatholics
