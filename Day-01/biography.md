@@ -35,7 +35,7 @@ I've lived at my current house in Granada Hills, CA for my entire life so far. F
 * Sports
     * AYSO Soccer, Ages 3-13
     * Softball, Grades 5-7
-    * Varsity Golf, Grades 9-12
+    * Varsity Golf, Grades 9-12, College
     
 From elementary through high school, community service was a huge part of my life. I would volunteer with animal shelters, homeless shelters, different projects, and participate in the JDRF Walk. 
 
