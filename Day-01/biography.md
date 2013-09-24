@@ -14,6 +14,7 @@ My immediate family consists of my father, Julian; my mother, Barbara; and my si
 
 ## Currently
 
+[Head Shot](http://athletics.macalester.edu/images/2013/9/15/jessica_stone_14.jpg)
 I attend [Macalester College](http://www.macalester.edu) in Saint Paul, MN. I am a sophomore student-athlete on the [Women's Varsity Golf team](http://www.youtube.com/watch?v=tDgIm25b3_M) and I participate in club sports as well. Most of my day is spent at the Leonard Center and it has become my favorite building. This year, I live with three of my closest friends in a suite. 
 
 * Schooling Plan
