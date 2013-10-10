@@ -1,0 +1,25 @@
+# Base Conversion
+```{r}
+toBase<-function(Z,b){
+  base<-c()
+  while(Z > 0 ){
+    r<-Z%%b
+    base<-c(r,base)
+    Z<-(Z-r)/b    
+    }
+  return(base)
+  }
+```
+Task 1
+```{r}
+#toBase(Z,b)
+toBase(13,2)
+toBase(13,3)
+
+```
+Going Further
+```{r}
+
+
+
+```

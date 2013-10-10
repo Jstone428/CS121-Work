@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>signed integer 0-255, -128 to 127,</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<p>1 bite has 8 lines called bits </p>
+
+<hr/>
+
+<h1>signed integer 0-255, -128 to 127,</h1>
+
+<p>how would you rep a number like&hellip;.
+_ = signed integer </p>
+
+<p>_ * 10<sup>signed integer</sup></p>
+
+<pre><code class="r">3L
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">class(3)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">253L
+</code></pre>
+
+<pre><code>## [1] 253
+</code></pre>
+
+<p>cut-off for 1e___ is 1e308-1e309. 
+cut-off for 1e-___ is 1e-323 and 1e-324</p>
+
+<pre><code class="r">asin(4)
+</code></pre>
+
+<pre><code>## Warning: NaNs produced
+</code></pre>
+
+<pre><code>## [1] NaN
+</code></pre>
+
+<pre><code class="r">sqrt(-5)
+</code></pre>
+
+<pre><code>## Warning: NaNs produced
+</code></pre>
+
+<pre><code>## [1] NaN
+</code></pre>
+
+<pre><code class="r">
+iconvlist()
+</code></pre>
+
+<pre><code>##   [1] &quot;437&quot;                                          
+##   [2] &quot;850&quot;                                          
+##   [3] &quot;852&quot;                                          
+##   [4] &quot;855&quot;                                          
+##   [5] &quot;857&quot;                                          
+##   [6] &quot;860&quot;                                          
+##   [7] &quot;861&quot;                                          
+##   [8] &quot;862&quot;                                          
+##   [9] &quot;863&quot;                                          
+##  [10] &quot;865&quot;                                          
+##  [11] &quot;866&quot;                                          
+##  [12] &quot;869&quot;                                          
+##  [13] &quot;ANSI_X3.4-1968&quot;                               
+##  [14] &quot;ANSI_X3.4-1986&quot;                               
+##  [15] &quot;ARABIC&quot;                                       
+##  [16] &quot;ARMSCII-8&quot;                                    
+##  [17] &quot;ASCII&quot;                                        
+##  [18] &quot;ASMO-708&quot;                                     
+##  [19] &quot;ATARI&quot;                                        
+##  [20] &quot;ATARIST&quot;                                      
+##  [21] &quot;BIG-5&quot;                                        
+##  [22] &quot;BIG-FIVE&quot;                                     
+##  [23] &quot;BIG5&quot;                                         
+##  [24] &quot;BIG5-2003&quot;                                    
+##  [25] &quot;BIG5-HKSCS&quot;                                   
+##  [26] &quot;BIG5-HKSCS:1999&quot;                              
+##  [27] &quot;BIG5-HKSCS:2001&quot;                              
+##  [28] &quot;BIG5-HKSCS:2004&quot;                              
+##  [29] &quot;BIG5HKSCS&quot;                                    
+##  [30] &quot;BIGFIVE&quot;                                      
+##  [31] &quot;C99&quot;                                          
+##  [32] &quot;CHINESE&quot;                                      
+##  [33] &quot;CN&quot;                                           
+##  [34] &quot;CN-BIG5&quot;                                      
+##  [35] &quot;CN-GB&quot;                                        
+##  [36] &quot;CN-GB-ISOIR165&quot;                               
+##  [37] &quot;CP-GR&quot;                                        
+##  [38] &quot;CP-IS&quot;                                        
+##  [39] &quot;CP1046&quot;                                       
+##  [40] &quot;CP1124&quot;                                       
+##  [41] &quot;CP1125&quot;                                       
+##  [42] &quot;CP1129&quot;                                       
+##  [43] &quot;CP1133&quot;                                       
+##  [44] &quot;CP1161&quot;                                       
+##  [45] &quot;CP1162&quot;                                       
+##  [46] &quot;CP1163&quot;                                       
+##  [47] &quot;CP1250&quot;                                       
+##  [48] &quot;CP1251&quot;                                       
+##  [49] &quot;CP1252&quot;                                       
+##  [50] &quot;CP1253&quot;                                       
+##  [51] &quot;CP1254&quot;                                       
+##  [52] &quot;CP1255&quot;                                       
+##  [53] &quot;CP1256&quot;                                       
+##  [54] &quot;CP1257&quot;                                       
+##  [55] &quot;CP1258&quot;                                       
+##  [56] &quot;CP1361&quot;                                       
+##  [57] &quot;CP154&quot;                                        
+##  [58] &quot;CP367&quot;                                        
+##  [59] &quot;CP437&quot;                                        
+##  [60] &quot;CP737&quot;                                        
+##  [61] &quot;CP775&quot;                                        
+##  [62] &quot;CP819&quot;                                        
+##  [63] &quot;CP850&quot;                                        
+##  [64] &quot;CP852&quot;                                        
+##  [65] &quot;CP853&quot;                                        
+##  [66] &quot;CP855&quot;                                        
+##  [67] &quot;CP856&quot;                                        
+##  [68] &quot;CP857&quot;                                        
+##  [69] &quot;CP858&quot;                                        
+##  [70] &quot;CP860&quot;                                        
+##  [71] &quot;CP861&quot;                                        
+##  [72] &quot;CP862&quot;                                        
+##  [73] &quot;CP863&quot;                                        
+##  [74] &quot;CP864&quot;                                        
+##  [75] &quot;CP865&quot;                                        
+##  [76] &quot;CP866&quot;                                        
+##  [77] &quot;CP869&quot;                                        
+##  [78] &quot;CP874&quot;                                        
+##  [79] &quot;CP922&quot;                                        
+##  [80] &quot;CP932&quot;                                        
+##  [81] &quot;CP936&quot;                                        
+##  [82] &quot;CP943&quot;                                        
+##  [83] &quot;CP949&quot;                                        
+##  [84] &quot;CP950&quot;                                        
+##  [85] &quot;CSASCII&quot;                                      
+##  [86] &quot;CSBIG5&quot;                                       
+##  [87] &quot;CSEUCKR&quot;                                      
+##  [88] &quot;CSEUCPKDFMTJAPANESE&quot;                          
+##  [89] &quot;CSEUCTW&quot;                                      
+##  [90] &quot;CSGB2312&quot;                                     
+##  [91] &quot;CSHALFWIDTHKATAKANA&quot;                          
+##  [92] &quot;CSHPROMAN8&quot;                                   
+##  [93] &quot;CSIBM1161&quot;                                    
+##  [94] &quot;CSIBM1162&quot;                                    
+##  [95] &quot;CSIBM1163&quot;                                    
+##  [96] &quot;CSIBM855&quot;                                     
+##  [97] &quot;CSIBM857&quot;                                     
+##  [98] &quot;CSIBM860&quot;                                     
+##  [99] &quot;CSIBM861&quot;                                     
+## [100] &quot;CSIBM863&quot;                                     
+## [101] &quot;CSIBM864&quot;                                     
+## [102] &quot;CSIBM865&quot;                                     
+## [103] &quot;CSIBM866&quot;                                     
+## [104] &quot;CSIBM869&quot;                                     
+## [105] &quot;CSISO14JISC6220RO&quot;                            
+## [106] &quot;CSISO159JISX02121990&quot;                         
+## [107] &quot;CSISO2022CN&quot;                                  
+## [108] &quot;CSISO2022JP&quot;                                  
+## [109] &quot;CSISO2022JP2&quot;                                 
+## [110] &quot;CSISO2022KR&quot;                                  
+## [111] &quot;CSISO57GB1988&quot;                                
+## [112] &quot;CSISO58GB231280&quot;                              
+## [113] &quot;CSISO87JISX0208&quot;                              
+## [114] &quot;CSISOLATIN1&quot;                                  
+## [115] &quot;CSISOLATIN2&quot;                                  
+## [116] &quot;CSISOLATIN3&quot;                                  
+## [117] &quot;CSISOLATIN4&quot;                                  
+## [118] &quot;CSISOLATIN5&quot;                                  
+## [119] &quot;CSISOLATIN6&quot;                                  
+## [120] &quot;CSISOLATINARABIC&quot;                             
+## [121] &quot;CSISOLATINCYRILLIC&quot;                           
+## [122] &quot;CSISOLATINGREEK&quot;                              
+## [123] &quot;CSISOLATINHEBREW&quot;                             
+## [124] &quot;CSKOI8R&quot;                                      
+## [125] &quot;CSKSC56011987&quot;                                
+## [126] &quot;CSMACINTOSH&quot;                                  
+## [127] &quot;CSPC775BALTIC&quot;                                
+## [128] &quot;CSPC850MULTILINGUAL&quot;                          
+## [129] &quot;CSPC862LATINHEBREW&quot;                           
+## [130] &quot;CSPC8CODEPAGE437&quot;                             
+## [131] &quot;CSPCP852&quot;                                     
+## [132] &quot;CSPTCP154&quot;                                    
+## [133] &quot;CSSHIFTJIS&quot;                                   
+## [134] &quot;CSUCS4&quot;                                       
+## [135] &quot;CSUNICODE&quot;                                    
+## [136] &quot;CSUNICODE11&quot;                                  
+## [137] &quot;CSUNICODE11UTF7&quot;                              
+## [138] &quot;CSVISCII&quot;                                     
+## [139] &quot;CYRILLIC&quot;                                     
+## [140] &quot;CYRILLIC-ASIAN&quot;                               
+## [141] &quot;DEC-HANYU&quot;                                    
+## [142] &quot;DEC-KANJI&quot;                                    
+## [143] &quot;ECMA-114&quot;                                     
+## [144] &quot;ECMA-118&quot;                                     
+## [145] &quot;ELOT_928&quot;                                     
+## [146] &quot;EUC-CN&quot;                                       
+## [147] &quot;EUC-JISX0213&quot;                                 
+## [148] &quot;EUC-JP&quot;                                       
+## [149] &quot;EUC-KR&quot;                                       
+## [150] &quot;EUC-TW&quot;                                       
+## [151] &quot;EUCCN&quot;                                        
+## [152] &quot;EUCJP&quot;                                        
+## [153] &quot;EUCKR&quot;                                        
+## [154] &quot;EUCTW&quot;                                        
+## [155] &quot;EXTENDED_UNIX_CODE_PACKED_FORMAT_FOR_JAPANESE&quot;
+## [156] &quot;GB_1988-80&quot;                                   
+## [157] &quot;GB_2312-80&quot;                                   
+## [158] &quot;GB18030&quot;                                      
+## [159] &quot;GB2312&quot;                                       
+## [160] &quot;GBK&quot;                                          
+## [161] &quot;GEORGIAN-ACADEMY&quot;                             
+## [162] &quot;GEORGIAN-PS&quot;                                  
+## [163] &quot;GREEK&quot;                                        
+## [164] &quot;GREEK8&quot;                                       
+## [165] &quot;HEBREW&quot;                                       
+## [166] &quot;HP-ROMAN8&quot;                                    
+## [167] &quot;HZ&quot;                                           
+## [168] &quot;HZ-GB-2312&quot;                                   
+## [169] &quot;IBM-1161&quot;                                     
+## [170] &quot;IBM-1162&quot;                                     
+## [171] &quot;IBM-1163&quot;                                     
+## [172] &quot;IBM-CP1133&quot;                                   
+## [173] &quot;IBM1161&quot;                                      
+## [174] &quot;IBM1162&quot;                                      
+## [175] &quot;IBM1163&quot;                                      
+## [176] &quot;IBM367&quot;                                       
+## [177] &quot;IBM437&quot;                                       
+## [178] &quot;IBM775&quot;                                       
+## [179] &quot;IBM819&quot;                                       
+## [180] &quot;IBM850&quot;                                       
+## [181] &quot;IBM852&quot;                                       
+## [182] &quot;IBM855&quot;                                       
+## [183] &quot;IBM857&quot;                                       
+## [184] &quot;IBM860&quot;                                       
+## [185] &quot;IBM861&quot;                                       
+## [186] &quot;IBM862&quot;                                       
+## [187] &quot;IBM863&quot;                                       
+## [188] &quot;IBM864&quot;                                       
+## [189] &quot;IBM865&quot;                                       
+## [190] &quot;IBM866&quot;                                       
+## [191] &quot;IBM869&quot;                                       
+## [192] &quot;ISO_646.IRV:1991&quot;                             
+## [193] &quot;ISO_8859-1&quot;                                   
+## [194] &quot;ISO_8859-1:1987&quot;                              
+## [195] &quot;ISO_8859-10&quot;                                  
+## [196] &quot;ISO_8859-10:1992&quot;                             
+## [197] &quot;ISO_8859-11&quot;                                  
+## [198] &quot;ISO_8859-13&quot;                                  
+## [199] &quot;ISO_8859-14&quot;                                  
+## [200] &quot;ISO_8859-14:1998&quot;                             
+## [201] &quot;ISO_8859-15&quot;                                  
+## [202] &quot;ISO_8859-15:1998&quot;                             
+## [203] &quot;ISO_8859-16&quot;                                  
+## [204] &quot;ISO_8859-16:2001&quot;                             
+## [205] &quot;ISO_8859-2&quot;                                   
+## [206] &quot;ISO_8859-2:1987&quot;                              
+## [207] &quot;ISO_8859-3&quot;                                   
+## [208] &quot;ISO_8859-3:1988&quot;                              
+## [209] &quot;ISO_8859-4&quot;                                   
+## [210] &quot;ISO_8859-4:1988&quot;                              
+## [211] &quot;ISO_8859-5&quot;                                   
+## [212] &quot;ISO_8859-5:1988&quot;                              
+## [213] &quot;ISO_8859-6&quot;                                   
+## [214] &quot;ISO_8859-6:1987&quot;                              
+## [215] &quot;ISO_8859-7&quot;                                   
+## [216] &quot;ISO_8859-7:1987&quot;                              
+## [217] &quot;ISO_8859-7:2003&quot;                              
+## [218] &quot;ISO_8859-8&quot;                                   
+## [219] &quot;ISO_8859-8:1988&quot;                              
+## [220] &quot;ISO_8859-9&quot;                                   
+## [221] &quot;ISO_8859-9:1989&quot;                              
+## [222] &quot;ISO-10646-UCS-2&quot;                              
+## [223] &quot;ISO-10646-UCS-4&quot;                              
+## [224] &quot;ISO-2022-CN&quot;                                  
+## [225] &quot;ISO-2022-CN-EXT&quot;                              
+## [226] &quot;ISO-2022-JP&quot;                                  
+## [227] &quot;ISO-2022-JP-1&quot;                                
+## [228] &quot;ISO-2022-JP-2&quot;                                
+## [229] &quot;ISO-2022-JP-3&quot;                                
+## [230] &quot;ISO-2022-KR&quot;                                  
+## [231] &quot;ISO-8859-1&quot;                                   
+## [232] &quot;ISO-8859-10&quot;                                  
+## [233] &quot;ISO-8859-11&quot;                                  
+## [234] &quot;ISO-8859-13&quot;                                  
+## [235] &quot;ISO-8859-14&quot;                                  
+## [236] &quot;ISO-8859-15&quot;                                  
+## [237] &quot;ISO-8859-16&quot;                                  
+## [238] &quot;ISO-8859-2&quot;                                   
+## [239] &quot;ISO-8859-3&quot;                                   
+## [240] &quot;ISO-8859-4&quot;                                   
+## [241] &quot;ISO-8859-5&quot;                                   
+## [242] &quot;ISO-8859-6&quot;                                   
+## [243] &quot;ISO-8859-7&quot;                                   
+## [244] &quot;ISO-8859-8&quot;                                   
+## [245] &quot;ISO-8859-9&quot;                                   
+## [246] &quot;ISO-CELTIC&quot;                                   
+## [247] &quot;ISO-IR-100&quot;                                   
+## [248] &quot;ISO-IR-101&quot;                                   
+## [249] &quot;ISO-IR-109&quot;                                   
+## [250] &quot;ISO-IR-110&quot;                                   
+## [251] &quot;ISO-IR-126&quot;                                   
+## [252] &quot;ISO-IR-127&quot;                                   
+## [253] &quot;ISO-IR-138&quot;                                   
+## [254] &quot;ISO-IR-14&quot;                                    
+## [255] &quot;ISO-IR-144&quot;                                   
+## [256] &quot;ISO-IR-148&quot;                                   
+## [257] &quot;ISO-IR-149&quot;                                   
+## [258] &quot;ISO-IR-157&quot;                                   
+## [259] &quot;ISO-IR-159&quot;                                   
+## [260] &quot;ISO-IR-165&quot;                                   
+## [261] &quot;ISO-IR-166&quot;                                   
+## [262] &quot;ISO-IR-179&quot;                                   
+## [263] &quot;ISO-IR-199&quot;                                   
+## [264] &quot;ISO-IR-203&quot;                                   
+## [265] &quot;ISO-IR-226&quot;                                   
+## [266] &quot;ISO-IR-230&quot;                                   
+## [267] &quot;ISO-IR-57&quot;                                    
+## [268] &quot;ISO-IR-58&quot;                                    
+## [269] &quot;ISO-IR-6&quot;                                     
+## [270] &quot;ISO-IR-87&quot;                                    
+## [271] &quot;ISO646-CN&quot;                                    
+## [272] &quot;ISO646-JP&quot;                                    
+## [273] &quot;ISO646-US&quot;                                    
+## [274] &quot;ISO8859-1&quot;                                    
+## [275] &quot;ISO8859-10&quot;                                   
+## [276] &quot;ISO8859-11&quot;                                   
+## [277] &quot;ISO8859-13&quot;                                   
+## [278] &quot;ISO8859-14&quot;                                   
+## [279] &quot;ISO8859-15&quot;                                   
+## [280] &quot;ISO8859-16&quot;                                   
+## [281] &quot;ISO8859-2&quot;                                    
+## [282] &quot;ISO8859-3&quot;                                    
+## [283] &quot;ISO8859-4&quot;                                    
+## [284] &quot;ISO8859-5&quot;                                    
+## [285] &quot;ISO8859-6&quot;                                    
+## [286] &quot;ISO8859-7&quot;                                    
+## [287] &quot;ISO8859-8&quot;                                    
+## [288] &quot;ISO8859-9&quot;                                    
+## [289] &quot;JAVA&quot;                                         
+## [290] &quot;JIS_C6220-1969-RO&quot;                            
+## [291] &quot;JIS_C6226-1983&quot;                               
+## [292] &quot;JIS_X0201&quot;                                    
+## [293] &quot;JIS_X0208&quot;                                    
+## [294] &quot;JIS_X0208-1983&quot;                               
+## [295] &quot;JIS_X0208-1990&quot;                               
+## [296] &quot;JIS_X0212&quot;                                    
+## [297] &quot;JIS_X0212-1990&quot;                               
+## [298] &quot;JIS_X0212.1990-0&quot;                             
+## [299] &quot;JIS0208&quot;                                      
+## [300] &quot;JISX0201-1976&quot;                                
+## [301] &quot;JOHAB&quot;                                        
+## [302] &quot;JP&quot;                                           
+## [303] &quot;KOI8-R&quot;                                       
+## [304] &quot;KOI8-RU&quot;                                      
+## [305] &quot;KOI8-T&quot;                                       
+## [306] &quot;KOI8-U&quot;                                       
+## [307] &quot;KOREAN&quot;                                       
+## [308] &quot;KS_C_5601-1987&quot;                               
+## [309] &quot;KS_C_5601-1989&quot;                               
+## [310] &quot;KSC_5601&quot;                                     
+## [311] &quot;L1&quot;                                           
+## [312] &quot;L10&quot;                                          
+## [313] &quot;L2&quot;                                           
+## [314] &quot;L3&quot;                                           
+## [315] &quot;L4&quot;                                           
+## [316] &quot;L5&quot;                                           
+## [317] &quot;L6&quot;                                           
+## [318] &quot;L7&quot;                                           
+## [319] &quot;L8&quot;                                           
+## [320] &quot;LATIN-9&quot;                                      
+## [321] &quot;LATIN1&quot;                                       
+## [322] &quot;LATIN10&quot;                                      
+## [323] &quot;LATIN2&quot;                                       
+## [324] &quot;LATIN3&quot;                                       
+## [325] &quot;LATIN4&quot;                                       
+## [326] &quot;LATIN5&quot;                                       
+## [327] &quot;LATIN6&quot;                                       
+## [328] &quot;LATIN7&quot;                                       
+## [329] &quot;LATIN8&quot;                                       
+## [330] &quot;MAC&quot;                                          
+## [331] &quot;MACARABIC&quot;                                    
+## [332] &quot;MACCENTRALEUROPE&quot;                             
+## [333] &quot;MACCROATIAN&quot;                                  
+## [334] &quot;MACCYRILLIC&quot;                                  
+## [335] &quot;MACGREEK&quot;                                     
+## [336] &quot;MACHEBREW&quot;                                    
+## [337] &quot;MACICELAND&quot;                                   
+## [338] &quot;MACINTOSH&quot;                                    
+## [339] &quot;MACROMAN&quot;                                     
+## [340] &quot;MACROMANIA&quot;                                   
+## [341] &quot;MACTHAI&quot;                                      
+## [342] &quot;MACTURKISH&quot;                                   
+## [343] &quot;MACUKRAINE&quot;                                   
+## [344] &quot;MS_KANJI&quot;                                     
+## [345] &quot;MS-ANSI&quot;                                      
+## [346] &quot;MS-ARAB&quot;                                      
+## [347] &quot;MS-CYRL&quot;                                      
+## [348] &quot;MS-EE&quot;                                        
+## [349] &quot;MS-GREEK&quot;                                     
+## [350] &quot;MS-HEBR&quot;                                      
+## [351] &quot;MS-TURK&quot;                                      
+## [352] &quot;MS936&quot;                                        
+## [353] &quot;MULELAO-1&quot;                                    
+## [354] &quot;NEXTSTEP&quot;                                     
+## [355] &quot;PT154&quot;                                        
+## [356] &quot;PTCP154&quot;                                      
+## [357] &quot;R8&quot;                                           
+## [358] &quot;RISCOS-LATIN1&quot;                                
+## [359] &quot;ROMAN8&quot;                                       
+## [360] &quot;SHIFT_JIS&quot;                                    
+## [361] &quot;SHIFT_JISX0213&quot;                               
+## [362] &quot;SHIFT-JIS&quot;                                    
+## [363] &quot;SJIS&quot;                                         
+## [364] &quot;TCVN&quot;                                         
+## [365] &quot;TCVN-5712&quot;                                    
+## [366] &quot;TCVN5712-1&quot;                                   
+## [367] &quot;TCVN5712-1:1993&quot;                              
+## [368] &quot;TDS565&quot;                                       
+## [369] &quot;TIS-620&quot;                                      
+## [370] &quot;TIS620&quot;                                       
+## [371] &quot;TIS620-0&quot;                                     
+## [372] &quot;TIS620.2529-1&quot;                                
+## [373] &quot;TIS620.2533-0&quot;                                
+## [374] &quot;TIS620.2533-1&quot;                                
+## [375] &quot;UCS-2&quot;                                        
+## [376] &quot;UCS-2-INTERNAL&quot;                               
+## [377] &quot;UCS-2-SWAPPED&quot;                                
+## [378] &quot;UCS-2BE&quot;                                      
+## [379] &quot;UCS-2LE&quot;                                      
+## [380] &quot;UCS-4&quot;                                        
+## [381] &quot;UCS-4-INTERNAL&quot;                               
+## [382] &quot;UCS-4-SWAPPED&quot;                                
+## [383] &quot;UCS-4BE&quot;                                      
+## [384] &quot;UCS-4LE&quot;                                      
+## [385] &quot;UHC&quot;                                          
+## [386] &quot;UNICODE-1-1&quot;                                  
+## [387] &quot;UNICODE-1-1-UTF-7&quot;                            
+## [388] &quot;UNICODEBIG&quot;                                   
+## [389] &quot;UNICODELITTLE&quot;                                
+## [390] &quot;US&quot;                                           
+## [391] &quot;US-ASCII&quot;                                     
+## [392] &quot;UTF-16&quot;                                       
+## [393] &quot;UTF-16BE&quot;                                     
+## [394] &quot;UTF-16LE&quot;                                     
+## [395] &quot;UTF-32&quot;                                       
+## [396] &quot;UTF-32BE&quot;                                     
+## [397] &quot;UTF-32LE&quot;                                     
+## [398] &quot;UTF-7&quot;                                        
+## [399] &quot;UTF-8&quot;                                        
+## [400] &quot;UTF-8-MAC&quot;                                    
+## [401] &quot;UTF8&quot;                                         
+## [402] &quot;UTF8-MAC&quot;                                     
+## [403] &quot;VISCII&quot;                                       
+## [404] &quot;VISCII1.1-1&quot;                                  
+## [405] &quot;WINBALTRIM&quot;                                   
+## [406] &quot;WINDOWS-1250&quot;                                 
+## [407] &quot;WINDOWS-1251&quot;                                 
+## [408] &quot;WINDOWS-1252&quot;                                 
+## [409] &quot;WINDOWS-1253&quot;                                 
+## [410] &quot;WINDOWS-1254&quot;                                 
+## [411] &quot;WINDOWS-1255&quot;                                 
+## [412] &quot;WINDOWS-1256&quot;                                 
+## [413] &quot;WINDOWS-1257&quot;                                 
+## [414] &quot;WINDOWS-1258&quot;                                 
+## [415] &quot;WINDOWS-874&quot;                                  
+## [416] &quot;WINDOWS-936&quot;                                  
+## [417] &quot;X0201&quot;                                        
+## [418] &quot;X0208&quot;                                        
+## [419] &quot;X0212&quot;
+</code></pre>
+
+<pre><code class="r">lang &lt;- EnglishNumbers &lt;- c(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;)
+numToText(4, EnglishNumbers)
+</code></pre>
+
+<pre><code>## Error: could not find function &quot;numToText&quot;
+</code></pre>
+
+<pre><code class="r">TextToNum(&quot;zwolf&quot;, German)
+</code></pre>
+
+<pre><code>## Error: could not find function &quot;TextToNum&quot;
+</code></pre>
+
+<pre><code>        word  language
+</code></pre>
+
+<p>paste, ==, +-/* sin, 
+lang==word</p>
+
+</body>
+
+</html>
+

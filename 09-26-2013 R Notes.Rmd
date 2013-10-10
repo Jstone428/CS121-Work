@@ -1,0 +1,95 @@
+```{r}
+class(sin)
+```
+# ∫ = option and B
+```{r}
+3 < "four"
+3 < "quatre"
+3 < "deux"
+3 < "two"
+```
+# Why does it say TRUE? 
+```{r}
+"three"< "zwei"
+as.character("hi")
+```
+# "AS.CHARACTER" turns whatever input into a character string output. 
+```{r}
+as.character(word)
+as.character("FALSE")
+as.numeric(4)
+as.numeric("two") 
+```
+# AS.NUMERIC "as.numeric" only takes numbers and gives back a logical number. 
+```{r}
+3 == "dog"
+3==2
+"TRUE" == "TRUE"
+"TRUE" == "FALSE"
+"T" == "T"
+```
+# SEQUENCE: numeric in, numeric out, use : or , 
+```{r}
+seq(1:10)
+```
+# [] two inputs: vector or list and an index
+```{r}
+v[ v<5 ]
+
+Fred <- (c(7,5,6))
+`any name at alll here` <-c(7,5,2)
+v <- 1:10
+v[4]
+```
+# PASTE(): Each input gets converted to a string
+```{r}
+paste(3,5)
+```
+# STRSPLIT(): Splitting Strings
+```{r}
+help(strsplit)
+strsplit("What kind of thing?", "n")
+strsplit("ffffffhifffff", "f")
+strsplit(c("No n's this", "What kind of thing?"), "n")
+```
+# LIST(), one bracket: list, double brackets: contents of slot 3 AND Fred()
+```{r}
+list("Matrix", c(1,2,3), FALSE)
+fred <-list("Matrix", c(1,2,3), FALSE)
+fred[[3]]
+fred[3]
+fred[4] <- "now is the time"
+fred[4]
+fred[-20]
+fred[10] <- "ten"
+fred
+fred <- list(hamline="Matrix", carleton=c(a=1,b=2,c=3), mac=FALSE)
+fred
+fred[["carleton"]]
+fred[[]]
+fred[["carleton"]]['c']
+fred[["carleton"]][['c']]
+```
+#GREP(), GREPL(), SUB()
+```{r}
+c("becomes", "ages")
+grep("b", c("becomes", "ages"))
+grepl("b", c("becomes", "ages"))
+v <- c("becomes", "ages")
+sub("e","*", v)
+gsub("[aeiou]", "*", v)
+w <- c("what the fudge")
+sub("u", "*", w)
+grepl("[aeiou]", v)
+grepl("^[b].*[s]$",v)
+```
+# CROSSWORDS: finding words
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+class(words)
+length(words)
+grep("^b.q.$", words)
+words[grep("^b.q...$", words)]
+words[grep("^a.li....r$", words)]
+```
+

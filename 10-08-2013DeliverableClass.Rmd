@@ -1,0 +1,137 @@
+# Oct 8, 2013
+========================================================
+# NOTES 
+
+loop 
+for (k in 1:___)
+{}- do this and this
+repeat{} - it will keep going
+```{r}
+repeat{break}
+# while(logical){keep doing this stuff if () is true}
+while(x){x<3}
+````
+# mySum()
+```{r}
+mySum<-function(v){
+  #set up state
+  sofar<-0
+  k<-1
+  repeat{
+    #update state
+    sofar<-sofar+v[k]
+    k<-k+1
+    #terminate? Am I done?
+    if(k==(length(v)+1))break
+    }
+  return(sofar)
+}
+```
+TESTING
+```{r}
+mySum(1:10)
+#k- where you are in the array
+#sofar and k = the state. to change the state in the loop, you 
+```
+# mySumwhile()
+```{r}
+
+mySumwhile<-function(v){
+  #set up state
+  sofar<-0
+  k<-1
+  #loop
+  while(k !=(length(v)+1) ){
+    #update state
+    sofar<-sofar+v[k]
+    k<-k+1
+    }
+  #What to do with the results
+  return(sofar)
+}
+```
+TESTING
+```{r}
+mySumwhile(1:10)
+```
+Using for()
+```{r}
+mySumfor<-function(v){
+  #set up state
+  sofar<-0
+  k<-1
+  #loop
+  for(k in 1:length(v)){
+    #update state
+    sofar<-sofar+v[k]
+    }
+  #what to do with the results  
+  return(sofar)
+}
+```
+TESTING
+```{r}
+mySumfor(1:10)
+```
+# myRunningSum()
+```{r}
+myRunningSum<-function(v){
+  #set up state
+  sofar<-0
+  res<-c()
+  #loop
+  for(k in 1:length(v)){
+  #update state
+    sofar<-sofar+v[k]
+    res<-c(res,sofar)
+    }
+  #what to do when we're done
+  return(res)
+}
+```
+TESTING
+```{r}
+myRunningSum(1:10)
+myRunningSum(c(5,4,2,10))
+```
+# The Running sum backwards
+```{r}
+myRunningSumBack<-function(v){
+  #set up state
+  sofar<-0
+  res<-c()
+  #loop
+  for(k in 1:length(v)){
+  #update state
+    sofar<-sofar+v[k]
+    res<-c(sofar,res)
+    }
+  #what to do when we're done
+  return(res)
+}
+```
+TESTING
+```{r}
+myRunningSumBack(c(5,4,2,10))
+```
+# Unique Elements
+```{r}
+#unique(c()) removes duplicates
+myUnique<-function(v){
+  #set up a state
+  already<-c()
+  for (k in v){
+      if (k %in% already) {#it's already in it
+      already<-c(already,"***")
+    } else {#a new one 
+      already<-c(already,k)
+      }
+    }
+  return(already) 
+}
+# add "#" to already<-c(already,"***") if you just want to leave it out, and not replace with "***"
+```
+TESTING
+```{r}
+myUnique(c("dog","ant","bee","cat","dog"))
+```

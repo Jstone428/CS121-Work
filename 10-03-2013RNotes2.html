@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<pre><code class="r">words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+head(words)
+</code></pre>
+
+<pre><code>## [1] &quot;aa&quot;     &quot;aah&quot;    &quot;aahed&quot;  &quot;aahing&quot; &quot;aahs&quot;   &quot;aal&quot;
+</code></pre>
+
+<pre><code class="r">
+findScrabble &lt;- function(letters) {
+    for (k in 1:3) {
+        words &lt;- words[grep(letters[1], words)]
+        words &lt;- words[grep(letters[2], words)]
+        words &lt;- words[grep(letters[3], words)]
+    }
+    return(words)
+}
+
+findScrabble(c(&quot;b&quot;, &quot;n&quot;, &quot;r&quot;))
+</code></pre>
+
+<pre><code>##    [1] &quot;abbreviating&quot;        &quot;abbreviation&quot;        &quot;abbreviations&quot;      
+##    [4] &quot;aberrant&quot;            &quot;aberrants&quot;           &quot;aberration&quot;         
+##    [7] &quot;aberrations&quot;         &quot;abhenries&quot;           &quot;abhenry&quot;            
+##   [10] &quot;abhenrys&quot;            &quot;abhorrence&quot;          &quot;abhorrences&quot;        
+##   [13] &quot;abhorrent&quot;           &quot;abhorring&quot;           &quot;abjuration&quot;         
+##   [16] &quot;abjurations&quot;         &quot;abjuring&quot;            &quot;abnormal&quot;           
+##   [19] &quot;abnormalities&quot;       &quot;abnormality&quot;         &quot;abnormally&quot;         
+##   [22] &quot;abnormals&quot;           &quot;aboriginal&quot;          &quot;aborigine&quot;          
+##   [25] &quot;aborigines&quot;          &quot;aborning&quot;            &quot;aborting&quot;           
+##   [28] &quot;abortion&quot;            &quot;abortions&quot;           &quot;abradant&quot;           
+##   [31] &quot;abradants&quot;           &quot;abrading&quot;            &quot;abrasion&quot;           
+##   [34] &quot;abrasions&quot;           &quot;abrasiveness&quot;        &quot;abrasivenesses&quot;     
+##   [37] &quot;abreacting&quot;          &quot;abridgement&quot;         &quot;abridgements&quot;       
+##   [40] &quot;abridging&quot;           &quot;abridgment&quot;          &quot;abridgments&quot;        
+##   [43] &quot;abrogating&quot;          &quot;absenter&quot;            &quot;absenters&quot;          
+##   [46] &quot;absorbencies&quot;        &quot;absorbency&quot;          &quot;absorbent&quot;          
+##   [49] &quot;absorbing&quot;           &quot;absorbingly&quot;         &quot;absorption&quot;         
+##   [52] &quot;absorptions&quot;         &quot;abstainer&quot;           &quot;abstainers&quot;         
+##   [55] &quot;absterging&quot;          &quot;abstracting&quot;         &quot;abstraction&quot;        
+##   [58] &quot;abstractions&quot;        &quot;abstractness&quot;        &quot;abstractnesses&quot;     
+##   [61] &quot;abstricting&quot;         &quot;abstruseness&quot;        &quot;abstrusenesses&quot;     
+##   [64] &quot;acerbating&quot;          &quot;administrable&quot;       &quot;adsorbing&quot;          
+##   [67] &quot;agreeableness&quot;       &quot;agreeablenesses&quot;     &quot;airborne&quot;           
+##   [70] &quot;airbound&quot;            &quot;airbrushing&quot;         &quot;alburnum&quot;           
+##   [73] &quot;alburnums&quot;           &quot;anaerobe&quot;            &quot;anaerobes&quot;          
+##   [76] &quot;answerable&quot;          &quot;antiabortion&quot;        &quot;antibacterial&quot;      
+##   [79] &quot;antibourgeois&quot;       &quot;antibureaucratic&quot;    &quot;antiburglar&quot;        
+##   [82] &quot;antiburglary&quot;        &quot;antilabor&quot;           &quot;antiliberal&quot;        
+##   [85] &quot;antiliberalism&quot;      &quot;antimicrobial&quot;       &quot;antirabies&quot;         
+##   [88] &quot;antirepublican&quot;      &quot;antirobbery&quot;         &quot;antisubmarine&quot;      
+##   [91] &quot;antisubversion&quot;      &quot;antisubversive&quot;      &quot;antituberculosis&quot;   
+##   [94] &quot;antiurban&quot;           &quot;approbation&quot;         &quot;arabizing&quot;          
+##   [97] &quot;arbitrariness&quot;       &quot;arbitrarinesses&quot;     &quot;arbitrating&quot;        
+##  [100] &quot;arbitration&quot;         &quot;arbitrations&quot;        &quot;arborizing&quot;         
+##  [103] &quot;arbutean&quot;            &quot;armband&quot;             &quot;armbands&quot;           
+##  [106] &quot;ascertainable&quot;       &quot;ascribing&quot;           &quot;attributing&quot;        
+##  [109] &quot;attribution&quot;         &quot;attributions&quot;        &quot;auburn&quot;             
+##  [112] &quot;auburns&quot;             &quot;backfiring&quot;          &quot;background&quot;         
+##  [115] &quot;backgrounds&quot;         &quot;backwardness&quot;        &quot;backwardnesses&quot;     
+##  [118] &quot;bacterin&quot;            &quot;bacterins&quot;           &quot;badgering&quot;          
+##  [121] &quot;bairn&quot;               &quot;bairnish&quot;            &quot;bairnlier&quot;          
+##  [124] &quot;bairnliest&quot;          &quot;bairnly&quot;             &quot;bairns&quot;             
+##  [127] &quot;balancer&quot;            &quot;balancers&quot;           &quot;ballerina&quot;          
+##  [130] &quot;ballerinas&quot;          &quot;ballyragging&quot;        &quot;bandager&quot;           
+##  [133] &quot;bandagers&quot;           &quot;bander&quot;              &quot;banderol&quot;           
+##  [136] &quot;banderols&quot;           &quot;banders&quot;             &quot;banditries&quot;         
+##  [139] &quot;banditry&quot;            &quot;bandora&quot;             &quot;bandoras&quot;           
+##  [142] &quot;bandore&quot;             &quot;bandores&quot;            &quot;banger&quot;             
+##  [145] &quot;bangers&quot;             &quot;banisher&quot;            &quot;banishers&quot;          
+##  [148] &quot;banister&quot;            &quot;banisters&quot;           &quot;banker&quot;             
+##  [151] &quot;bankers&quot;             &quot;bankroll&quot;            &quot;bankrolled&quot;         
+##  [154] &quot;bankrolling&quot;         &quot;bankrolls&quot;           &quot;bankrupt&quot;           
+##  [157] &quot;bankruptcies&quot;        &quot;bankruptcy&quot;          &quot;bankrupted&quot;         
+##  [160] &quot;bankrupting&quot;         &quot;bankrupts&quot;           &quot;banner&quot;             
+##  [163] &quot;banneret&quot;            &quot;bannerets&quot;           &quot;bannerol&quot;           
+##  [166] &quot;bannerols&quot;           &quot;banners&quot;             &quot;banter&quot;             
+##  [169] &quot;bantered&quot;            &quot;banterer&quot;            &quot;banterers&quot;          
+##  [172] &quot;bantering&quot;           &quot;banters&quot;             &quot;barbarian&quot;          
+##  [175] &quot;barbarians&quot;          &quot;barbecuing&quot;          &quot;barbering&quot;          
+##  [178] &quot;barbican&quot;            &quot;barbicans&quot;           &quot;barbing&quot;            
+##  [181] &quot;barding&quot;             &quot;bareness&quot;            &quot;barenesses&quot;         
+##  [184] &quot;barfing&quot;             &quot;bargain&quot;             &quot;bargained&quot;          
+##  [187] &quot;bargaining&quot;          &quot;bargains&quot;            &quot;bargeman&quot;           
+##  [190] &quot;bargemen&quot;            &quot;barging&quot;             &quot;barhopping&quot;         
+##  [193] &quot;baring&quot;              &quot;baritone&quot;            &quot;baritones&quot;          
+##  [196] &quot;barking&quot;             &quot;barman&quot;              &quot;barmen&quot;             
+##  [199] &quot;barn&quot;                &quot;barnacle&quot;            &quot;barnacles&quot;          
+##  [202] &quot;barnier&quot;             &quot;barniest&quot;            &quot;barns&quot;              
+##  [205] &quot;barnstorm&quot;           &quot;barnstorms&quot;          &quot;barny&quot;              
+##  [208] &quot;barnyard&quot;            &quot;barnyards&quot;           &quot;baron&quot;              
+##  [211] &quot;baronage&quot;            &quot;baronages&quot;           &quot;baroness&quot;           
+##  [214] &quot;baronesses&quot;          &quot;baronet&quot;             &quot;baronetcies&quot;        
+##  [217] &quot;baronetcy&quot;           &quot;baronets&quot;            &quot;barong&quot;             
+##  [220] &quot;barongs&quot;             &quot;baronial&quot;            &quot;baronies&quot;           
+##  [223] &quot;baronne&quot;             &quot;baronnes&quot;            &quot;barons&quot;             
+##  [226] &quot;barony&quot;              &quot;barracking&quot;          &quot;barraging&quot;          
+##  [229] &quot;barranca&quot;            &quot;barrancas&quot;           &quot;barranco&quot;           
+##  [232] &quot;barrancos&quot;           &quot;barreling&quot;           &quot;barrelling&quot;         
+##  [235] &quot;barren&quot;              &quot;barrener&quot;            &quot;barrenest&quot;          
+##  [238] &quot;barrenly&quot;            &quot;barrenness&quot;          &quot;barrennesses&quot;       
+##  [241] &quot;barrens&quot;             &quot;barring&quot;             &quot;bartend&quot;            
+##  [244] &quot;bartended&quot;           &quot;bartender&quot;           &quot;bartenders&quot;         
+##  [247] &quot;bartending&quot;          &quot;bartends&quot;            &quot;bartering&quot;          
+##  [250] &quot;bartisan&quot;            &quot;bartisans&quot;           &quot;bartizan&quot;           
+##  [253] &quot;bartizans&quot;           &quot;baryon&quot;              &quot;baryonic&quot;           
+##  [256] &quot;baryons&quot;             &quot;barytone&quot;            &quot;barytones&quot;          
+##  [259] &quot;baseborn&quot;            &quot;bastardizing&quot;        &quot;battener&quot;           
+##  [262] &quot;batteners&quot;           &quot;battering&quot;           &quot;baudrons&quot;           
+##  [265] &quot;baudronses&quot;          &quot;beaneries&quot;           &quot;beanery&quot;            
+##  [268] &quot;bearding&quot;            &quot;bearing&quot;             &quot;bearings&quot;           
+##  [271] &quot;bearskin&quot;            &quot;bearskins&quot;           &quot;beavering&quot;          
+##  [274] &quot;becarpeting&quot;         &quot;becharming&quot;          &quot;beckoner&quot;           
+##  [277] &quot;beckoners&quot;           &quot;beclamoring&quot;         &quot;becowarding&quot;        
+##  [280] &quot;becrawling&quot;          &quot;becriming&quot;           &quot;becrowding&quot;         
+##  [283] &quot;becrusting&quot;          &quot;becursing&quot;           &quot;bedarken&quot;           
+##  [286] &quot;bedarkened&quot;          &quot;bedarkening&quot;         &quot;bedarkens&quot;          
+##  [289] &quot;bediapering&quot;         &quot;bedirtying&quot;          &quot;bedraping&quot;          
+##  [292] &quot;bedrench&quot;            &quot;bedrenched&quot;          &quot;bedrenches&quot;         
+##  [295] &quot;bedrenching&quot;         &quot;bedridden&quot;           &quot;bedriveling&quot;        
+##  [298] &quot;bedrivelling&quot;        &quot;bedrugging&quot;          &quot;bedwarfing&quot;         
+##  [301] &quot;befinger&quot;            &quot;befingered&quot;          &quot;befingering&quot;        
+##  [304] &quot;befingers&quot;           &quot;beflowering&quot;         &quot;beforehand&quot;         
+##  [307] &quot;befretting&quot;          &quot;befriend&quot;            &quot;befriended&quot;         
+##  [310] &quot;befriending&quot;         &quot;befriends&quot;           &quot;befringe&quot;           
+##  [313] &quot;befringed&quot;           &quot;befringes&quot;           &quot;befringing&quot;         
+##  [316] &quot;beggaring&quot;           &quot;beginner&quot;            &quot;beginners&quot;          
+##  [319] &quot;begirding&quot;           &quot;begirdling&quot;          &quot;begriming&quot;          
+##  [322] &quot;begrimming&quot;          &quot;begroan&quot;             &quot;begroaned&quot;          
+##  [325] &quot;begroaning&quot;          &quot;begroans&quot;            &quot;begrudging&quot;         
+##  [328] &quot;belaboring&quot;          &quot;belabouring&quot;         &quot;beleaguering&quot;       
+##  [331] &quot;beliquoring&quot;         &quot;belligerence&quot;        &quot;belligerences&quot;      
+##  [334] &quot;belligerencies&quot;      &quot;belligerency&quot;        &quot;belligerent&quot;        
+##  [337] &quot;belligerents&quot;        &quot;bemiring&quot;            &quot;bemurmuring&quot;        
+##  [340] &quot;bencher&quot;             &quot;benchers&quot;            &quot;bender&quot;             
+##  [343] &quot;benders&quot;             &quot;benefactor&quot;          &quot;benefactors&quot;        
+##  [346] &quot;benefactress&quot;        &quot;benefactresses&quot;      &quot;beneficiaries&quot;      
+##  [349] &quot;beneficiary&quot;         &quot;beraking&quot;            &quot;berascaling&quot;        
+##  [352] &quot;berating&quot;            &quot;berberin&quot;            &quot;berberins&quot;          
+##  [355] &quot;bereavement&quot;         &quot;bereavements&quot;        &quot;bereaving&quot;          
+##  [358] &quot;berhyming&quot;           &quot;beriming&quot;            &quot;beringed&quot;           
+##  [361] &quot;berlin&quot;              &quot;berline&quot;             &quot;berlines&quot;           
+##  [364] &quot;berlins&quot;             &quot;bernicle&quot;            &quot;bernicles&quot;          
+##  [367] &quot;bernstein&quot;           &quot;berrying&quot;            &quot;berthing&quot;           
+##  [370] &quot;beryline&quot;            &quot;bescorching&quot;         &quot;bescouring&quot;         
+##  [373] &quot;bescreen&quot;            &quot;bescreened&quot;          &quot;bescreening&quot;        
+##  [376] &quot;bescreens&quot;           &quot;beshivering&quot;         &quot;beshrewing&quot;         
+##  [379] &quot;beshrouding&quot;         &quot;besmearing&quot;          &quot;besmirching&quot;        
+##  [382] &quot;bespreading&quot;         &quot;besprent&quot;            &quot;bestirring&quot;         
+##  [385] &quot;bestrewing&quot;          &quot;bestrewn&quot;            &quot;bestridden&quot;         
+##  [388] &quot;bestriding&quot;          &quot;bestrowing&quot;          &quot;bestrown&quot;           
+##  [391] &quot;beswarming&quot;          &quot;betatron&quot;            &quot;betatrons&quot;          
+##  [394] &quot;betattering&quot;         &quot;bethorn&quot;             &quot;bethorned&quot;          
+##  [397] &quot;bethorning&quot;          &quot;bethorns&quot;            &quot;betraying&quot;          
+##  [400] &quot;betrothing&quot;          &quot;bettering&quot;           &quot;betterment&quot;         
+##  [403] &quot;betterments&quot;         &quot;bevatron&quot;            &quot;bevatrons&quot;          
+##  [406] &quot;bewaring&quot;            &quot;bewearying&quot;          &quot;bewildering&quot;        
+##  [409] &quot;bewilderment&quot;        &quot;bewilderments&quot;       &quot;beworming&quot;          
+##  [412] &quot;beworrying&quot;          &quot;bewrapping&quot;          &quot;bewraying&quot;          
+##  [415] &quot;bicarbonate&quot;         &quot;bicarbonates&quot;        &quot;bickering&quot;          
+##  [418] &quot;bicorn&quot;              &quot;bicorne&quot;             &quot;bicornes&quot;           
+##  [421] &quot;bicron&quot;              &quot;bicrons&quot;             &quot;bidirectional&quot;      
+##  [424] &quot;bigaroon&quot;            &quot;bigaroons&quot;           &quot;bighorn&quot;            
+##  [427] &quot;bighorns&quot;            &quot;bilander&quot;            &quot;bilanders&quot;          
+##  [430] &quot;bilinear&quot;            &quot;bilirubin&quot;           &quot;binaries&quot;           
+##  [433] &quot;binary&quot;              &quot;binaural&quot;            &quot;binder&quot;             
+##  [436] &quot;binderies&quot;           &quot;binders&quot;             &quot;bindery&quot;            
+##  [439] &quot;binocular&quot;           &quot;binocularly&quot;         &quot;binoculars&quot;         
+##  [442] &quot;biodegradation&quot;      &quot;biodegradations&quot;     &quot;biodegrading&quot;       
+##  [445] &quot;biotron&quot;             &quot;biotrons&quot;            &quot;biparental&quot;         
+##  [448] &quot;bipartisan&quot;          &quot;birchen&quot;             &quot;birching&quot;           
+##  [451] &quot;birdbrained&quot;         &quot;birdieing&quot;           &quot;birding&quot;            
+##  [454] &quot;birdliming&quot;          &quot;birdman&quot;             &quot;birdmen&quot;            
+##  [457] &quot;birling&quot;             &quot;birlings&quot;            &quot;birring&quot;            
+##  [460] &quot;birthing&quot;            &quot;bittering&quot;           &quot;bittern&quot;            
+##  [463] &quot;bitterness&quot;          &quot;bitternesses&quot;        &quot;bitterns&quot;           
+##  [466] &quot;blabbering&quot;          &quot;blameworthiness&quot;     &quot;blameworthinesses&quot;  
+##  [469] &quot;blancher&quot;            &quot;blanchers&quot;           &quot;blander&quot;            
+##  [472] &quot;blanker&quot;             &quot;blaring&quot;             &quot;blarney&quot;            
+##  [475] &quot;blarneyed&quot;           &quot;blarneying&quot;          &quot;blarneys&quot;           
+##  [478] &quot;blathering&quot;          &quot;blattering&quot;          &quot;blazoner&quot;           
+##  [481] &quot;blazoners&quot;           &quot;blazonries&quot;          &quot;blazonry&quot;           
+##  [484] &quot;blearing&quot;            &quot;blencher&quot;            &quot;blenchers&quot;          
+##  [487] &quot;blender&quot;             &quot;blenders&quot;            &quot;blethering&quot;         
+##  [490] &quot;blinder&quot;             &quot;blinders&quot;            &quot;blinkard&quot;           
+##  [493] &quot;blinkards&quot;           &quot;blinker&quot;             &quot;blinkered&quot;          
+##  [496] &quot;blinkering&quot;          &quot;blinkers&quot;            &quot;blistering&quot;         
+##  [499] &quot;blithering&quot;          &quot;blonder&quot;             &quot;bloodcurdling&quot;      
+##  [502] &quot;bloodthirstiness&quot;    &quot;bloodthirstinesses&quot;  &quot;blubbering&quot;         
+##  [505] &quot;blueprint&quot;           &quot;blueprinted&quot;         &quot;blueprinting&quot;       
+##  [508] &quot;blueprints&quot;          &quot;blunder&quot;             &quot;blunderbuss&quot;        
+##  [511] &quot;blunderbusses&quot;       &quot;blundered&quot;           &quot;blundering&quot;         
+##  [514] &quot;blunders&quot;            &quot;blunger&quot;             &quot;blungers&quot;           
+##  [517] &quot;blunter&quot;             &quot;blurring&quot;            &quot;blurting&quot;           
+##  [520] &quot;blustering&quot;          &quot;boarding&quot;            &quot;boardings&quot;          
+##  [523] &quot;boardman&quot;            &quot;boardmen&quot;            &quot;bodysurfing&quot;        
+##  [526] &quot;bolstering&quot;          &quot;bombarding&quot;          &quot;bombardment&quot;        
+##  [529] &quot;bombardments&quot;        &quot;bonder&quot;              &quot;bonders&quot;            
+##  [532] &quot;bondholder&quot;          &quot;bondholders&quot;         &quot;boner&quot;              
+##  [535] &quot;boners&quot;              &quot;boneyard&quot;            &quot;boneyards&quot;          
+##  [538] &quot;bonfire&quot;             &quot;bonfires&quot;            &quot;bonier&quot;             
+##  [541] &quot;bonkers&quot;             &quot;bonnier&quot;             &quot;bonzer&quot;             
+##  [544] &quot;boomerang&quot;           &quot;boomerangs&quot;          &quot;borane&quot;             
+##  [547] &quot;boranes&quot;             &quot;borazon&quot;             &quot;borazons&quot;           
+##  [550] &quot;bordering&quot;           &quot;borderline&quot;          &quot;boring&quot;             
+##  [553] &quot;boringly&quot;            &quot;borings&quot;             &quot;born&quot;               
+##  [556] &quot;borne&quot;               &quot;borneol&quot;             &quot;borneols&quot;           
+##  [559] &quot;bornite&quot;             &quot;bornites&quot;            &quot;boron&quot;              
+##  [562] &quot;boronic&quot;             &quot;borons&quot;              &quot;borrowing&quot;          
+##  [565] &quot;bothering&quot;           &quot;bouncer&quot;             &quot;bouncers&quot;           
+##  [568] &quot;bouncier&quot;            &quot;boundaries&quot;          &quot;boundary&quot;           
+##  [571] &quot;bounder&quot;             &quot;bounders&quot;            &quot;bourbon&quot;            
+##  [574] &quot;bourbons&quot;            &quot;bourdon&quot;             &quot;bourdons&quot;           
+##  [577] &quot;bourgeon&quot;            &quot;bourgeoned&quot;          &quot;bourgeoning&quot;        
+##  [580] &quot;bourgeons&quot;           &quot;bourn&quot;               &quot;bourne&quot;             
+##  [583] &quot;bournes&quot;             &quot;bourns&quot;              &quot;bowering&quot;           
+##  [586] &quot;bowfront&quot;            &quot;boxthorn&quot;            &quot;boxthorns&quot;          
+##  [589] &quot;brabbling&quot;           &quot;bracing&quot;             &quot;bracings&quot;           
+##  [592] &quot;bracken&quot;             &quot;brackens&quot;            &quot;bracketing&quot;         
+##  [595] &quot;bradding&quot;            &quot;bradoon&quot;             &quot;bradoons&quot;           
+##  [598] &quot;bragging&quot;            &quot;braiding&quot;            &quot;braidings&quot;          
+##  [601] &quot;brailing&quot;            &quot;brailling&quot;           &quot;brain&quot;              
+##  [604] &quot;brained&quot;             &quot;brainier&quot;            &quot;brainiest&quot;          
+##  [607] &quot;brainily&quot;            &quot;braining&quot;            &quot;brainish&quot;           
+##  [610] &quot;brainless&quot;           &quot;brainpan&quot;            &quot;brainpans&quot;          
+##  [613] &quot;brains&quot;              &quot;brainstorm&quot;          &quot;brainstorms&quot;        
+##  [616] &quot;brainy&quot;              &quot;braising&quot;            &quot;brakeman&quot;           
+##  [619] &quot;brakemen&quot;            &quot;braking&quot;             &quot;brambling&quot;          
+##  [622] &quot;bran&quot;                &quot;branch&quot;              &quot;branched&quot;           
+##  [625] &quot;branches&quot;            &quot;branchia&quot;            &quot;branchiae&quot;          
+##  [628] &quot;branchier&quot;           &quot;branchiest&quot;          &quot;branching&quot;          
+##  [631] &quot;branchy&quot;             &quot;brand&quot;               &quot;branded&quot;            
+##  [634] &quot;brander&quot;             &quot;branders&quot;            &quot;brandied&quot;           
+##  [637] &quot;brandies&quot;            &quot;branding&quot;            &quot;brandish&quot;           
+##  [640] &quot;brandished&quot;          &quot;brandishes&quot;          &quot;brandishing&quot;        
+##  [643] &quot;brands&quot;              &quot;brandy&quot;              &quot;brandying&quot;          
+##  [646] &quot;brank&quot;               &quot;branks&quot;              &quot;branned&quot;            
+##  [649] &quot;branner&quot;             &quot;branners&quot;            &quot;brannier&quot;           
+##  [652] &quot;branniest&quot;           &quot;branning&quot;            &quot;branny&quot;             
+##  [655] &quot;brans&quot;               &quot;brant&quot;               &quot;brantail&quot;           
+##  [658] &quot;brantails&quot;           &quot;brants&quot;              &quot;brasilin&quot;           
+##  [661] &quot;brasilins&quot;           &quot;bratticing&quot;          &quot;brattling&quot;          
+##  [664] &quot;braunite&quot;            &quot;braunites&quot;           &quot;braving&quot;            
+##  [667] &quot;bravoing&quot;            &quot;brawling&quot;            &quot;brawn&quot;              
+##  [670] &quot;brawnier&quot;            &quot;brawniest&quot;           &quot;brawnily&quot;           
+##  [673] &quot;brawns&quot;              &quot;brawny&quot;              &quot;braying&quot;            
+##  [676] &quot;brazen&quot;              &quot;brazened&quot;            &quot;brazening&quot;          
+##  [679] &quot;brazenly&quot;            &quot;brazenness&quot;          &quot;brazennesses&quot;       
+##  [682] &quot;brazens&quot;             &quot;brazilin&quot;            &quot;brazilins&quot;          
+##  [685] &quot;brazing&quot;             &quot;breaching&quot;           &quot;breading&quot;           
+##  [688] &quot;breadnut&quot;            &quot;breadnuts&quot;           &quot;breadwinner&quot;        
+##  [691] &quot;breadwinners&quot;        &quot;breakdown&quot;           &quot;breakdowns&quot;         
+##  [694] &quot;breakfasting&quot;        &quot;breaking&quot;            &quot;breakings&quot;          
+##  [697] &quot;breaming&quot;            &quot;breastbone&quot;          &quot;breastbones&quot;        
+##  [700] &quot;breasting&quot;           &quot;breathing&quot;           &quot;breathtaking&quot;       
+##  [703] &quot;brechan&quot;             &quot;brechans&quot;            &quot;breeching&quot;          
+##  [706] &quot;breeding&quot;            &quot;breedings&quot;           &quot;breezing&quot;           
+##  [709] &quot;brent&quot;               &quot;brents&quot;              &quot;brethren&quot;           
+##  [712] &quot;breveting&quot;           &quot;brevetting&quot;          &quot;brewing&quot;            
+##  [715] &quot;brewings&quot;            &quot;bribing&quot;             &quot;bricking&quot;           
+##  [718] &quot;bricklaying&quot;         &quot;bricklayings&quot;        &quot;bridging&quot;           
+##  [721] &quot;bridgings&quot;           &quot;bridling&quot;            &quot;bridoon&quot;            
+##  [724] &quot;bridoons&quot;            &quot;briefing&quot;            &quot;briefings&quot;          
+##  [727] &quot;briefness&quot;           &quot;briefnesses&quot;         &quot;brigading&quot;          
+##  [730] &quot;brigand&quot;             &quot;brigands&quot;            &quot;brighten&quot;           
+##  [733] &quot;brightened&quot;          &quot;brightener&quot;          &quot;brighteners&quot;        
+##  [736] &quot;brightening&quot;         &quot;brightens&quot;           &quot;brightness&quot;         
+##  [739] &quot;brightnesses&quot;        &quot;brilliance&quot;          &quot;brilliances&quot;        
+##  [742] &quot;brilliancies&quot;        &quot;brilliancy&quot;          &quot;brilliant&quot;          
+##  [745] &quot;brilliantly&quot;         &quot;brimming&quot;            &quot;brimstone&quot;          
+##  [748] &quot;brimstones&quot;          &quot;brin&quot;                &quot;brinded&quot;            
+##  [751] &quot;brindle&quot;             &quot;brindled&quot;            &quot;brindles&quot;           
+##  [754] &quot;brine&quot;               &quot;brined&quot;              &quot;briner&quot;             
+##  [757] &quot;briners&quot;             &quot;brines&quot;              &quot;bring&quot;              
+##  [760] &quot;bringer&quot;             &quot;bringers&quot;            &quot;bringing&quot;           
+##  [763] &quot;brings&quot;              &quot;brinier&quot;             &quot;brinies&quot;            
+##  [766] &quot;briniest&quot;            &quot;brininess&quot;           &quot;brininesses&quot;        
+##  [769] &quot;brining&quot;             &quot;brinish&quot;             &quot;brink&quot;              
+##  [772] &quot;brinks&quot;              &quot;brins&quot;               &quot;briny&quot;              
+##  [775] &quot;brionies&quot;            &quot;briony&quot;              &quot;briquetting&quot;        
+##  [778] &quot;brisance&quot;            &quot;brisances&quot;           &quot;brisant&quot;            
+##  [781] &quot;brisking&quot;            &quot;briskness&quot;           &quot;brisknesses&quot;        
+##  [784] &quot;brisling&quot;            &quot;brislings&quot;           &quot;bristling&quot;          
+##  [787] &quot;brittling&quot;           &quot;broaching&quot;           &quot;broadcasting&quot;       
+##  [790] &quot;broaden&quot;             &quot;broadened&quot;           &quot;broadening&quot;         
+##  [793] &quot;broadens&quot;            &quot;broadness&quot;           &quot;broadnesses&quot;        
+##  [796] &quot;brocading&quot;           &quot;brogan&quot;              &quot;brogans&quot;            
+##  [799] &quot;broidering&quot;          &quot;broiling&quot;            &quot;broken&quot;             
+##  [802] &quot;brokenhearted&quot;       &quot;brokenly&quot;            &quot;bromating&quot;          
+##  [805] &quot;bromelin&quot;            &quot;bromelins&quot;           &quot;bromin&quot;             
+##  [808] &quot;bromine&quot;             &quot;bromines&quot;            &quot;bromins&quot;            
+##  [811] &quot;bronc&quot;               &quot;bronchi&quot;             &quot;bronchia&quot;           
+##  [814] &quot;bronchial&quot;           &quot;bronchitis&quot;          &quot;broncho&quot;            
+##  [817] &quot;bronchos&quot;            &quot;bronchospasm&quot;        &quot;bronchus&quot;           
+##  [820] &quot;bronco&quot;              &quot;broncos&quot;             &quot;broncs&quot;             
+##  [823] &quot;bronze&quot;              &quot;bronzed&quot;             &quot;bronzer&quot;            
+##  [826] &quot;bronzers&quot;            &quot;bronzes&quot;             &quot;bronzier&quot;           
+##  [829] &quot;bronziest&quot;           &quot;bronzing&quot;            &quot;bronzings&quot;          
+##  [832] &quot;bronzy&quot;              &quot;brooding&quot;            &quot;brooking&quot;           
+##  [835] &quot;brookline&quot;           &quot;brooming&quot;            &quot;brothering&quot;         
+##  [838] &quot;brotherliness&quot;       &quot;brotherlinesses&quot;     &quot;browbeaten&quot;         
+##  [841] &quot;browbeating&quot;         &quot;brown&quot;               &quot;browned&quot;            
+##  [844] &quot;browner&quot;             &quot;brownest&quot;            &quot;brownie&quot;            
+##  [847] &quot;brownier&quot;            &quot;brownies&quot;            &quot;browniest&quot;          
+##  [850] &quot;browning&quot;            &quot;brownish&quot;            &quot;brownout&quot;           
+##  [853] &quot;brownouts&quot;           &quot;browns&quot;              &quot;browny&quot;             
+##  [856] &quot;browsing&quot;            &quot;brucin&quot;              &quot;brucine&quot;            
+##  [859] &quot;brucines&quot;            &quot;brucins&quot;             &quot;bruin&quot;              
+##  [862] &quot;bruins&quot;              &quot;bruising&quot;            &quot;bruiting&quot;           
+##  [865] &quot;brunch&quot;              &quot;brunched&quot;            &quot;brunches&quot;           
+##  [868] &quot;brunching&quot;           &quot;brunet&quot;              &quot;brunets&quot;            
+##  [871] &quot;brunette&quot;            &quot;brunettes&quot;           &quot;brunizem&quot;           
+##  [874] &quot;brunizems&quot;           &quot;brunt&quot;               &quot;brunts&quot;             
+##  [877] &quot;brushing&quot;            &quot;brutalizing&quot;         &quot;brutifying&quot;         
+##  [880] &quot;bruting&quot;             &quot;bryonies&quot;            &quot;bryony&quot;             
+##  [883] &quot;bryozoan&quot;            &quot;bryozoans&quot;           &quot;bucklering&quot;         
+##  [886] &quot;buckraming&quot;          &quot;buffering&quot;           &quot;buggering&quot;          
+##  [889] &quot;bullhorn&quot;            &quot;bullhorns&quot;           &quot;bullring&quot;           
+##  [892] &quot;bullrings&quot;           &quot;bullyragging&quot;        &quot;bulwarking&quot;         
+##  [895] &quot;bumpering&quot;           &quot;bunchier&quot;            &quot;bundler&quot;            
+##  [898] &quot;bundlers&quot;            &quot;bungler&quot;             &quot;bunglers&quot;           
+##  [901] &quot;bunker&quot;              &quot;bunkered&quot;            &quot;bunkering&quot;          
+##  [904] &quot;bunkers&quot;             &quot;bunter&quot;              &quot;bunters&quot;            
+##  [907] &quot;buran&quot;               &quot;burans&quot;              &quot;burbling&quot;           
+##  [910] &quot;burden&quot;              &quot;burdened&quot;            &quot;burdener&quot;           
+##  [913] &quot;burdeners&quot;           &quot;burdening&quot;           &quot;burdens&quot;            
+##  [916] &quot;burdensome&quot;          &quot;burgeon&quot;             &quot;burgeoned&quot;          
+##  [919] &quot;burgeoning&quot;          &quot;burgeons&quot;            &quot;burglarizing&quot;       
+##  [922] &quot;burgling&quot;            &quot;burgonet&quot;            &quot;burgonets&quot;          
+##  [925] &quot;burgundies&quot;          &quot;burgundy&quot;            &quot;burin&quot;              
+##  [928] &quot;burins&quot;              &quot;burking&quot;             &quot;burlesquing&quot;        
+##  [931] &quot;burling&quot;             &quot;burn&quot;                &quot;burnable&quot;           
+##  [934] &quot;burned&quot;              &quot;burner&quot;              &quot;burners&quot;            
+##  [937] &quot;burnet&quot;              &quot;burnets&quot;             &quot;burnie&quot;             
+##  [940] &quot;burnies&quot;             &quot;burning&quot;             &quot;burnings&quot;           
+##  [943] &quot;burnish&quot;             &quot;burnished&quot;           &quot;burnishes&quot;          
+##  [946] &quot;burnishing&quot;          &quot;burnoose&quot;            &quot;burnooses&quot;          
+##  [949] &quot;burnous&quot;             &quot;burnouses&quot;           &quot;burnout&quot;            
+##  [952] &quot;burnouts&quot;            &quot;burns&quot;               &quot;burnt&quot;              
+##  [955] &quot;burping&quot;             &quot;burring&quot;             &quot;burrowing&quot;          
+##  [958] &quot;bursting&quot;            &quot;burstone&quot;            &quot;burstones&quot;          
+##  [961] &quot;burthen&quot;             &quot;burthened&quot;           &quot;burthening&quot;         
+##  [964] &quot;burthens&quot;            &quot;burton&quot;              &quot;burtons&quot;            
+##  [967] &quot;burying&quot;             &quot;butchering&quot;          &quot;buttering&quot;          
+##  [970] &quot;butternut&quot;           &quot;butternuts&quot;          &quot;buttoner&quot;           
+##  [973] &quot;buttoners&quot;           &quot;buttressing&quot;         &quot;butyrin&quot;            
+##  [976] &quot;butyrins&quot;            &quot;byliner&quot;             &quot;byliners&quot;           
+##  [979] &quot;byrling&quot;             &quot;byrnie&quot;              &quot;byrnies&quot;            
+##  [982] &quot;bystander&quot;           &quot;bystanders&quot;          &quot;cabinetmaker&quot;       
+##  [985] &quot;cabinetmakers&quot;       &quot;cabinetwork&quot;         &quot;cabinetworks&quot;       
+##  [988] &quot;calibrating&quot;         &quot;calibration&quot;         &quot;calibrations&quot;       
+##  [991] &quot;cambering&quot;           &quot;candelabra&quot;          &quot;candelabras&quot;        
+##  [994] &quot;candelabrum&quot;         &quot;carabin&quot;             &quot;carabine&quot;           
+##  [997] &quot;carabines&quot;           &quot;carabins&quot;            &quot;carbarn&quot;            
+## [1000] &quot;carbarns&quot;            &quot;carbine&quot;             &quot;carbines&quot;           
+## [1003] &quot;carbinol&quot;            &quot;carbinols&quot;           &quot;carbon&quot;             
+## [1006] &quot;carbonate&quot;           &quot;carbonated&quot;          &quot;carbonates&quot;         
+## [1009] &quot;carbonating&quot;         &quot;carbonation&quot;         &quot;carbonations&quot;       
+## [1012] &quot;carbonic&quot;            &quot;carbons&quot;             &quot;carbonyl&quot;           
+## [1015] &quot;carbonyls&quot;           &quot;carbuncle&quot;           &quot;carbuncles&quot;         
+## [1018] &quot;carbureting&quot;         &quot;carburetting&quot;        &quot;carnauba&quot;           
+## [1021] &quot;carnaubas&quot;           &quot;celebrant&quot;           &quot;celebrants&quot;         
+## [1024] &quot;celebrating&quot;         &quot;celebration&quot;         &quot;celebrations&quot;       
+## [1027] &quot;cerebrating&quot;         &quot;cerebration&quot;         &quot;cerebrations&quot;       
+## [1030] &quot;cerebrospinal&quot;       &quot;chambering&quot;          &quot;childbearing&quot;       
+## [1033] &quot;cinnabar&quot;            &quot;cinnabars&quot;           &quot;circumscribing&quot;     
+## [1036] &quot;clabbering&quot;          &quot;clambering&quot;          &quot;clobbering&quot;         
+## [1039] &quot;collaborating&quot;       &quot;collaboration&quot;       &quot;collaborations&quot;     
+## [1042] &quot;collarbone&quot;          &quot;collarbones&quot;         &quot;combiner&quot;           
+## [1045] &quot;combiners&quot;           &quot;comprehensible&quot;      &quot;considerable&quot;       
+## [1048] &quot;considerably&quot;        &quot;constabularies&quot;      &quot;constabulary&quot;       
+## [1051] &quot;contraband&quot;          &quot;contrabands&quot;         &quot;contribute&quot;         
+## [1054] &quot;contributed&quot;         &quot;contributes&quot;         &quot;contributing&quot;       
+## [1057] &quot;contribution&quot;        &quot;contributions&quot;       &quot;contributor&quot;        
+## [1060] &quot;contributors&quot;        &quot;contributory&quot;        &quot;controllable&quot;       
+## [1063] &quot;controvertible&quot;      &quot;convertible&quot;         &quot;convertibles&quot;       
+## [1066] &quot;corban&quot;              &quot;corbans&quot;             &quot;corbeling&quot;          
+## [1069] &quot;corbelling&quot;          &quot;corbina&quot;             &quot;corbinas&quot;           
+## [1072] &quot;cornball&quot;            &quot;cornballs&quot;           &quot;corncob&quot;            
+## [1075] &quot;corncobs&quot;            &quot;corncrib&quot;            &quot;corncribs&quot;          
+## [1078] &quot;corroborating&quot;       &quot;corroboration&quot;       &quot;corroborations&quot;     
+## [1081] &quot;counterbalance&quot;      &quot;counterbalanced&quot;     &quot;counterbalances&quot;    
+## [1084] &quot;counterbalancing&quot;    &quot;counterbid&quot;          &quot;counterbids&quot;        
+## [1087] &quot;counterblockade&quot;     &quot;counterblockades&quot;    &quot;counterblow&quot;        
+## [1090] &quot;counterblows&quot;        &quot;counterembargo&quot;      &quot;counterembargos&quot;    
+## [1093] &quot;counterrebuttal&quot;     &quot;counterrebuttals&quot;    &quot;crabbing&quot;           
+## [1096] &quot;cranberries&quot;         &quot;cranberry&quot;           &quot;cribbing&quot;           
+## [1099] &quot;cribbings&quot;           &quot;crossbarring&quot;        &quot;crossbreeding&quot;      
+## [1102] &quot;crumbing&quot;            &quot;crumbling&quot;           &quot;cumbering&quot;          
+## [1105] &quot;curbing&quot;             &quot;curbings&quot;            &quot;debarkation&quot;        
+## [1108] &quot;debarkations&quot;        &quot;debarking&quot;           &quot;debarring&quot;          
+## [1111] &quot;debonair&quot;            &quot;deboner&quot;             &quot;deboners&quot;           
+## [1114] &quot;debriefing&quot;          &quot;debruising&quot;          &quot;debunker&quot;           
+## [1117] &quot;debunkers&quot;           &quot;deliberateness&quot;      &quot;deliberatenesses&quot;   
+## [1120] &quot;deliberating&quot;        &quot;deliberation&quot;        &quot;deliberations&quot;      
+## [1123] &quot;demonstrable&quot;        &quot;describing&quot;          &quot;desorbing&quot;          
+## [1126] &quot;disbarment&quot;          &quot;disbarments&quot;         &quot;disbarring&quot;         
+## [1129] &quot;disbursement&quot;        &quot;disbursements&quot;       &quot;disbursing&quot;         
+## [1132] &quot;discernible&quot;         &quot;disembarkation&quot;      &quot;disembarkations&quot;    
+## [1135] &quot;disembarking&quot;        &quot;dishonorable&quot;        &quot;dishonorably&quot;       
+## [1138] &quot;dismembering&quot;        &quot;dismemberment&quot;       &quot;dismemberments&quot;     
+## [1141] &quot;disrobing&quot;           &quot;distributing&quot;        &quot;distribution&quot;       
+## [1144] &quot;distributions&quot;       &quot;disturbance&quot;         &quot;disturbances&quot;       
+## [1147] &quot;disturbing&quot;          &quot;doorknob&quot;            &quot;doorknobs&quot;          
+## [1150] &quot;doublecrossing&quot;      &quot;doxorubicin&quot;         &quot;drabbing&quot;           
+## [1153] &quot;drabbling&quot;           &quot;drabness&quot;            &quot;drabnesses&quot;         
+## [1156] &quot;dribbing&quot;            &quot;dribbling&quot;           &quot;drinkable&quot;          
+## [1159] &quot;drubbing&quot;            &quot;drubbings&quot;           &quot;drumbling&quot;          
+## [1162] &quot;elaborateness&quot;       &quot;elaboratenesses&quot;     &quot;elaborating&quot;        
+## [1165] &quot;elaboration&quot;         &quot;elaborations&quot;        &quot;embargoing&quot;         
+## [1168] &quot;embarkation&quot;         &quot;embarkations&quot;        &quot;embarking&quot;          
+## [1171] &quot;embarrassing&quot;        &quot;embarrassment&quot;       &quot;embarrassments&quot;     
+## [1174] &quot;embarring&quot;           &quot;embittering&quot;         &quot;embordering&quot;        
+## [1177] &quot;embowering&quot;          &quot;embracing&quot;           &quot;embroidering&quot;       
+## [1180] &quot;embroiling&quot;          &quot;embrown&quot;             &quot;embrowned&quot;          
+## [1183] &quot;embrowning&quot;          &quot;embrowns&quot;            &quot;embruing&quot;           
+## [1186] &quot;embruting&quot;           &quot;embryon&quot;             &quot;embryonic&quot;          
+## [1189] &quot;embryons&quot;            &quot;enabler&quot;             &quot;enablers&quot;           
+## [1192] &quot;encumber&quot;            &quot;encumberance&quot;        &quot;encumberances&quot;      
+## [1195] &quot;encumbered&quot;          &quot;encumbering&quot;         &quot;encumbers&quot;          
+## [1198] &quot;endbrain&quot;            &quot;endbrains&quot;           &quot;endurable&quot;          
+## [1201] &quot;enforceable&quot;         &quot;ennobler&quot;            &quot;ennoblers&quot;          
+## [1204] &quot;enrobe&quot;              &quot;enrobed&quot;             &quot;enrober&quot;            
+## [1207] &quot;enrobers&quot;            &quot;enrobes&quot;             &quot;enrobing&quot;           
+## [1210] &quot;exacerbating&quot;        &quot;exorbitant&quot;          &quot;exuberance&quot;         
+## [1213] &quot;exuberances&quot;         &quot;exuberant&quot;           &quot;exuberantly&quot;        
+## [1216] &quot;exurban&quot;             &quot;fabricating&quot;         &quot;fabrication&quot;        
+## [1219] &quot;fabrications&quot;        &quot;fiberizing&quot;          &quot;fibrillating&quot;       
+## [1222] &quot;fibrillation&quot;        &quot;fibrillations&quot;       &quot;fibrin&quot;             
+## [1225] &quot;fibrins&quot;             &quot;fibroin&quot;             &quot;fibroins&quot;           
+## [1228] &quot;filibustering&quot;       &quot;firebombing&quot;         &quot;flabbergasting&quot;     
+## [1231] &quot;fluorocarbon&quot;        &quot;fluorocarbons&quot;       &quot;forbearance&quot;        
+## [1234] &quot;forbearances&quot;        &quot;forbearing&quot;          &quot;forbidden&quot;          
+## [1237] &quot;forbidding&quot;          &quot;forboding&quot;           &quot;forborne&quot;           
+## [1240] &quot;foreboding&quot;          &quot;forebodings&quot;         &quot;frangibilities&quot;     
+## [1243] &quot;frangibility&quot;        &quot;frangible&quot;           &quot;freebooting&quot;        
+## [1246] &quot;freeborn&quot;            &quot;fribbling&quot;           &quot;frostbitten&quot;        
+## [1249] &quot;furbelowing&quot;         &quot;furbishing&quot;          &quot;furibund&quot;           
+## [1252] &quot;gabardine&quot;           &quot;gabardines&quot;          &quot;garbanzo&quot;           
+## [1255] &quot;garbanzos&quot;           &quot;garbing&quot;             &quot;garbling&quot;           
+## [1258] &quot;generalizability&quot;    &quot;gibbering&quot;           &quot;gingerbread&quot;        
+## [1261] &quot;gingerbreads&quot;        &quot;goldbricking&quot;        &quot;gombroon&quot;           
+## [1264] &quot;gombroons&quot;           &quot;grabbing&quot;            &quot;grabbling&quot;          
+## [1267] &quot;graben&quot;              &quot;grabens&quot;             &quot;greenbug&quot;           
+## [1270] &quot;greenbugs&quot;           &quot;grubbiness&quot;          &quot;grubbinesses&quot;       
+## [1273] &quot;grubbing&quot;            &quot;grumbling&quot;           &quot;gubernatorial&quot;      
+## [1276] &quot;habanera&quot;            &quot;habaneras&quot;           &quot;hagborn&quot;            
+## [1279] &quot;hairband&quot;            &quot;hairbands&quot;           &quot;hangbird&quot;           
+## [1282] &quot;hangbirds&quot;           &quot;harbinger&quot;           &quot;harbingers&quot;         
+## [1285] &quot;harboring&quot;           &quot;harbouring&quot;          &quot;heartbreaking&quot;      
+## [1288] &quot;heartbroken&quot;         &quot;heartburn&quot;           &quot;heartburns&quot;         
+## [1291] &quot;hebraizing&quot;          &quot;hibernal&quot;            &quot;hibernate&quot;          
+## [1294] &quot;hibernated&quot;          &quot;hibernates&quot;          &quot;hibernating&quot;        
+## [1297] &quot;hibernation&quot;         &quot;hibernations&quot;        &quot;hibernator&quot;         
+## [1300] &quot;hibernators&quot;         &quot;highborn&quot;            &quot;honorable&quot;          
+## [1303] &quot;honorably&quot;           &quot;hornbeam&quot;            &quot;hornbeams&quot;          
+## [1306] &quot;hornbill&quot;            &quot;hornbills&quot;           &quot;hornbook&quot;           
+## [1309] &quot;hornbooks&quot;           &quot;horribleness&quot;        &quot;horriblenesses&quot;     
+## [1312] &quot;housebroken&quot;         &quot;hummingbird&quot;         &quot;hummingbirds&quot;       
+## [1315] &quot;husbandries&quot;         &quot;husbandry&quot;           &quot;hybridization&quot;      
+## [1318] &quot;hybridizations&quot;      &quot;hybridizing&quot;         &quot;hydrocarbon&quot;        
+## [1321] &quot;hydrocarbons&quot;        &quot;imbarking&quot;           &quot;imbittering&quot;        
+## [1324] &quot;imbowering&quot;          &quot;imbrown&quot;             &quot;imbrowned&quot;          
+## [1327] &quot;imbrowning&quot;          &quot;imbrowns&quot;            &quot;imbruing&quot;           
+## [1330] &quot;imbruting&quot;           &quot;impenetrabilities&quot;   &quot;impenetrability&quot;    
+## [1333] &quot;impenetrable&quot;        &quot;impenetrably&quot;        &quot;imponderable&quot;       
+## [1336] &quot;imponderables&quot;       &quot;impressionable&quot;      &quot;inappreciable&quot;      
+## [1339] &quot;inappreciably&quot;       &quot;inapproachable&quot;      &quot;inarable&quot;           
+## [1342] &quot;inarguable&quot;          &quot;inboard&quot;             &quot;inboards&quot;           
+## [1345] &quot;inborn&quot;              &quot;inbred&quot;              &quot;inbreed&quot;            
+## [1348] &quot;inbreeding&quot;          &quot;inbreedings&quot;         &quot;inbreeds&quot;           
+## [1351] &quot;inburst&quot;             &quot;inbursts&quot;            &quot;incomparable&quot;       
+## [1354] &quot;incomprehensible&quot;    &quot;inconsiderable&quot;      &quot;incorrigibilities&quot;  
+## [1357] &quot;incorrigibility&quot;     &quot;incorrigible&quot;        &quot;incorrigibly&quot;       
+## [1360] &quot;incorruptible&quot;       &quot;incredibilities&quot;     &quot;incredibility&quot;      
+## [1363] &quot;incredible&quot;          &quot;incredibly&quot;          &quot;incubator&quot;          
+## [1366] &quot;incubators&quot;          &quot;incumber&quot;            &quot;incumbered&quot;         
+## [1369] &quot;incumbering&quot;         &quot;incumbers&quot;           &quot;incurable&quot;          
+## [1372] &quot;indecipherable&quot;      &quot;indescribable&quot;       &quot;indescribably&quot;      
+## [1375] &quot;indestrucibility&quot;    &quot;indestrucible&quot;       &quot;indiscernible&quot;      
+## [1378] &quot;inebriate&quot;           &quot;inebriated&quot;          &quot;inebriates&quot;         
+## [1381] &quot;inebriating&quot;         &quot;inebriation&quot;         &quot;inebriations&quot;       
+## [1384] &quot;ineradicable&quot;        &quot;inexorable&quot;          &quot;inexorably&quot;         
+## [1387] &quot;inexpressible&quot;       &quot;inexpressibly&quot;       &quot;inextricable&quot;       
+## [1390] &quot;inextricably&quot;        &quot;inkberries&quot;          &quot;inkberry&quot;           
+## [1393] &quot;innumerable&quot;         &quot;inoperable&quot;          &quot;insalubrious&quot;       
+## [1396] &quot;inscribe&quot;            &quot;inscribed&quot;           &quot;inscribes&quot;          
+## [1399] &quot;inscribing&quot;          &quot;inscrutable&quot;         &quot;inscrutably&quot;        
+## [1402] &quot;inseparable&quot;         &quot;insubordinate&quot;       &quot;insubordination&quot;    
+## [1405] &quot;insubordinations&quot;    &quot;insufferable&quot;        &quot;insufferably&quot;       
+## [1408] &quot;insuperable&quot;         &quot;insuperably&quot;         &quot;insupportable&quot;      
+## [1411] &quot;insurable&quot;           &quot;insurmounable&quot;       &quot;insurmounably&quot;      
+## [1414] &quot;interbank&quot;           &quot;interborough&quot;        &quot;interbred&quot;          
+## [1417] &quot;interbreed&quot;          &quot;interbreeding&quot;       &quot;interbreeds&quot;        
+## [1420] &quot;interbusiness&quot;       &quot;interchangeable&quot;     &quot;interchangeably&quot;    
+## [1423] &quot;interfiber&quot;          &quot;interlibrary&quot;        &quot;interminable&quot;       
+## [1426] &quot;interminably&quot;        &quot;intertribal&quot;         &quot;interurban&quot;         
+## [1429] &quot;intolerable&quot;         &quot;intolerably&quot;         &quot;intractable&quot;        
+## [1432] &quot;inurbane&quot;            &quot;invariable&quot;          &quot;invariably&quot;         
+## [1435] &quot;invertibrate&quot;        &quot;invertibrates&quot;       &quot;invulnerability&quot;    
+## [1438] &quot;invulnerable&quot;        &quot;invulnerably&quot;        &quot;ironbark&quot;           
+## [1441] &quot;ironbarks&quot;           &quot;irreconcilabilities&quot; &quot;irreconcilability&quot;  
+## [1444] &quot;irreconcilable&quot;      &quot;irresponsibilities&quot;  &quot;irresponsibility&quot;   
+## [1447] &quot;irresponsible&quot;       &quot;irresponsibly&quot;       &quot;jabbering&quot;          
+## [1450] &quot;kerbing&quot;             &quot;keyboarding&quot;         &quot;kingbird&quot;           
+## [1453] &quot;kingbirds&quot;           &quot;knobbier&quot;            &quot;kurbashing&quot;         
+## [1456] &quot;laboring&quot;            &quot;labouring&quot;           &quot;laburnum&quot;           
+## [1459] &quot;laburnums&quot;           &quot;labyrinth&quot;           &quot;labyrinthine&quot;       
+## [1462] &quot;labyrinths&quot;          &quot;lamebrain&quot;           &quot;lamebrains&quot;         
+## [1465] &quot;landlubber&quot;          &quot;landlubbers&quot;         &quot;liberalizing&quot;       
+## [1468] &quot;liberating&quot;          &quot;liberation&quot;          &quot;liberations&quot;        
+## [1471] &quot;libertine&quot;           &quot;libertines&quot;          &quot;librarian&quot;          
+## [1474] &quot;librarians&quot;          &quot;librating&quot;           &quot;limbering&quot;          
+## [1477] &quot;linebred&quot;            &quot;lowborn&quot;             &quot;lubricant&quot;          
+## [1480] &quot;lubricants&quot;          &quot;lubricating&quot;         &quot;lubrication&quot;        
+## [1483] &quot;lubrications&quot;        &quot;lugubriousness&quot;      &quot;lugubriousnesses&quot;   
+## [1486] &quot;lumbering&quot;           &quot;lumberman&quot;           &quot;lumbermen&quot;          
+## [1489] &quot;mandibular&quot;          &quot;maneuverabilities&quot;   &quot;maneuverability&quot;    
+## [1492] &quot;manubria&quot;            &quot;marbling&quot;            &quot;marblings&quot;          
+## [1495] &quot;masturbating&quot;        &quot;masturbation&quot;        &quot;masturbations&quot;      
+## [1498] &quot;membrane&quot;            &quot;membranes&quot;           &quot;membranous&quot;         
+## [1501] &quot;memorableness&quot;       &quot;memorablenesses&quot;     &quot;midbrain&quot;           
+## [1504] &quot;midbrains&quot;           &quot;minibrain&quot;           &quot;minibrains&quot;         
+## [1507] &quot;miniproblem&quot;         &quot;miniproblems&quot;        &quot;minirebellion&quot;      
+## [1510] &quot;minirebellions&quot;      &quot;minirobot&quot;           &quot;minirobots&quot;         
+## [1513] &quot;minisubmarine&quot;       &quot;minisubmarines&quot;      &quot;misbrand&quot;           
+## [1516] &quot;misbranded&quot;          &quot;misbranding&quot;         &quot;misbrands&quot;          
+## [1519] &quot;miserableness&quot;       &quot;miserablenesses&quot;     &quot;mislaboring&quot;        
+## [1522] &quot;mockingbird&quot;         &quot;mockingbirds&quot;        &quot;morbidness&quot;         
+## [1525] &quot;morbidnesses&quot;        &quot;moribund&quot;            &quot;moribundities&quot;      
+## [1528] &quot;moribundity&quot;         &quot;multibranched&quot;       &quot;naboberies&quot;         
+## [1531] &quot;nabobery&quot;            &quot;nearby&quot;              &quot;nebular&quot;            
+## [1534] &quot;neighbor&quot;            &quot;neighbored&quot;          &quot;neighborhood&quot;       
+## [1537] &quot;neighborhoods&quot;       &quot;neighboring&quot;         &quot;neighborliness&quot;     
+## [1540] &quot;neighborlinesses&quot;    &quot;neighborly&quot;          &quot;neighbors&quot;          
+## [1543] &quot;newborn&quot;             &quot;newborns&quot;            &quot;nibbler&quot;            
+## [1546] &quot;nibblers&quot;            &quot;nimbler&quot;             &quot;ninebark&quot;           
+## [1549] &quot;ninebarks&quot;           &quot;nobbier&quot;             &quot;nobbler&quot;            
+## [1552] &quot;nobblers&quot;            &quot;nobler&quot;              &quot;nombril&quot;            
+## [1555] &quot;nombrils&quot;            &quot;nonabrasive&quot;         &quot;nonabsorbent&quot;       
+## [1558] &quot;nonbeliever&quot;         &quot;nonbelievers&quot;        &quot;nonbreakable&quot;       
+## [1561] &quot;noncarbonated&quot;       &quot;nonchargeable&quot;       &quot;noncontributing&quot;    
+## [1564] &quot;noncontrollable&quot;     &quot;nondeferrable&quot;       &quot;nondegradable&quot;      
+## [1567] &quot;nonenforceable&quot;      &quot;nonmember&quot;           &quot;nonmembers&quot;         
+## [1570] &quot;nonobservance&quot;       &quot;nonobservances&quot;      &quot;nonperishable&quot;      
+## [1573] &quot;nonrecoverable&quot;      &quot;nonrefillable&quot;       &quot;nonrefundable&quot;      
+## [1576] &quot;nonrenewable&quot;        &quot;nonreusable&quot;         &quot;nonreversible&quot;      
+## [1579] &quot;nonsubscriber&quot;       &quot;nontransferable&quot;     &quot;nonurban&quot;           
+## [1582] &quot;nonverbal&quot;           &quot;nubbier&quot;             &quot;nubblier&quot;           
+## [1585] &quot;number&quot;              &quot;numbered&quot;            &quot;numberer&quot;           
+## [1588] &quot;numberers&quot;           &quot;numbering&quot;           &quot;numberless&quot;         
+## [1591] &quot;numbers&quot;             &quot;nutbrown&quot;            &quot;obliterating&quot;       
+## [1594] &quot;obliteration&quot;        &quot;obliterations&quot;       &quot;obscener&quot;           
+## [1597] &quot;obscuring&quot;           &quot;observance&quot;          &quot;observances&quot;        
+## [1600] &quot;observant&quot;           &quot;observation&quot;         &quot;observations&quot;       
+## [1603] &quot;observing&quot;           &quot;obstetrician&quot;        &quot;obstetricians&quot;      
+## [1606] &quot;obstreperousness&quot;    &quot;obstreperousnesses&quot;  &quot;obstructing&quot;        
+## [1609] &quot;obstruction&quot;         &quot;obstructions&quot;        &quot;obtainer&quot;           
+## [1612] &quot;obtainers&quot;           &quot;obtruding&quot;           &quot;obtrusion&quot;          
+## [1615] &quot;obtrusions&quot;          &quot;obtrusiveness&quot;       &quot;obtrusivenesses&quot;    
+## [1618] &quot;obturating&quot;          &quot;obverting&quot;           &quot;orbing&quot;             
+## [1621] &quot;orbiting&quot;            &quot;osnaburg&quot;            &quot;osnaburgs&quot;          
+## [1624] &quot;outbarking&quot;          &quot;outbragging&quot;         &quot;outbraving&quot;         
+## [1627] &quot;outbreeding&quot;         &quot;outbribing&quot;          &quot;outburn&quot;            
+## [1630] &quot;outburned&quot;           &quot;outburning&quot;          &quot;outburns&quot;           
+## [1633] &quot;outburnt&quot;            &quot;outnumber&quot;           &quot;outnumbered&quot;        
+## [1636] &quot;outnumbering&quot;        &quot;outnumbers&quot;          &quot;outthrobbing&quot;       
+## [1639] &quot;ovenbird&quot;            &quot;ovenbirds&quot;           &quot;overabundance&quot;      
+## [1642] &quot;overabundances&quot;      &quot;overabundant&quot;        &quot;overbaking&quot;         
+## [1645] &quot;overbearing&quot;         &quot;overbetting&quot;         &quot;overbidden&quot;         
+## [1648] &quot;overbidding&quot;         &quot;overblowing&quot;         &quot;overblown&quot;          
+## [1651] &quot;overbooking&quot;         &quot;overborn&quot;            &quot;overborne&quot;          
+## [1654] &quot;overborrowing&quot;       &quot;overbuilding&quot;        &quot;overburden&quot;         
+## [1657] &quot;overburdened&quot;        &quot;overburdening&quot;       &quot;overburdens&quot;        
+## [1660] &quot;overbuying&quot;          &quot;overexuberant&quot;       &quot;overimbibing&quot;       
+## [1663] &quot;overindebted&quot;        &quot;overprescribing&quot;     &quot;overpublicizing&quot;    
+## [1666] &quot;paintbrush&quot;          &quot;paintbrushes&quot;        &quot;parboiling&quot;         
+## [1669] &quot;pardonable&quot;          &quot;pawnbroker&quot;          &quot;pawnbrokers&quot;        
+## [1672] &quot;penetrable&quot;          &quot;penumbra&quot;            &quot;penumbrae&quot;          
+## [1675] &quot;penumbras&quot;           &quot;perambulating&quot;       &quot;perambulation&quot;      
+## [1678] &quot;perambulations&quot;      &quot;personable&quot;          &quot;perturbation&quot;       
+## [1681] &quot;perturbations&quot;       &quot;perturbing&quot;          &quot;preassembling&quot;      
+## [1684] &quot;prebend&quot;             &quot;prebends&quot;            &quot;prebilling&quot;         
+## [1687] &quot;prebind&quot;             &quot;prebinding&quot;          &quot;prebinds&quot;           
+## [1690] &quot;preblessing&quot;         &quot;preboiling&quot;          &quot;prebound&quot;           
+## [1693] &quot;precombustion&quot;       &quot;preestablishing&quot;     &quot;prefabbing&quot;         
+## [1696] &quot;prefabrication&quot;      &quot;prefabrications&quot;     &quot;prepublication&quot;     
+## [1699] &quot;prescribing&quot;         &quot;presentable&quot;         &quot;preventable&quot;        
+## [1702] &quot;printable&quot;           &quot;proband&quot;             &quot;probands&quot;           
+## [1705] &quot;probang&quot;             &quot;probangs&quot;            &quot;probating&quot;          
+## [1708] &quot;probation&quot;           &quot;probationary&quot;        &quot;probationer&quot;        
+## [1711] &quot;probationers&quot;        &quot;probations&quot;          &quot;probing&quot;            
+## [1714] &quot;prohibiting&quot;         &quot;prohibition&quot;         &quot;prohibitionist&quot;     
+## [1717] &quot;prohibitionists&quot;     &quot;prohibitions&quot;        &quot;pronounceable&quot;      
+## [1720] &quot;proscribing&quot;         &quot;prothrombin&quot;         &quot;protuberance&quot;       
+## [1723] &quot;protuberances&quot;       &quot;protuberant&quot;         &quot;proverbing&quot;         
+## [1726] &quot;prunable&quot;            &quot;purblind&quot;            &quot;quarterbacking&quot;     
+## [1729] &quot;rabbeting&quot;           &quot;rabbin&quot;              &quot;rabbinate&quot;          
+## [1732] &quot;rabbinates&quot;          &quot;rabbinic&quot;            &quot;rabbinical&quot;         
+## [1735] &quot;rabbins&quot;             &quot;rabbiting&quot;           &quot;rabbling&quot;           
+## [1738] &quot;rabboni&quot;             &quot;rabbonis&quot;            &quot;rainband&quot;           
+## [1741] &quot;rainbands&quot;           &quot;rainbird&quot;            &quot;rainbirds&quot;          
+## [1744] &quot;rainbow&quot;             &quot;rainbows&quot;            &quot;rambling&quot;           
+## [1747] &quot;rambunctious&quot;        &quot;rambutan&quot;            &quot;rambutans&quot;          
+## [1750] &quot;ratsbane&quot;            &quot;ratsbanes&quot;           &quot;rawboned&quot;           
+## [1753] &quot;reabsorbing&quot;         &quot;reabstracting&quot;       &quot;reasonable&quot;         
+## [1756] &quot;reasonableness&quot;      &quot;reasonablenesses&quot;    &quot;reasonably&quot;         
+## [1759] &quot;reassembling&quot;        &quot;rebaiting&quot;           &quot;rebalance&quot;          
+## [1762] &quot;rebalanced&quot;          &quot;rebalances&quot;          &quot;rebalancing&quot;        
+## [1765] &quot;rebaptizing&quot;         &quot;rebating&quot;            &quot;rebelling&quot;          
+## [1768] &quot;rebellion&quot;           &quot;rebellions&quot;          &quot;rebelliousness&quot;     
+## [1771] &quot;rebelliousnesses&quot;    &quot;rebidden&quot;            &quot;rebidding&quot;          
+## [1774] &quot;rebilling&quot;           &quot;rebind&quot;              &quot;rebinding&quot;          
+## [1777] &quot;rebinds&quot;             &quot;reblooming&quot;          &quot;reboant&quot;            
+## [1780] &quot;reboarding&quot;          &quot;reboiling&quot;           &quot;reborn&quot;             
+## [1783] &quot;rebound&quot;             &quot;rebounded&quot;           &quot;rebounding&quot;         
+## [1786] &quot;rebounds&quot;            &quot;rebranch&quot;            &quot;rebranched&quot;         
+## [1789] &quot;rebranches&quot;          &quot;rebranching&quot;         &quot;rebroadcasting&quot;     
+## [1792] &quot;rebuffing&quot;           &quot;rebuilding&quot;          &quot;rebuking&quot;           
+## [1795] &quot;reburying&quot;           &quot;rebutting&quot;           &quot;rebutton&quot;           
+## [1798] &quot;rebuttoned&quot;          &quot;rebuttoning&quot;         &quot;rebuttons&quot;          
+## [1801] &quot;recognizable&quot;        &quot;recognizably&quot;        &quot;recombine&quot;          
+## [1804] &quot;recombined&quot;          &quot;recombines&quot;          &quot;recombing&quot;          
+## [1807] &quot;recombining&quot;         &quot;recommendable&quot;       &quot;reconcilable&quot;       
+## [1810] &quot;recumbent&quot;           &quot;redbaiting&quot;          &quot;redbone&quot;            
+## [1813] &quot;redbones&quot;            &quot;redistributing&quot;      &quot;redoubling&quot;         
+## [1816] &quot;reembarking&quot;         &quot;reembodying&quot;         &quot;reestablishing&quot;     
+## [1819] &quot;reestablishment&quot;     &quot;reestablishments&quot;    &quot;refundable&quot;         
+## [1822] &quot;refurbishing&quot;        &quot;rehabilitating&quot;      &quot;rehabilitation&quot;     
+## [1825] &quot;rehabilitations&quot;     &quot;reimbursement&quot;       &quot;reimbursements&quot;     
+## [1828] &quot;reimbursing&quot;         &quot;relabeling&quot;          &quot;relabelling&quot;        
+## [1831] &quot;reliableness&quot;        &quot;reliablenesses&quot;      &quot;remarkableness&quot;     
+## [1834] &quot;remarkablenesses&quot;    &quot;remembering&quot;         &quot;remobilizing&quot;       
+## [1837] &quot;rendible&quot;            &quot;renewable&quot;           &quot;rentable&quot;           
+## [1840] &quot;renumber&quot;            &quot;renumbered&quot;          &quot;renumbering&quot;        
+## [1843] &quot;renumbers&quot;           &quot;reobjecting&quot;         &quot;reobtain&quot;           
+## [1846] &quot;reobtained&quot;          &quot;reobtaining&quot;         &quot;reobtains&quot;          
+## [1849] &quot;reprehensible&quot;       &quot;reprehensibly&quot;       &quot;reprobation&quot;        
+## [1852] &quot;reprobations&quot;        &quot;reprobing&quot;           &quot;republican&quot;         
+## [1855] &quot;republicanism&quot;       &quot;republicanisms&quot;      &quot;republicans&quot;        
+## [1858] &quot;resemblance&quot;         &quot;resemblances&quot;        &quot;resembling&quot;         
+## [1861] &quot;resorbing&quot;           &quot;responsibilities&quot;    &quot;responsibility&quot;     
+## [1864] &quot;responsible&quot;         &quot;responsibleness&quot;     &quot;responsiblenesses&quot;  
+## [1867] &quot;responsiblities&quot;     &quot;responsiblity&quot;       &quot;responsibly&quot;        
+## [1870] &quot;restrainable&quot;        &quot;resubmitting&quot;        &quot;retribution&quot;        
+## [1873] &quot;retributions&quot;        &quot;returnable&quot;          &quot;reverberating&quot;      
+## [1876] &quot;reverberation&quot;       &quot;reverberations&quot;      &quot;rhumbaing&quot;          
+## [1879] &quot;riband&quot;              &quot;ribands&quot;             &quot;ribband&quot;            
+## [1882] &quot;ribbands&quot;            &quot;ribbing&quot;             &quot;ribbings&quot;           
+## [1885] &quot;ribbon&quot;              &quot;ribboned&quot;            &quot;ribboning&quot;          
+## [1888] &quot;ribbons&quot;             &quot;ribbony&quot;             &quot;riboflavin&quot;         
+## [1891] &quot;riboflavins&quot;         &quot;ringbark&quot;            &quot;ringbarked&quot;         
+## [1894] &quot;ringbarking&quot;         &quot;ringbarks&quot;           &quot;ringbolt&quot;           
+## [1897] &quot;ringbolts&quot;           &quot;ringbone&quot;            &quot;ringbones&quot;          
+## [1900] &quot;rinsable&quot;            &quot;rinsible&quot;            &quot;riverbank&quot;          
+## [1903] &quot;riverbanks&quot;          &quot;roband&quot;              &quot;robands&quot;            
+## [1906] &quot;robbin&quot;              &quot;robbing&quot;             &quot;robbins&quot;            
+## [1909] &quot;robin&quot;               &quot;robing&quot;              &quot;robins&quot;             
+## [1912] &quot;roborant&quot;            &quot;roborants&quot;           &quot;robotizing&quot;         
+## [1915] &quot;robustness&quot;          &quot;robustnesses&quot;        &quot;roundabout&quot;         
+## [1918] &quot;rubberizing&quot;         &quot;rubbing&quot;             &quot;rubbings&quot;           
+## [1921] &quot;rubbling&quot;            &quot;rubdown&quot;             &quot;rubdowns&quot;           
+## [1924] &quot;rubicund&quot;            &quot;rubying&quot;             &quot;ruinable&quot;           
+## [1927] &quot;rumbaing&quot;            &quot;rumbling&quot;            &quot;rumblings&quot;          
+## [1930] &quot;runabout&quot;            &quot;runabouts&quot;           &quot;runback&quot;            
+## [1933] &quot;runbacks&quot;            &quot;rurban&quot;              &quot;sabering&quot;           
+## [1936] &quot;sabring&quot;             &quot;sandbar&quot;             &quot;sandbars&quot;           
+## [1939] &quot;sandbur&quot;             &quot;sandburr&quot;            &quot;sandburrs&quot;          
+## [1942] &quot;sandburs&quot;            &quot;saraband&quot;            &quot;sarabands&quot;          
+## [1945] &quot;scabbarding&quot;         &quot;scrabbling&quot;          &quot;scrambling&quot;         
+## [1948] &quot;scribbling&quot;          &quot;scribing&quot;            &quot;scrubbing&quot;          
+## [1951] &quot;seaborne&quot;            &quot;sensibler&quot;           &quot;shrinkable&quot;         
+## [1954] &quot;sideburns&quot;           &quot;skyborne&quot;            &quot;slabbering&quot;         
+## [1957] &quot;slobbering&quot;          &quot;slubbering&quot;          &quot;slumbering&quot;         
+## [1960] &quot;slurban&quot;             &quot;snobberies&quot;          &quot;snobbery&quot;           
+## [1963] &quot;snobbier&quot;            &quot;snowbird&quot;            &quot;snowbirds&quot;          
+## [1966] &quot;snubber&quot;             &quot;snubbers&quot;            &quot;snubbier&quot;           
+## [1969] &quot;sobering&quot;            &quot;soberizing&quot;          &quot;songbird&quot;           
+## [1972] &quot;songbirds&quot;           &quot;sorbent&quot;             &quot;sorbents&quot;           
+## [1975] &quot;sorbing&quot;             &quot;stillborn&quot;           &quot;stubborn&quot;           
+## [1978] &quot;stubbornly&quot;          &quot;stubbornness&quot;        &quot;stubbornnesses&quot;     
+## [1981] &quot;subbranch&quot;           &quot;subbranches&quot;         &quot;subcontract&quot;        
+## [1984] &quot;subcontracted&quot;       &quot;subcontracting&quot;      &quot;subcontractor&quot;      
+## [1987] &quot;subcontractors&quot;      &quot;subcontracts&quot;        &quot;subdepartment&quot;      
+## [1990] &quot;subdepartments&quot;      &quot;subentries&quot;          &quot;subentry&quot;           
+## [1993] &quot;suberin&quot;             &quot;suberins&quot;            &quot;suberising&quot;         
+## [1996] &quot;suberizing&quot;          &quot;subfreezing&quot;         &quot;subgenera&quot;          
+## [1999] &quot;subindustries&quot;       &quot;subindustry&quot;         &quot;submarine&quot;          
+## [2002] &quot;submarines&quot;          &quot;submergence&quot;         &quot;submergences&quot;       
+## [2005] &quot;submerging&quot;          &quot;submersing&quot;          &quot;submersion&quot;         
+## [2008] &quot;submersions&quot;         &quot;subnetwork&quot;          &quot;subnetworks&quot;        
+## [2011] &quot;subnormal&quot;           &quot;subordinate&quot;         &quot;subordinated&quot;       
+## [2014] &quot;subordinates&quot;        &quot;subordinating&quot;       &quot;subordination&quot;      
+## [2017] &quot;subordinations&quot;      &quot;suborn&quot;              &quot;suborned&quot;           
+## [2020] &quot;suborner&quot;            &quot;suborners&quot;           &quot;suborning&quot;          
+## [2023] &quot;suborns&quot;             &quot;subprincipal&quot;        &quot;subprincipals&quot;      
+## [2026] &quot;subregion&quot;           &quot;subregions&quot;          &quot;subrent&quot;            
+## [2029] &quot;subrents&quot;            &quot;subring&quot;             &quot;subrings&quot;           
+## [2032] &quot;subroutine&quot;          &quot;subroutines&quot;         &quot;subscribing&quot;        
+## [2035] &quot;subscription&quot;        &quot;subscriptions&quot;       &quot;subserving&quot;         
+## [2038] &quot;substandard&quot;         &quot;subterranean&quot;        &quot;subterraneous&quot;      
+## [2041] &quot;subtracting&quot;         &quot;subtraction&quot;         &quot;subtractions&quot;       
+## [2044] &quot;suburban&quot;            &quot;suburbans&quot;           &quot;subverting&quot;         
+## [2047] &quot;sunbird&quot;             &quot;sunbirds&quot;            &quot;sunburn&quot;            
+## [2050] &quot;sunburned&quot;           &quot;sunburning&quot;          &quot;sunburns&quot;           
+## [2053] &quot;sunburnt&quot;            &quot;sunburst&quot;            &quot;sunbursts&quot;          
+## [2056] &quot;superabundance&quot;      &quot;superabundances&quot;     &quot;superabundant&quot;      
+## [2059] &quot;tabering&quot;            &quot;tabernacle&quot;          &quot;tabernacles&quot;        
+## [2062] &quot;taborin&quot;             &quot;taborine&quot;            &quot;taborines&quot;          
+## [2065] &quot;taboring&quot;            &quot;taborins&quot;            &quot;tabouring&quot;          
+## [2068] &quot;tambourine&quot;          &quot;tambourines&quot;         &quot;tambouring&quot;         
+## [2071] &quot;tanbark&quot;             &quot;tanbarks&quot;            &quot;tenebrae&quot;           
+## [2074] &quot;terebene&quot;            &quot;terebenes&quot;           &quot;terminable&quot;         
+## [2077] &quot;throbbing&quot;           &quot;thrombin&quot;            &quot;thrombins&quot;          
+## [2080] &quot;thrombocytopenia&quot;    &quot;thromboplastin&quot;      &quot;thunderbolt&quot;        
+## [2083] &quot;thunderbolts&quot;        &quot;timbering&quot;           &quot;timberland&quot;         
+## [2086] &quot;timberlands&quot;         &quot;transcribe&quot;          &quot;transcribes&quot;        
+## [2089] &quot;transferability&quot;     &quot;transferable&quot;        &quot;translatable&quot;       
+## [2092] &quot;transmissible&quot;       &quot;transmittable&quot;       &quot;treasonable&quot;        
+## [2095] &quot;trebling&quot;            &quot;trembling&quot;           &quot;tribesman&quot;          
+## [2098] &quot;tribesmen&quot;           &quot;tribulation&quot;         &quot;tribulations&quot;       
+## [2101] &quot;tribunal&quot;            &quot;tribunals&quot;           &quot;tribune&quot;            
+## [2104] &quot;tribunes&quot;            &quot;trombone&quot;            &quot;trombones&quot;          
+## [2107] &quot;trombonist&quot;          &quot;trombonists&quot;         &quot;troubleshooting&quot;    
+## [2110] &quot;troubling&quot;           &quot;trueborn&quot;            &quot;turban&quot;             
+## [2113] &quot;turbaned&quot;            &quot;turbans&quot;             &quot;turbidness&quot;         
+## [2116] &quot;turbidnesses&quot;        &quot;turbinal&quot;            &quot;turbinals&quot;          
+## [2119] &quot;turbine&quot;             &quot;turbines&quot;            &quot;turbofan&quot;           
+## [2122] &quot;turbofans&quot;           &quot;turbulence&quot;          &quot;turbulences&quot;        
+## [2125] &quot;turbulently&quot;         &quot;turnable&quot;            &quot;turntable&quot;          
+## [2128] &quot;turntables&quot;          &quot;twinborn&quot;            &quot;umbering&quot;           
+## [2131] &quot;umbrellaing&quot;         &quot;unabridged&quot;          &quot;unanswerable&quot;       
+## [2134] &quot;unbar&quot;               &quot;unbarbed&quot;            &quot;unbarred&quot;           
+## [2137] &quot;unbarring&quot;           &quot;unbars&quot;              &quot;unbear&quot;             
+## [2140] &quot;unbearable&quot;          &quot;unbeared&quot;            &quot;unbearing&quot;          
+## [2143] &quot;unbears&quot;             &quot;unborn&quot;              &quot;unbrace&quot;            
+## [2146] &quot;unbraced&quot;            &quot;unbraces&quot;            &quot;unbracing&quot;          
+## [2149] &quot;unbraid&quot;             &quot;unbraided&quot;           &quot;unbraiding&quot;         
+## [2152] &quot;unbraids&quot;            &quot;unbranded&quot;           &quot;unbreakable&quot;        
+## [2155] &quot;unbred&quot;              &quot;unbreech&quot;            &quot;unbreeched&quot;         
+## [2158] &quot;unbreeches&quot;          &quot;unbreeching&quot;         &quot;unbridle&quot;           
+## [2161] &quot;unbridled&quot;           &quot;unbridles&quot;           &quot;unbridling&quot;         
+## [2164] &quot;unbroke&quot;             &quot;unbroken&quot;            &quot;unburden&quot;           
+## [2167] &quot;unburdened&quot;          &quot;unburdening&quot;         &quot;unburdens&quot;          
+## [2170] &quot;unburied&quot;            &quot;unburned&quot;            &quot;unburnt&quot;            
+## [2173] &quot;uncomfortable&quot;       &quot;uncomfortably&quot;       &quot;uncontrollable&quot;     
+## [2176] &quot;uncontrollably&quot;      &quot;uncurb&quot;              &quot;uncurbed&quot;           
+## [2179] &quot;uncurbing&quot;           &quot;uncurbs&quot;             &quot;underbid&quot;           
+## [2182] &quot;underbidding&quot;        &quot;underbids&quot;           &quot;underbought&quot;        
+## NA
+## [2185] &quot;underbrush&quot;          &quot;underbrushes&quot;        &quot;underbud&quot;
+</code></pre>
+
+<pre><code>## Warning: closing unused connection 5
+## (http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt)
+</code></pre>
+
+<pre><code>## [2188] &quot;underbudded&quot;         &quot;underbudding&quot;        &quot;underbuds&quot;          
+## [2191] &quot;underbuy&quot;            &quot;underbuying&quot;         &quot;underbuys&quot;          
+## [2194] &quot;understandable&quot;      &quot;understandably&quot;      &quot;undesirable&quot;        
+## [2197] &quot;undrinkable&quot;         &quot;unendurable&quot;         &quot;unenforceable&quot;      
+## [2200] &quot;unfavorable&quot;         &quot;unfavorably&quot;         &quot;unforeseeable&quot;      
+## [2203] &quot;unforgettable&quot;       &quot;unforgettably&quot;       &quot;unforgivable&quot;       
+## [2206] &quot;unlimber&quot;            &quot;unlimbered&quot;          &quot;unlimbering&quot;        
+## [2209] &quot;unlimbers&quot;           &quot;unneighborly&quot;        &quot;unobservable&quot;       
+## [2212] &quot;unobservant&quot;         &quot;unobtrusive&quot;         &quot;unobtrusively&quot;      
+## [2215] &quot;unpardonable&quot;        &quot;unpredictable&quot;       &quot;unpredictably&quot;      
+## [2218] &quot;unprobed&quot;            &quot;unprofitable&quot;        &quot;unreachable&quot;        
+## [2221] &quot;unreadable&quot;          &quot;unreasonable&quot;        &quot;unreasonably&quot;       
+## [2224] &quot;unreliable&quot;          &quot;unremembered&quot;        &quot;unrobe&quot;             
+## [2227] &quot;unrobed&quot;             &quot;unrobes&quot;             &quot;unrobing&quot;           
+## [2230] &quot;unscramble&quot;          &quot;unscrambled&quot;         &quot;unscrambles&quot;        
+## [2233] &quot;unscrambling&quot;        &quot;unsober&quot;             &quot;unstabler&quot;          
+## [2236] &quot;unworkable&quot;          &quot;upbearing&quot;           &quot;upborne&quot;            
+## [2239] &quot;upbraiding&quot;          &quot;upbringing&quot;          &quot;upbringings&quot;        
+## [2242] &quot;urban&quot;               &quot;urbane&quot;              &quot;urbanely&quot;           
+## [2245] &quot;urbaner&quot;             &quot;urbanest&quot;            &quot;urbanise&quot;           
+## [2248] &quot;urbanised&quot;           &quot;urbanises&quot;           &quot;urbanising&quot;         
+## [2251] &quot;urbanism&quot;            &quot;urbanisms&quot;           &quot;urbanist&quot;           
+## [2254] &quot;urbanists&quot;           &quot;urbanite&quot;            &quot;urbanites&quot;          
+## [2257] &quot;urbanities&quot;          &quot;urbanity&quot;            &quot;urbanize&quot;           
+## [2260] &quot;urbanized&quot;           &quot;urbanizes&quot;           &quot;urbanizing&quot;         
+## [2263] &quot;variableness&quot;        &quot;variablenesses&quot;      &quot;venerable&quot;          
+## [2266] &quot;verbalization&quot;       &quot;verbalizations&quot;      &quot;verbalizing&quot;        
+## [2269] &quot;verbena&quot;             &quot;verbenas&quot;            &quot;verbifying&quot;         
+## [2272] &quot;verboten&quot;            &quot;vibrance&quot;            &quot;vibrances&quot;          
+## [2275] &quot;vibrancies&quot;          &quot;vibrancy&quot;            &quot;vibrant&quot;            
+## [2278] &quot;vibrants&quot;            &quot;vibrating&quot;           &quot;vibration&quot;          
+## [2281] &quot;vibrations&quot;          &quot;vibrion&quot;             &quot;vibrions&quot;           
+## [2284] &quot;viburnum&quot;            &quot;viburnums&quot;           &quot;vulnerabilities&quot;    
+## [2287] &quot;vulnerability&quot;       &quot;vulnerable&quot;          &quot;vulnerably&quot;         
+## [2290] &quot;warbling&quot;            &quot;wellborn&quot;            &quot;windbreak&quot;          
+## [2293] &quot;windbreaks&quot;          &quot;windburn&quot;            &quot;windburned&quot;         
+## [2296] &quot;windburning&quot;         &quot;windburns&quot;           &quot;windburnt&quot;          
+## [2299] &quot;workableness&quot;        &quot;workablenesses&quot;      &quot;workbench&quot;          
+## [2302] &quot;workbenches&quot;         &quot;yabbering&quot;           &quot;zebrine&quot;
+</code></pre>
+
+<pre><code class="r">findScrabble2 &lt;- function(letters) {
+    for (k in 1:length(letters)) {
+        words &lt;- words[grep(letters[k], words)]
+        if (length(words) &lt; 10) 
+            break
+    }
+    return(words)
+}
+length(findScrabble2(c(&quot;b&quot;, &quot;n&quot;, &quot;r&quot;, &quot;w&quot;, &quot;a&quot;)))
+</code></pre>
+
+<pre><code>## [1] 43
+</code></pre>
+
+<pre><code class="r">findScrabble2(c(&quot;b&quot;, &quot;n&quot;, &quot;r&quot;, &quot;w&quot;, &quot;a&quot;))
+</code></pre>
+
+<pre><code>##  [1] &quot;answerable&quot;        &quot;backwardness&quot;      &quot;backwardnesses&quot;   
+##  [4] &quot;becowarding&quot;       &quot;becrawling&quot;        &quot;bedwarfing&quot;       
+##  [7] &quot;beswarming&quot;        &quot;bewaring&quot;          &quot;bewearying&quot;       
+## [10] &quot;bewrapping&quot;        &quot;bewraying&quot;         &quot;blameworthiness&quot;  
+## [13] &quot;blameworthinesses&quot; &quot;brawling&quot;          &quot;brawn&quot;            
+## [16] &quot;brawnier&quot;          &quot;brawniest&quot;         &quot;brawnily&quot;         
+## [19] &quot;brawns&quot;            &quot;brawny&quot;            &quot;breadwinner&quot;      
+## [22] &quot;breadwinners&quot;      &quot;breakdown&quot;         &quot;breakdowns&quot;       
+## [25] &quot;browbeaten&quot;        &quot;browbeating&quot;       &quot;bulwarking&quot;       
+## [28] &quot;cabinetwork&quot;       &quot;cabinetworks&quot;      &quot;nonrenewable&quot;     
+## [31] &quot;pawnbroker&quot;        &quot;pawnbrokers&quot;       &quot;rainbow&quot;          
+## [34] &quot;rainbows&quot;          &quot;rawboned&quot;          &quot;renewable&quot;        
+## [37] &quot;unanswerable&quot;      &quot;unworkable&quot;        &quot;warbling&quot;         
+## [40] &quot;windbreak&quot;         &quot;windbreaks&quot;        &quot;workableness&quot;     
+## [43] &quot;workablenesses&quot;
+</code></pre>
+
+<p>FIBONACCI NUMBERS</p>
+
+<pre><code class="r">fib &lt;- function(n) {
+    current &lt;- 1
+    beforeIt &lt;- 0
+    for (k in 1:n) {
+        tmp &lt;- current + beforeIt
+        beforeIt &lt;- current
+        current &lt;- tmp
+    }
+    return(current)
+}
+fib(6)
+</code></pre>
+
+<pre><code>## [1] 13
+</code></pre>
+
+<pre><code class="r">fib(7)
+</code></pre>
+
+<pre><code>## [1] 21
+</code></pre>
+
+<pre><code class="r">fib(8)
+</code></pre>
+
+<pre><code>## [1] 34
+</code></pre>
+
+<pre><code class="r"># wrong numbers
+fib2 &lt;- function(n) {
+    if (n &lt; 0 | round(n) != n) {
+        warning(&quot;~~Just keep swimming~~&quot;)
+        return(NA)
+    }
+    sofar = c(0, 1)
+    for (k in 3:n) {
+        sofar[k] &lt;- sofar[k - 1] + sofar[k - 2]
+    }
+    return(sofar)
+}
+fib2(8)
+</code></pre>
+
+<pre><code>## [1]  0  1  1  2  3  5  8 13
+</code></pre>
+
+<pre><code class="r">fib2(-5)
+</code></pre>
+
+<pre><code>## Warning: ~~Just keep swimming~~
+</code></pre>
+
+<pre><code>## [1] NA
+</code></pre>
+
+<p>PRIME NUMBERS</p>
+
+<pre><code class="r">primesSieve &lt;- function(n) {
+    guess &lt;- rep(TRUE, n)
+    inds &lt;- 1:n
+    for (k in 2:n) {
+        if (guess[k]) {
+            guess[(inds%%k) == 0 &amp; inds &gt; k] &lt;- FALSE
+        }
+    }
+    return(which(guess))
+}
+primesSieve(10000)
+</code></pre>
+
+<pre><code>##    [1]    1    2    3    5    7   11   13   17   19   23   29   31   37
+##   [14]   41   43   47   53   59   61   67   71   73   79   83   89   97
+##   [27]  101  103  107  109  113  127  131  137  139  149  151  157  163
+##   [40]  167  173  179  181  191  193  197  199  211  223  227  229  233
+##   [53]  239  241  251  257  263  269  271  277  281  283  293  307  311
+##   [66]  313  317  331  337  347  349  353  359  367  373  379  383  389
+##   [79]  397  401  409  419  421  431  433  439  443  449  457  461  463
+##   [92]  467  479  487  491  499  503  509  521  523  541  547  557  563
+##  [105]  569  571  577  587  593  599  601  607  613  617  619  631  641
+##  [118]  643  647  653  659  661  673  677  683  691  701  709  719  727
+##  [131]  733  739  743  751  757  761  769  773  787  797  809  811  821
+##  [144]  823  827  829  839  853  857  859  863  877  881  883  887  907
+##  [157]  911  919  929  937  941  947  953  967  971  977  983  991  997
+##  [170] 1009 1013 1019 1021 1031 1033 1039 1049 1051 1061 1063 1069 1087
+##  [183] 1091 1093 1097 1103 1109 1117 1123 1129 1151 1153 1163 1171 1181
+##  [196] 1187 1193 1201 1213 1217 1223 1229 1231 1237 1249 1259 1277 1279
+##  [209] 1283 1289 1291 1297 1301 1303 1307 1319 1321 1327 1361 1367 1373
+##  [222] 1381 1399 1409 1423 1427 1429 1433 1439 1447 1451 1453 1459 1471
+##  [235] 1481 1483 1487 1489 1493 1499 1511 1523 1531 1543 1549 1553 1559
+##  [248] 1567 1571 1579 1583 1597 1601 1607 1609 1613 1619 1621 1627 1637
+##  [261] 1657 1663 1667 1669 1693 1697 1699 1709 1721 1723 1733 1741 1747
+##  [274] 1753 1759 1777 1783 1787 1789 1801 1811 1823 1831 1847 1861 1867
+##  [287] 1871 1873 1877 1879 1889 1901 1907 1913 1931 1933 1949 1951 1973
+##  [300] 1979 1987 1993 1997 1999 2003 2011 2017 2027 2029 2039 2053 2063
+##  [313] 2069 2081 2083 2087 2089 2099 2111 2113 2129 2131 2137 2141 2143
+##  [326] 2153 2161 2179 2203 2207 2213 2221 2237 2239 2243 2251 2267 2269
+##  [339] 2273 2281 2287 2293 2297 2309 2311 2333 2339 2341 2347 2351 2357
+##  [352] 2371 2377 2381 2383 2389 2393 2399 2411 2417 2423 2437 2441 2447
+##  [365] 2459 2467 2473 2477 2503 2521 2531 2539 2543 2549 2551 2557 2579
+##  [378] 2591 2593 2609 2617 2621 2633 2647 2657 2659 2663 2671 2677 2683
+##  [391] 2687 2689 2693 2699 2707 2711 2713 2719 2729 2731 2741 2749 2753
+##  [404] 2767 2777 2789 2791 2797 2801 2803 2819 2833 2837 2843 2851 2857
+##  [417] 2861 2879 2887 2897 2903 2909 2917 2927 2939 2953 2957 2963 2969
+##  [430] 2971 2999 3001 3011 3019 3023 3037 3041 3049 3061 3067 3079 3083
+##  [443] 3089 3109 3119 3121 3137 3163 3167 3169 3181 3187 3191 3203 3209
+##  [456] 3217 3221 3229 3251 3253 3257 3259 3271 3299 3301 3307 3313 3319
+##  [469] 3323 3329 3331 3343 3347 3359 3361 3371 3373 3389 3391 3407 3413
+##  [482] 3433 3449 3457 3461 3463 3467 3469 3491 3499 3511 3517 3527 3529
+##  [495] 3533 3539 3541 3547 3557 3559 3571 3581 3583 3593 3607 3613 3617
+##  [508] 3623 3631 3637 3643 3659 3671 3673 3677 3691 3697 3701 3709 3719
+##  [521] 3727 3733 3739 3761 3767 3769 3779 3793 3797 3803 3821 3823 3833
+##  [534] 3847 3851 3853 3863 3877 3881 3889 3907 3911 3917 3919 3923 3929
+##  [547] 3931 3943 3947 3967 3989 4001 4003 4007 4013 4019 4021 4027 4049
+##  [560] 4051 4057 4073 4079 4091 4093 4099 4111 4127 4129 4133 4139 4153
+##  [573] 4157 4159 4177 4201 4211 4217 4219 4229 4231 4241 4243 4253 4259
+##  [586] 4261 4271 4273 4283 4289 4297 4327 4337 4339 4349 4357 4363 4373
+##  [599] 4391 4397 4409 4421 4423 4441 4447 4451 4457 4463 4481 4483 4493
+##  [612] 4507 4513 4517 4519 4523 4547 4549 4561 4567 4583 4591 4597 4603
+##  [625] 4621 4637 4639 4643 4649 4651 4657 4663 4673 4679 4691 4703 4721
+##  [638] 4723 4729 4733 4751 4759 4783 4787 4789 4793 4799 4801 4813 4817
+##  [651] 4831 4861 4871 4877 4889 4903 4909 4919 4931 4933 4937 4943 4951
+##  [664] 4957 4967 4969 4973 4987 4993 4999 5003 5009 5011 5021 5023 5039
+##  [677] 5051 5059 5077 5081 5087 5099 5101 5107 5113 5119 5147 5153 5167
+##  [690] 5171 5179 5189 5197 5209 5227 5231 5233 5237 5261 5273 5279 5281
+##  [703] 5297 5303 5309 5323 5333 5347 5351 5381 5387 5393 5399 5407 5413
+##  [716] 5417 5419 5431 5437 5441 5443 5449 5471 5477 5479 5483 5501 5503
+##  [729] 5507 5519 5521 5527 5531 5557 5563 5569 5573 5581 5591 5623 5639
+##  [742] 5641 5647 5651 5653 5657 5659 5669 5683 5689 5693 5701 5711 5717
+##  [755] 5737 5741 5743 5749 5779 5783 5791 5801 5807 5813 5821 5827 5839
+##  [768] 5843 5849 5851 5857 5861 5867 5869 5879 5881 5897 5903 5923 5927
+##  [781] 5939 5953 5981 5987 6007 6011 6029 6037 6043 6047 6053 6067 6073
+##  [794] 6079 6089 6091 6101 6113 6121 6131 6133 6143 6151 6163 6173 6197
+##  [807] 6199 6203 6211 6217 6221 6229 6247 6257 6263 6269 6271 6277 6287
+##  [820] 6299 6301 6311 6317 6323 6329 6337 6343 6353 6359 6361 6367 6373
+##  [833] 6379 6389 6397 6421 6427 6449 6451 6469 6473 6481 6491 6521 6529
+##  [846] 6547 6551 6553 6563 6569 6571 6577 6581 6599 6607 6619 6637 6653
+##  [859] 6659 6661 6673 6679 6689 6691 6701 6703 6709 6719 6733 6737 6761
+##  [872] 6763 6779 6781 6791 6793 6803 6823 6827 6829 6833 6841 6857 6863
+##  [885] 6869 6871 6883 6899 6907 6911 6917 6947 6949 6959 6961 6967 6971
+##  [898] 6977 6983 6991 6997 7001 7013 7019 7027 7039 7043 7057 7069 7079
+##  [911] 7103 7109 7121 7127 7129 7151 7159 7177 7187 7193 7207 7211 7213
+##  [924] 7219 7229 7237 7243 7247 7253 7283 7297 7307 7309 7321 7331 7333
+##  [937] 7349 7351 7369 7393 7411 7417 7433 7451 7457 7459 7477 7481 7487
+##  [950] 7489 7499 7507 7517 7523 7529 7537 7541 7547 7549 7559 7561 7573
+##  [963] 7577 7583 7589 7591 7603 7607 7621 7639 7643 7649 7669 7673 7681
+##  [976] 7687 7691 7699 7703 7717 7723 7727 7741 7753 7757 7759 7789 7793
+##  [989] 7817 7823 7829 7841 7853 7867 7873 7877 7879 7883 7901 7907 7919
+## [1002] 7927 7933 7937 7949 7951 7963 7993 8009 8011 8017 8039 8053 8059
+## [1015] 8069 8081 8087 8089 8093 8101 8111 8117 8123 8147 8161 8167 8171
+## [1028] 8179 8191 8209 8219 8221 8231 8233 8237 8243 8263 8269 8273 8287
+## [1041] 8291 8293 8297 8311 8317 8329 8353 8363 8369 8377 8387 8389 8419
+## [1054] 8423 8429 8431 8443 8447 8461 8467 8501 8513 8521 8527 8537 8539
+## [1067] 8543 8563 8573 8581 8597 8599 8609 8623 8627 8629 8641 8647 8663
+## [1080] 8669 8677 8681 8689 8693 8699 8707 8713 8719 8731 8737 8741 8747
+## [1093] 8753 8761 8779 8783 8803 8807 8819 8821 8831 8837 8839 8849 8861
+## [1106] 8863 8867 8887 8893 8923 8929 8933 8941 8951 8963 8969 8971 8999
+## [1119] 9001 9007 9011 9013 9029 9041 9043 9049 9059 9067 9091 9103 9109
+## [1132] 9127 9133 9137 9151 9157 9161 9173 9181 9187 9199 9203 9209 9221
+## [1145] 9227 9239 9241 9257 9277 9281 9283 9293 9311 9319 9323 9337 9341
+## [1158] 9343 9349 9371 9377 9391 9397 9403 9413 9419 9421 9431 9433 9437
+## [1171] 9439 9461 9463 9467 9473 9479 9491 9497 9511 9521 9533 9539 9547
+## [1184] 9551 9587 9601 9613 9619 9623 9629 9631 9643 9649 9661 9677 9679
+## [1197] 9689 9697 9719 9721 9733 9739 9743 9749 9767 9769 9781 9787 9791
+## [1210] 9803 9811 9817 9829 9833 9839 9851 9857 9859 9871 9883 9887 9901
+## [1223] 9907 9923 9929 9931 9941 9949 9967 9973
+</code></pre>
+
+<pre><code class="r">
+</code></pre>
+
+</body>
+
+</html>
+

@@ -1,0 +1,27 @@
+# Oct. 3, 2013
+========================================================
+MYFACTORIAL()
+```{r}
+myfactorial<-function(n){
+  res<-1
+  for(k in 1:n){
+    res<-res*k}
+  return(res)
+  }
+myfactorial(5)
+```
+MYSUM()
+```{r}
+mysum<-function(n){
+  res1<-0
+  for(k in 1:n){
+     res1<-res1+k
+    }
+  return(res1)
+  }
+mysum(5)
+sum(5)
+#loop is important if you need the stuff you wrote before
+
+```
+

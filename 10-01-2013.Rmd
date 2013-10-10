@@ -1,0 +1,69 @@
+# Oct 1, 2013
+
+## Reverser
+
+```{r}
+#Reverse the characters in the word.
+reverser <- function(x){return(
+  rev(strsplit(x, split="")[[1]][1:nchar(x)])) 
+  }
+reversersecond<- function(x){
+  a<-strsplit(x,split=character(0))[[1]]
+  b<-a[rev(1:nchar(x))]
+  paste(b, collapse="")
+  }
+```
+Test Statement
+```{r}
+reverser("racecar")
+reversersecond("before")
+reverser("watermelon")
+reverser("Macalester")
+reverser("sintat")
+#Test statement here. Should return TRUE or FALSE
+```
+
+## Scrambler
+```{r}
+scrambler <- function(x){return(
+  sample(rev(strsplit(x, split="")[[1]][1:nchar(x)])))
+  }
+```
+Test Statement
+```{r}
+scrambler("Macalester")
+scrambler("Jessica")
+```
+## Vowel Bleeper
+```{r}
+vowelbleeper <- function(x){return(gsub("[aeiou]", "*",(strsplit(x, split="")[[1]][1:nchar(x)])))
+  }
+```
+Test Statement
+```{r}
+vowelbleeper("before")
+```
+## L33T
+```{r}
+L33T <- function(v){
+  w=gsub("[e]","3", v)
+  x=gsub("[g]", "9", w)
+  y=gsub("[o]", "0", x)
+  z=gsub("[s]", "5",y)
+  a=gsub("[l]", "1", z)
+  b=gsub("[b]", "6", a)
+  c=gsub("[z]", "2",b)
+  d=gsub("[B]", "8",c)
+  return(d)
+}
+
+```
+Test Statement
+```{r}
+L33T("goes")
+L33T("Blazer Bob")
+```
+# Subsitution Cypher
+```{r}
+
+```

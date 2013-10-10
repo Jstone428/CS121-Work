@@ -1,0 +1,15 @@
+World of Cities
+load(url("http://dtkaplan.github.io/ScientificComputing/Resources/ListOfCities.RData"))
+WorldCities
+names(WorldCities)
+nrow(WorldCities)
+with(WorldCities, plot(Longitude,Latitude))
+with(WorldCities, plot(Longitude,Latitude, pch=20))
+with(WorldCities, plot(Longitude,Latitude, pch=20, cex=.1))
+#what kind of thing is the population #(class())
+class(with(data=WorldCities, Population))
+head(with(data=WorldCities, Population))
+sum(with(data=WorldCities, Population), na.rm=TRUE)
+head(WorldCities$Population)
+
+#Benford's Law= 

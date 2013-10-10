@@ -1,0 +1,35 @@
+1 bite has 8 lines called bits 
+________
+# signed integer 0-255, -128 to 127, 
+how would you rep a number like....
+_ = signed integer 
+
+_ * 10^(signed integer)
+````{r}
+3L
+class(3)
+253L
+````
+cut-off for 1e___ is 1e308-1e309. 
+cut-off for 1e-___ is 1e-323 and 1e-324
+````{r}
+asin(4)
+sqrt(-5)
+
+EnglishNumbers <- c("zero"=0, "one"=1, "two"=2, "three" =3, "four"=4)
+numToText(4, EnglishNumbers)
+TextToNum("zwolf", German)
+````
+          word  language
+paste, ==, +-/* sin, 
+lang==word
+iconvlist()
+EnglishNumbers == "three"
+which(EnglishNumbers =="four")
+which(EnglishNumbers =="four")-1
+wordToNum <- function(lang, word) which (lang == word)
+wordToNum(EnglishNumbers, "three")
+wordToNum(EnglishNumbers, "zero")
+EnglishNumbers
+%in%
+indexing

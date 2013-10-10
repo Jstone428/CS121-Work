@@ -1,0 +1,20 @@
+Thesaurus
+_________
+# Dictionary
+Vector of character strings
+```{r}
+c(run='walk fast or gallop', sleep='to rest or not be awake', chair='object for sitting, the person who runs a meeting')
+dictionary <- c(run="walk fast or gallop",
+                 sleep="to rest or not be awake", 
+                 chair="object for sitting or the person who runs a meeting")
+names(dictionary)
+roget <- function(word, definitions){ 
+    matched <- grep(word, definitions)
+    return(names(definitions)[matched])
+    }
+roget("run", dictionary)
+roget("not be awake", dictionary)
+```
+
+
+

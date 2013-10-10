@@ -1,0 +1,11 @@
+ins <- 2:5
+ins-1
+
+myDiff <- function(x){
+  ins<- 2:length(x)
+  return((x[ins])-(x[ins-1]))
+  }
+  
+
+myDiff(c(3,6,10))
+

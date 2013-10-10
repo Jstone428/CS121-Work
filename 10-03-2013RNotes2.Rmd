@@ -1,0 +1,75 @@
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+head(words)
+
+findScrabble<-function(letters){
+  for(k in 1:3){
+  words<-words[grep(letters[1], words)]
+  words<-words[grep(letters[2], words)]
+  words<-words[grep(letters[3], words)]}
+  return(words)
+  }
+
+findScrabble(c("b","n","r"))
+findScrabble2<-function(letters){
+  for(k in 1:length(letters)){
+  words<-words[grep(letters[k],words)]
+  if(length(words)<10)break
+  }
+  return(words)
+  }
+length(findScrabble2(c("b","n","r","w","a")))
+findScrabble2(c("b","n","r","w","a"))
+```
+FIBONACCI NUMBERS
+```{r}
+fib<-function(n){
+  current<-1
+  beforeIt<-0
+  for(k in 1:n){
+    tmp<-current + beforeIt
+    beforeIt<-current
+    current<-tmp
+  }
+  return(current)
+}
+fib(6)
+fib(7)
+fib(8)
+#wrong numbers
+fib2<-function(n){
+  if(n<0|round(n) !=n){
+    warning("~~Just keep swimming~~")
+    return(NA)
+  }
+  sofar=c(0,1)
+  for(k in 3:n){
+    sofar[k]<-sofar[k-1]+sofar[k-2]
+  }
+  return(sofar)
+  }
+fib2(8)
+fib2(-5)
+```
+PRIME NUMBERS
+```{r}
+primesSieve<-function(n){
+  guess<-rep(TRUE, n)
+  inds<-1:n
+for (k in 2:n){
+  if(guess[k]){
+  guess[(inds%%k)==0 & inds> k] <-FALSE
+  }
+}
+return(which(guess))
+}
+primesSieve(10000)
+
+
+
+
+
+
+
+
+```
