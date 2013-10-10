@@ -4,3 +4,5 @@ This is the front page for my Scientific Programming course, CS 121.  It has lin
 
 To be updated
 [My favorite project](functionsandgraphics.html)
+
+This is updated!
