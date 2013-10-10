@@ -1,3 +1,6 @@
-# My Front Page: A Story
+# Better title  My Front Page: A Story
 
-Once upon a time in a land far, far away ... 
+This is the front page for my Scientific Programming course, CS 121.  It has links to various projects that I wrote as part of the course.
+
+To be updated
+[My favorite project](functionsandgraphics.html)
