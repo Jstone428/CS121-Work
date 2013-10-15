@@ -1,0 +1,36 @@
+# Numbers and Strings
+=================
+# Basic Statistics
+```{r}
+outlier(x)
+```
+# Numbers and Languages
+```{r}
+digitToWord(v) 
+```
+# Help for Crossword Puzzles
+```{r}
+lettersMatch(words,pattern)
+```
+# Have your π two ways
+One way: A Series
+```{r}
+piSeries(n)
+```
+How close?
+```{r}
+howCloseToPi(n)
+```
+Another way: A “Monte Carlo” Method
+```{r}
+randomApproxToPi(n)
+```
+How close? 
+```{r}
+sapply(x, fun)
+```
+
+
+
+
+
