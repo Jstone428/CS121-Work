@@ -1,0 +1,23 @@
+# Blank “Canvases”, Circles and Squares
+
+```{r}
+plot(1:2, type="n", xlim=c(1,100), ylim=c(1,100), xlab="", ylab="",asp=1)
+angles<-seq(0, 2*pi, length=1000)
+#circle
+polygon(50+28*cos(angles), 50+28*sin(angles), col="#C2D6FF99", border="NA")
+#E(radius smaller)
+polygon(25+18*cos(angles), 67+28*sin(angles), col="#FFBDFF98", border="NA")
+#SquareG
+polygon(c(15,43,43,15), c(39,39,67,67), col="#00FF0080", border="#0000FF", lwd=6)
+#SquareR
+polygon(c(23,42,42,23),c(11,11,30,30), col="#FF000099", border="black")
+#Pentagon
+polygon(c(60,67,87,94,77), c(64,44,44,64,77),col="#FFFF0098", border="NA")
+```
+
+And here's what I was trying, boo hoo 
+```{r eval=FALSE}
+REAL
+plot(1:2, type="n", xlim=c(1,100), ylim=c(1,100), xlab="", ylab="")
+polygon(50+28*cos(angles), 50+28*sin(angles), col="#C2D6FF99", border="NA")
+```
