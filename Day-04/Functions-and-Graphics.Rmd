@@ -1,0 +1,81 @@
+Deliverable: Functions and Graphics 
+==========
+
+# Sums of Numbers
+How many are odd
+```{r}
+countOdds <- function(x){return(sum(x%%2==1))}
+countOdds(1:9)
+```
+How many are even
+```{r}
+countEvens <- function(x){return(sum(x%%2==0))}
+countEvens(1:9)
+```
+# Triangles
+Pythagoras
+```{r}
+hypotenuseLength <- function(a,b){return(sqrt(a^2+b^2))}
+hypotenuseLength(3,4)
+hypotenuseLength(13,84)
+```
+Law of Cosines
+```{r}
+lawOfCosines <- function(a,b,theta){return(sqrt(a^2+b^2-2*a*b*cos(theta)))}
+lawOfCosines(13,84,pi/2)
+lawOfCosines(13,84,0)
+lawOfCosines(5,5,pi/3)
+```
+Find the Angle
+```{r}
+thetaFromLengths <- function(a,b,c){return(acos((c^2-a^2-b^2)/((-1)*2*a*b)))}
+thetaFromLengths(3,4,5)
+```
+Test thetafromlengths()
+```{r}
+thetaFromLengthsTest <- function(a,b,theta){return(thetaFromLengths(a,b,lawOfCosines(a,b,theta))-theta)}
+thetaFromLengthsTest(3,4,pi/2)
+```
+# Graphics
+Write a function canvas() that takes a vector of two numbers to draw a blank canvas on that scale. 
+```{r}
+canvas <- function(x,y){return(plot(x:y, type="n", xlim=c(1,100), ylim=c(1,100), xlab="", ylab="",asp=1))}
+canvas(6,8)
+```
+Write a function drawCircle() that takes a center and radius and a color and adds the filled circle to the current canvas. 
+```{r}
+canvas(6,8)
+drawCircle <- function(x,y,r,z){return(polygon(x+r*cos(seq(0,2*pi,length=1000)),y+r*sin(seq(0,2*pi, length=1000)), col=z, border=NULL))}
+drawCircle(40,40,20,"maroon")
+```
+*******Modify drawCircle() so that it takes ... as an argument and passes this on to the basic drawing commands (e.g., polygon()). 
+```{r}
+canvas(6,8)
+drawCircle <- function(x,y,r,...){return(polygon(x+r*cos(seq(0,2*pi,length=1000)),y+r*sin(seq(0,2*pi, length=1000)),...))}
+drawCircle(40,40,20, col="blue")
+drawCircle(80,80,15, lwd=5, border="maroon")
+```
+Draw some overlaping circles.
+```{r}
+canvas(6,8)
+drawCircle <- function(x,y,r,z){return(polygon(x+r*cos(seq(0,2*pi,length=1000)),y+r*sin(seq(0,2*pi, length=1000)), col=z))}
+drawCircle(30,30,15,"blue")
+drawCircle(40,40,15,"yellow")
+drawCircle(50,50,15,"green")
+drawCircle(20,65,10,"red")
+drawCircle(30,70,10,"yellow")
+drawCircle(40,75,10,"orange")
+```
+Draw the Olympic logo.
+```{r}
+canvas(6,8)
+drawCircle <- function(x,y,r,z,w){return(polygon(x+r*cos(seq(0,2*pi,length=1000)),y+r*sin(seq(0,2*pi, length=1000)), border=z, lwd=w))}
+drawCircle(20,65,14, "blue",8)
+drawCircle(51,65,14, "black",8)
+drawCircle(82,65,14, "red",8)
+drawCircle(35,53,14, "yellow",8)
+drawCircle(67,53,14, "green",8)
+```
+
+
+
