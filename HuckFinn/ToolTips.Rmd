@@ -41,5 +41,5 @@ formatString(c("Once", "upon", "a", "time","..."),c("The tv show?","on what?","o
 .hiword {background:pink;}
 .brown {background:brown;}
 .blue {background:lightslateblue;}
-.fancyfont {font: oblique 30px cursive;}
+.fancyfont {font: oblique 40px cursive;}
 </style>
