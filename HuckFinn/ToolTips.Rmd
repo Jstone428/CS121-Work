@@ -35,17 +35,11 @@ formatString<-function(words,tips,styles){
 }
 
 formatString(c("How","now","brown","cow","!"),c("How are you doing?",NA,"Why brown?","bovine","enthusiasm"),c("hiword","","brown","blue","hiword"))
+formatString(c("Once", "upon", "a", "time","..."),c("The tv show?","on what?","oh","when?","continue the story!"), c("fancyfont", "fancyfont","fancyfont","fancyfont","fancyfont"))
 ```
 <style>
 .hiword {background:pink;}
 .brown {background:brown;}
 .blue {background:lightslateblue;}
+.fancyfont {font: oblique 30px cursive;}
 </style>
-
-
-
-
-
-
-
-

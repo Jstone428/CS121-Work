@@ -232,10 +232,18 @@ formatString(c(&quot;How&quot;, &quot;now&quot;, &quot;brown&quot;, &quot;cow&qu
 
 <p><span class='hiword' title='How are you doing?'>How</span> now <span class='brown' title='Why brown?'>brown</span> <span class='blue' title='bovine'>cow</span> <span class='hiword' title='enthusiasm'>!</span></p>
 
+<pre><code class="r">formatString(c(&quot;Once&quot;, &quot;upon&quot;, &quot;a&quot;, &quot;time&quot;, &quot;...&quot;), c(&quot;The tv show?&quot;, &quot;on what?&quot;, 
+    &quot;oh&quot;, &quot;when?&quot;, &quot;continue the story!&quot;), c(&quot;fancyfont&quot;, &quot;fancyfont&quot;, &quot;fancyfont&quot;, 
+    &quot;fancyfont&quot;, &quot;fancyfont&quot;))
+</code></pre>
+
+<p><span class='fancyfont' title='The tv show?'>Once</span> <span class='fancyfont' title='on what?'>upon</span> <span class='fancyfont' title='oh'>a</span> <span class='fancyfont' title='when?'>time</span> <span class='fancyfont' title='continue the story!'>&hellip;</span></p>
+
 <style>
 .hiword {background:pink;}
 .brown {background:brown;}
 .blue {background:lightslateblue;}
+.fancyfont {font: oblique 30px cursive;}
 </style>
 
 </body>
