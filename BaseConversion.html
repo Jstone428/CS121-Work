@@ -181,18 +181,22 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Base Conversion</h1>
 
+<h1></h1>
+
+<h3>Task 1: toBase()</h3>
+
 <pre><code class="r">toBase &lt;- function(Z, b) {
-    base &lt;- c()
+    res &lt;- c()
     while (Z &gt; 0) {
         r &lt;- Z%%b
-        base &lt;- c(r, base)
+        res &lt;- c(r, res)
         Z &lt;- (Z - r)/b
     }
-    return(base)
+    return(res)
 }
 </code></pre>
 
-<p>Task 1</p>
+<h4>TESTING</h4>
 
 <pre><code class="r"># toBase(Z,b)
 toBase(13, 2)
@@ -207,7 +211,102 @@ toBase(13, 2)
 <pre><code>## [1] 1 1 1
 </code></pre>
 
-<p>Going Further</p>
+<pre><code class="r">toBase(327, 2)
+</code></pre>
+
+<pre><code>## [1] 1 0 1 0 0 0 1 1 1
+</code></pre>
+
+<pre><code class="r">toBase(327, 12)
+</code></pre>
+
+<pre><code>## [1] 2 3 3
+</code></pre>
+
+<pre><code class="r">toBase(635, 12)
+</code></pre>
+
+<pre><code>## [1]  4  4 11
+</code></pre>
+
+<h3>Task 2: baseToNumeric()</h3>
+
+<p>Going Further
+Given a character vector of digits and a numerical base</p>
+
+<pre><code class="r">baseToNumeric &lt;- function(Nvec, b) {
+    howMany &lt;- length(Nvec)
+    herdsize &lt;- b^((howMany - 1):0)
+    return(as.numeric(Nvec) * herdsize)
+}
+</code></pre>
+
+<h4>TESTING</h4>
+
+<pre><code class="r">baseToNumeric(c(&quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;), 8)
+</code></pre>
+
+<pre><code>## [1] 3584  384   40    4
+</code></pre>
+
+<pre><code class="r">baseToNumericSum &lt;- function(Nvec, b) {
+    howMany &lt;- length(Nvec)
+    herdsize &lt;- b^((howMany - 1):0)
+    return(sum(as.numeric(Nvec) * herdsize))
+}
+# TESTING
+baseToNumericSum(c(&quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;), 8)
+</code></pre>
+
+<pre><code>## [1] 4012
+</code></pre>
+
+<h3>Task 2.1</h3>
+
+<pre><code class="r">convertAsALoop &lt;- function(Nvec, b) {
+    # Initialize state
+    Nvec &lt;- as.numeric(Nvec)
+    sheepCount &lt;- 0
+    boxSize &lt;- 1
+
+    for (k in length(Nvec):1) {
+        sheepCount &lt;- sheepCount + boxSize * Nvec[k]
+        boxSize &lt;- boxSize * b
+    }
+    return(sheepCount)
+}
+</code></pre>
+
+<h4>TestCase</h4>
+
+<pre><code class="r">convertAsALoop(c(&quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;), 8)
+</code></pre>
+
+<pre><code>## [1] 4012
+</code></pre>
+
+<h3>Task 2.2</h3>
+
+<pre><code class="r">convertNoLoop &lt;- function(Nvec, b) {
+    # Initialize state
+    a &lt;- length(Nvec)
+    b &lt;- b^((a - 1):0)
+    one &lt;- Nvec[a] * b[a]
+    two &lt;- Nvec[a - 1] * b[a - 1]
+    three &lt;- Nvec[a - 2] * b[a - 2]
+    four &lt;- Nvec[a - 3] * b[a - 3]
+    sheepCount &lt;- sum(one, two, three, four)
+    return(sheepCount)
+}
+</code></pre>
+
+<h4>Test Case</h4>
+
+<pre><code class="r">convertNoLoop(c(7, 6, 5, 4), 8)
+</code></pre>
+
+<pre><code>## [1] 4012
+</code></pre>
 
 </body>
 

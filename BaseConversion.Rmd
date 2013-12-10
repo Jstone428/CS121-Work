@@ -1,25 +1,86 @@
 # Base Conversion
+=======
+### Task 1: toBase()
 ```{r}
 toBase<-function(Z,b){
-  base<-c()
+  res<-c()
   while(Z > 0 ){
     r<-Z%%b
-    base<-c(r,base)
+    res<-c(r,res)
     Z<-(Z-r)/b    
     }
-  return(base)
+  return(res)
   }
 ```
-Task 1
+#### TESTING
 ```{r}
 #toBase(Z,b)
 toBase(13,2)
 toBase(13,3)
-
+toBase(327,2)
+toBase(327,12)
+toBase(635,12)
 ```
+### Task 2: baseToNumeric()
 Going Further
+Given a character vector of digits and a numerical base
 ```{r}
-
-
-
+baseToNumeric<-function(Nvec,b){
+  howMany<-length(Nvec)
+  herdsize<-b^((howMany-1):0)
+  return(as.numeric(Nvec)*herdsize)  
+  }
 ```
+#### TESTING
+```{r}
+baseToNumeric(c("7","6","5","4"),8)
+```
+```{r}
+baseToNumericSum<-function(Nvec,b){
+  howMany<-length(Nvec)
+  herdsize<-b^((howMany-1):0)
+  return(sum(as.numeric(Nvec)*herdsize))
+  }
+#TESTING
+baseToNumericSum(c("7","6","5","4"),8)
+```
+### Task 2.1
+```{r}
+convertAsALoop<-function(Nvec,b){
+  #Initialize state
+  Nvec<-as.numeric(Nvec)
+  sheepCount<-0
+  boxSize<-1
+  
+  for(k in length(Nvec):1){
+    sheepCount<-sheepCount+boxSize*Nvec[k]
+    boxSize<-boxSize*b
+  }
+  return(sheepCount)
+}
+```
+#### TestCase
+```{r}
+convertAsALoop(c("7","6","5","4"),8)
+```
+### Task 2.2
+```{r}
+convertNoLoop<-function(Nvec,b){
+  #Initialize state
+  a<-length(Nvec)
+  b<-b^((a-1):0)
+  one<-Nvec[a]*b[a]
+  two<-Nvec[a-1]*b[a-1]
+  three<-Nvec[a-2]*b[a-2]
+  four<-Nvec[a-3]*b[a-3]
+  sheepCount<-sum(one,two,three,four)
+  return(sheepCount)
+}
+```
+#### Test Case
+```{r}
+convertNoLoop(c(7,6,5,4),8)
+```
+
+
+
