@@ -1,0 +1,24 @@
+# COMP 121 - Programming Task - Prof. Kaplan
+============
+```{r}
+require(mosaic)
+wordhints<-fetchData("COMP121/word-hints.R")
+```
+### 1. letterProportion()
+```{r}
+letterProportion<-function(x){
+  
+}
+```
+### 2. freqCompare()
+```{r}
+freqCompare<-function(x){
+  
+}
+```
+### 3. whichLanguage()
+```{r}
+whichLanguage<-function(x){
+  
+}
+```
