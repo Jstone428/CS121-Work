@@ -6,19 +6,37 @@ wordhints<-fetchData("COMP121/word-hints.R")
 ```
 ### 1. letterProportion()
 ```{r}
-letterProportion<-function(x){
+letterProportion<-function(...){
+  strsplit(...,"")
   
+  return(tolower("..."))
 }
+
+res<-letterProportion(phraseOne)
+res
 ```
 ### 2. freqCompare()
 ```{r}
-freqCompare<-function(x){
-  
+# create table with all frequencies? 
+freqCompare<-function(res,...){
+  observedfreq<-res
+  languagefreq<-c(English,German,Finnish,French,Italian,Spanish)
+  diff<-observedfreq-languagefreq
+  diff2<-diff^2
+  chisq<-diff2/languagefreq
+    
+  return()
 }
+
+freqCompare(res,English)
+
 ```
 ### 3. whichLanguage()
 ```{r}
 whichLanguage<-function(x){
   
 }
+
+whichLanguage(phraseOne)
+whichLanguage(phraseTwo)
 ```

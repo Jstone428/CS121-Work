@@ -208,16 +208,36 @@ hljs.initHighlightingOnLoad();
 
 <h3>1. letterProportion()</h3>
 
-<pre><code class="r">letterProportion &lt;- function(x) {
+<pre><code class="r">letterProportion &lt;- function(...) {
+    strsplit(..., &quot;&quot;)
 
+    return(tolower(&quot;...&quot;))
 }
+
+res &lt;- letterProportion(phraseOne)
+res
+</code></pre>
+
+<pre><code>## [1] &quot;...&quot;
 </code></pre>
 
 <h3>2. freqCompare()</h3>
 
-<pre><code class="r">freqCompare &lt;- function(x) {
+<pre><code class="r"># create table with all frequencies?
+freqCompare &lt;- function(res, ...) {
+    observedfreq &lt;- res
+    languagefreq &lt;- c(English, German, Finnish, French, Italian, Spanish)
+    diff &lt;- observedfreq - languagefreq
+    diff2 &lt;- diff^2
+    chisq &lt;- diff2/languagefreq
 
+    return()
 }
+
+freqCompare(res, English)
+</code></pre>
+
+<pre><code>## Error: non-numeric argument to binary operator
 </code></pre>
 
 <h3>3. whichLanguage()</h3>
@@ -225,6 +245,17 @@ hljs.initHighlightingOnLoad();
 <pre><code class="r">whichLanguage &lt;- function(x) {
 
 }
+
+whichLanguage(phraseOne)
+</code></pre>
+
+<pre><code>## NULL
+</code></pre>
+
+<pre><code class="r">whichLanguage(phraseTwo)
+</code></pre>
+
+<pre><code>## NULL
 </code></pre>
 
 </body>
