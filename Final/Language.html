@@ -214,11 +214,15 @@ hljs.initHighlightingOnLoad();
     return(tolower(&quot;...&quot;))
 }
 
-res &lt;- letterProportion(phraseOne)
+res &lt;- letterProportionHint(phraseOne)
 res
 </code></pre>
 
-<pre><code>## [1] &quot;...&quot;
+<pre><code>## 9
+##               .       b       c       d       e       h       i       k 
+## 0.12903 0.03226 0.06452 0.03226 0.06452 0.25806 0.03226 0.06452 0.03226 
+##       l       n       o       r       v 
+## 0.03226 0.06452 0.03226 0.09677 0.06452
 </code></pre>
 
 <h3>2. freqCompare()</h3>
@@ -231,31 +235,41 @@ freqCompare &lt;- function(res, ...) {
     diff2 &lt;- diff^2
     chisq &lt;- diff2/languagefreq
 
-    return()
+    return(chisq)
 }
-
 freqCompare(res, English)
 </code></pre>
 
-<pre><code>## Error: non-numeric argument to binary operator
+<pre><code>## Warning: longer object length is not a multiple of shorter object length
+</code></pre>
+
+<pre><code>## Error: dims [product 14] do not match the length of object [54]
+</code></pre>
+
+<pre><code class="r">freqCompareHint(res, English)
+</code></pre>
+
+<pre><code>##      e 
+## 0.2067
 </code></pre>
 
 <h3>3. whichLanguage()</h3>
 
-<pre><code class="r">whichLanguage &lt;- function(x) {
+<pre><code class="r">whichLanguage &lt;- function(...) {
+
 
 }
 
-whichLanguage(phraseOne)
+whichLanguageHint(phraseOne)
 </code></pre>
 
-<pre><code>## NULL
+<pre><code>## [1] &quot;German&quot;
 </code></pre>
 
-<pre><code class="r">whichLanguage(phraseTwo)
+<pre><code class="r">whichLanguageHint(phraseTwo)
 </code></pre>
 
-<pre><code>## NULL
+<pre><code>## [1] &quot;English&quot;
 </code></pre>
 
 </body>

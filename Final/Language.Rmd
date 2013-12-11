@@ -12,7 +12,7 @@ letterProportion<-function(...){
   return(tolower("..."))
 }
 
-res<-letterProportion(phraseOne)
+res<-letterProportionHint(phraseOne)
 res
 ```
 ### 2. freqCompare()
@@ -25,18 +25,19 @@ freqCompare<-function(res,...){
   diff2<-diff^2
   chisq<-diff2/languagefreq
     
-  return()
+  return(chisq)
 }
-
 freqCompare(res,English)
+freqCompareHint(res,English)
 
 ```
 ### 3. whichLanguage()
 ```{r}
-whichLanguage<-function(x){
+whichLanguage<-function(...){
+  
   
 }
 
-whichLanguage(phraseOne)
-whichLanguage(phraseTwo)
+whichLanguageHint(phraseOne)
+whichLanguageHint(phraseTwo)
 ```
