@@ -181,6 +181,8 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>COMP 121 - Programming Task - Prof. Kaplan</h1>
 
+<h4>by Jessica Stone</h4>
+
 <h1></h1>
 
 <pre><code class="r">require(mosaic)
@@ -198,6 +200,12 @@ hljs.initHighlightingOnLoad();
 ## The following object is masked from &#39;package:base&#39;:
 ## 
 ## max, mean, min, print, prod, range, sample, sum
+</code></pre>
+
+<pre><code class="r">require(stringr)
+</code></pre>
+
+<pre><code>## Loading required package: stringr
 </code></pre>
 
 <pre><code class="r">wordhints &lt;- fetchData(&quot;COMP121/word-hints.R&quot;)
@@ -234,7 +242,6 @@ freqCompare &lt;- function(res, ...) {
     diff &lt;- observedfreq - languagefreq
     diff2 &lt;- diff^2
     chisq &lt;- diff2/languagefreq
-
     return(chisq)
 }
 freqCompare(res, English)
@@ -256,8 +263,8 @@ freqCompare(res, English)
 <h3>3. whichLanguage()</h3>
 
 <pre><code class="r">whichLanguage &lt;- function(...) {
-
-
+    n &lt;- chisq
+    return(min(n))
 }
 
 whichLanguageHint(phraseOne)

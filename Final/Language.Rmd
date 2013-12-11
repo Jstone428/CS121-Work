@@ -1,7 +1,9 @@
 # COMP 121 - Programming Task - Prof. Kaplan
+#### by Jessica Stone
 ============
 ```{r}
 require(mosaic)
+require(stringr)
 wordhints<-fetchData("COMP121/word-hints.R")
 ```
 ### 1. letterProportion()
@@ -24,7 +26,6 @@ freqCompare<-function(res,...){
   diff<-observedfreq-languagefreq
   diff2<-diff^2
   chisq<-diff2/languagefreq
-    
   return(chisq)
 }
 freqCompare(res,English)
@@ -34,8 +35,10 @@ freqCompareHint(res,English)
 ### 3. whichLanguage()
 ```{r}
 whichLanguage<-function(...){
-  
-  
+  n<-chisq 
+  languagefreq<-c(English,German,Finnish,French,Italian,Spanish)
+  min(n)
+    return()
 }
 
 whichLanguageHint(phraseOne)
