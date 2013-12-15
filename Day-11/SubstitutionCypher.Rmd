@@ -1,0 +1,42 @@
+Sustitution Cypher
+========================================================
+
+### Step 1: The Key
+```{r}
+key <- "zoo"
+TheKey <- function(L){which (L==letters)}
+paste(sapply(unlist(strsplit(key,split=NULL)),FUN=TheKey),collapse="")
+```
+
+### Step 2: THe Cypher
+```{r}
+set.seed(paste(sapply(unlist(strsplit(key,split=NULL)),FUN=TheKey),collapse=""))
+characters<- c(letters, LETTERS,".",":",",",";",0:9)
+fromandto<-sample(characters)
+fromandto
+```
+### Step 3: Encryption
+```{r}
+CBCoutput<-chartr(paste(characters,collapse=""),paste(fromandto,collapse=""),"Messsage Encrypted")
+CBCoutput
+```
+### Step 4: Decryption
+```{r}
+decoded<-chartr(paste(fromandto,collapse=""),paste(characters,collapse=""),CBCoutput)
+decoded
+```
+## Mystery Novel
+Write a few paragraphs of a mystery novel — the part where your main character receives the Library of Congress code and an encypherd message. Show how the character uses R to decrypt the message. Have fun!
+
+```{r}
+paragraph<-chartr(paste(characters,collapse=""),paste(fromandto,collapse=""),"Carol retreives her mail from her mailbox. There is a strange envelope. She is skeptical, but proceeds to open it. Inside is the Library of Congress code and what looks to be an encrypted message. Carol slowly looks around to see if anyone noticed her opening the envelope. She retreats back inside and locks her door. Carol sits down on her couch and reads the code and encrypted message. Hours later, with crumpled papers all over the floor, Carol still cannot figure it out. Then, she remembers a class she took in college: Intro to Scientific Programming with Danny Kaplan! She remembers that they wrote a function to decode messages. She runs to her computer and loads R Studio on her desktop. She searches for the deliverable and finds it! She runs the function...(continue reading to find out more)")
+paragraph
+
+decoded<-chartr(paste(fromandto,collapse=""),paste(characters,collapse=""),paragraph)
+decoded
+
+
+
+
+
+
