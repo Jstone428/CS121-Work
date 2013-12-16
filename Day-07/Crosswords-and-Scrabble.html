@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=9" >
 
-<title></title>
+<title>Crosswords, Scrabble, and Regular Expressions</title>
 
 <style type="text/css">
 body, td {
@@ -135,6 +135,43 @@ hr {
 
 </style>
 
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
 
 
 
@@ -142,7 +179,611 @@ hr {
 </head>
 
 <body>
-<p>Crosswords, Scrabble, and Regular Expressions</p>
+<h1>Crosswords, Scrabble, and Regular Expressions</h1>
+
+<h1></h1>
+
+<pre><code class="r">words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+</code></pre>
+
+<h2>Summarizing the List</h2>
+
+<pre><code class="r">wordLength &lt;- function(x) {
+    list &lt;- c()
+    characters &lt;- sapply(words, nchar)
+    for (k in 1:length(words)) {
+        if (characters[[k]] == x) {
+            list &lt;- c(list, characters[[k]])
+        } else {
+        }
+    }
+    return(length(list))
+}
+</code></pre>
+
+<h4>Testing: The number of words of length 1, of length 2, of length 3, etc.</h4>
+
+<pre><code class="r"># wordLength(1):wordLength(21)
+wordLength(1)
+</code></pre>
+
+<pre><code>## [1] 0
+</code></pre>
+
+<pre><code class="r">wordLength(2)
+</code></pre>
+
+<pre><code>## [1] 85
+</code></pre>
+
+<pre><code class="r">wordLength(3)
+</code></pre>
+
+<pre><code>## [1] 908
+</code></pre>
+
+<pre><code class="r">wordLength(4)
+</code></pre>
+
+<pre><code>## [1] 3686
+</code></pre>
+
+<pre><code class="r">wordLength(5)
+</code></pre>
+
+<pre><code>## [1] 8258
+</code></pre>
+
+<pre><code class="r">wordLength(6)
+</code></pre>
+
+<pre><code>## [1] 14374
+</code></pre>
+
+<pre><code class="r">wordLength(7)
+</code></pre>
+
+<pre><code>## [1] 21727
+</code></pre>
+
+<pre><code class="r">wordLength(8)
+</code></pre>
+
+<pre><code>## [1] 26447
+</code></pre>
+
+<pre><code class="r">wordLength(9)
+</code></pre>
+
+<pre><code>## [1] 16658
+</code></pre>
+
+<pre><code class="r">wordLength(10)
+</code></pre>
+
+<pre><code>## [1] 9199
+</code></pre>
+
+<pre><code class="r">wordLength(11)
+</code></pre>
+
+<pre><code>## [1] 5296
+</code></pre>
+
+<pre><code class="r">wordLength(12)
+</code></pre>
+
+<pre><code>## [1] 3166
+</code></pre>
+
+<pre><code class="r">wordLength(13)
+</code></pre>
+
+<pre><code>## [1] 1960
+</code></pre>
+
+<pre><code class="r">wordLength(14)
+</code></pre>
+
+<pre><code>## [1] 1023
+</code></pre>
+
+<pre><code class="r">wordLength(15)
+</code></pre>
+
+<pre><code>## [1] 557
+</code></pre>
+
+<pre><code class="r">wordLength(16)
+</code></pre>
+
+<pre><code>## [1] 261
+</code></pre>
+
+<pre><code class="r">wordLength(17)
+</code></pre>
+
+<pre><code>## [1] 132
+</code></pre>
+
+<pre><code class="r">wordLength(18)
+</code></pre>
+
+<pre><code>## [1] 48
+</code></pre>
+
+<pre><code class="r">wordLength(19)
+</code></pre>
+
+<pre><code>## [1] 16
+</code></pre>
+
+<pre><code class="r">wordLength(20)
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+<pre><code class="r">wordLength(21)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<h3>The 100 longest words.</h3>
+
+<p>For this function, there isn&#39;t a way to get the 100 longest words. </p>
+
+<pre><code class="r">ListofWords &lt;- function(x) {
+    list &lt;- c()
+    characters &lt;- sapply(words, nchar)
+    for (k in 1:length(words)) {
+        if (characters[[k]] == x) {
+            list &lt;- c(list, characters[[k]])
+        } else {
+        }
+    }
+    return(list)
+}
+HundredWords &lt;- c(ListofWords(21), ListofWords(20), ListofWords(19), ListofWords(18), 
+    ListofWords(17))
+</code></pre>
+
+<h4>Testing</h4>
+
+<pre><code class="r">length(HundredWords)
+</code></pre>
+
+<pre><code>## [1] 204
+</code></pre>
+
+<pre><code class="r">HundredWords
+</code></pre>
+
+<pre><code>##   [1] 21 21 21 20 20 20 20 20 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19
+##  [24] 19 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18
+##  [47] 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18
+##  [70] 18 18 18 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+##  [93] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+## [116] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+## [139] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+## [162] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+## [185] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+</code></pre>
+
+<h3>The number of words starting with each of “a”, “b”, “c”, and so on.</h3>
+
+<pre><code class="r">## A
+length(words[grepl(&quot;^a&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 6557
+</code></pre>
+
+<pre><code class="r">## B
+length(words[grepl(&quot;^b&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 6848
+</code></pre>
+
+<pre><code class="r">## C
+length(words[grepl(&quot;^c&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 10385
+</code></pre>
+
+<pre><code class="r">## D
+length(words[grepl(&quot;^d&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 6436
+</code></pre>
+
+<pre><code class="r">## E
+length(words[grepl(&quot;^e&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 4364
+</code></pre>
+
+<pre><code class="r">## F
+length(words[grepl(&quot;^f&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 4937
+</code></pre>
+
+<pre><code class="r">## G
+length(words[grepl(&quot;^g&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 3950
+</code></pre>
+
+<pre><code class="r">## H
+length(words[grepl(&quot;^h&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 4080
+</code></pre>
+
+<pre><code class="r">## I
+length(words[grepl(&quot;^i&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 4013
+</code></pre>
+
+<pre><code class="r">## J
+length(words[grepl(&quot;^j&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 1106
+</code></pre>
+
+<pre><code class="r">## K
+length(words[grepl(&quot;^k&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 1312
+</code></pre>
+
+<pre><code class="r">## L
+length(words[grepl(&quot;^l&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 3710
+</code></pre>
+
+<pre><code class="r">## M
+length(words[grepl(&quot;^m&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 6270
+</code></pre>
+
+<pre><code class="r">## N
+length(words[grepl(&quot;^n&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 2208
+</code></pre>
+
+<pre><code class="r">## O
+length(words[grepl(&quot;^o&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 3978
+</code></pre>
+
+<pre><code class="r">## P
+length(words[grepl(&quot;^p&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 8693
+</code></pre>
+
+<pre><code class="r">## Q
+length(words[grepl(&quot;^q&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 568
+</code></pre>
+
+<pre><code class="r">## R
+length(words[grepl(&quot;^r&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 7141
+</code></pre>
+
+<pre><code class="r">## S
+length(words[grepl(&quot;^s&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 12591
+</code></pre>
+
+<pre><code class="r">## T
+length(words[grepl(&quot;^t&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 5951
+</code></pre>
+
+<pre><code class="r">## U
+length(words[grepl(&quot;^u&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 2934
+</code></pre>
+
+<pre><code class="r">## V
+length(words[grepl(&quot;^v&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 1932
+</code></pre>
+
+<pre><code class="r">## W
+length(words[grepl(&quot;^w&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 2927
+</code></pre>
+
+<pre><code class="r">## X
+length(words[grepl(&quot;^x&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 82
+</code></pre>
+
+<pre><code class="r">## Y
+length(words[grepl(&quot;^y&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 438
+</code></pre>
+
+<pre><code class="r">## Z
+length(words[grepl(&quot;^z&quot;, words) == TRUE])
+</code></pre>
+
+<pre><code>## [1] 398
+</code></pre>
+
+<h3>The full list of words with a “q” but no “u” following.</h3>
+
+<pre><code class="r">ExcludeU &lt;- words[grepl(&quot;q[^u]&quot;, words) == TRUE]
+ExcludeU
+</code></pre>
+
+<pre><code>##  [1] &quot;buqsha&quot;  &quot;buqshas&quot; &quot;faqir&quot;   &quot;faqirs&quot;  &quot;qaid&quot;    &quot;qaids&quot;   &quot;qindar&quot; 
+##  [8] &quot;qindars&quot; &quot;qintar&quot;  &quot;qintars&quot; &quot;qiviut&quot;  &quot;qiviuts&quot; &quot;qoph&quot;    &quot;qophs&quot;
+</code></pre>
+
+<h3>Crossword Helper</h3>
+
+<pre><code class="r">crossword &lt;- function(x) {
+    a &lt;- grepl(x, words)
+    return(words[a])
+}
+</code></pre>
+
+<p>Testing</p>
+
+<pre><code class="r">crossword(&quot;^.s..t.$&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;ascots&quot; &quot;assets&quot; &quot;astute&quot; &quot;escots&quot; &quot;estate&quot; &quot;islets&quot;
+</code></pre>
+
+<h2>A Better Crossword Helper</h2>
+
+<pre><code class="r">crosswordPattern &lt;- function(v, x) {
+    a &lt;- rep(&quot;.&quot;, x)
+    for (k in 1:length(v)) {
+        a[v[[k]]] = names(v)[k]
+    }
+    b &lt;- c(&quot;^&quot;, a, &quot;$&quot;)
+    c &lt;- paste(b, collapse = &quot;&quot;)
+    d &lt;- grepl(c, words)
+    return(words[d])
+}
+crosswordPattern(c(b = 1, s = 7), 7)
+</code></pre>
+
+<pre><code>##   [1] &quot;babbles&quot; &quot;babools&quot; &quot;baboons&quot; &quot;backers&quot; &quot;backups&quot; &quot;baddies&quot; &quot;badgers&quot;
+##   [8] &quot;badness&quot; &quot;baffies&quot; &quot;baffles&quot; &quot;bagfuls&quot; &quot;baggies&quot; &quot;bagnios&quot; &quot;baguets&quot;
+##  [15] &quot;bagwigs&quot; &quot;bailees&quot; &quot;bailers&quot; &quot;baileys&quot; &quot;bailies&quot; &quot;bailors&quot; &quot;baiters&quot;
+##  [22] &quot;bakings&quot; &quot;balases&quot; &quot;balatas&quot; &quot;balboas&quot; &quot;baleens&quot; &quot;balkers&quot; &quot;ballads&quot;
+##  [29] &quot;ballers&quot; &quot;ballets&quot; &quot;ballons&quot; &quot;ballots&quot; &quot;balsams&quot; &quot;bamboos&quot; &quot;bananas&quot;
+##  [36] &quot;banders&quot; &quot;bandies&quot; &quot;bandits&quot; &quot;bandogs&quot; &quot;bangers&quot; &quot;bangles&quot; &quot;banians&quot;
+##  [43] &quot;banjoes&quot; &quot;bankers&quot; &quot;banners&quot; &quot;bannets&quot; &quot;bantams&quot; &quot;banters&quot; &quot;banyans&quot;
+##  [50] &quot;banzais&quot; &quot;baobabs&quot; &quot;barbels&quot; &quot;barbers&quot; &quot;barbets&quot; &quot;barbuts&quot; &quot;bareges&quot;
+##  [57] &quot;bargees&quot; &quot;barhops&quot; &quot;barites&quot; &quot;bariums&quot; &quot;barkers&quot; &quot;barless&quot; &quot;barleys&quot;
+##  [64] &quot;barlows&quot; &quot;barongs&quot; &quot;barques&quot; &quot;barrels&quot; &quot;barrens&quot; &quot;barrets&quot; &quot;barrios&quot;
+##  [71] &quot;barrows&quot; &quot;barters&quot; &quot;baryons&quot; &quot;barytas&quot; &quot;barytes&quot; &quot;basalts&quot; &quot;bashaws&quot;
+##  [78] &quot;bashers&quot; &quot;basions&quot; &quot;baskets&quot; &quot;basques&quot; &quot;bassets&quot; &quot;basters&quot; &quot;batboys&quot;
+##  [85] &quot;batches&quot; &quot;bathers&quot; &quot;battens&quot; &quot;batters&quot; &quot;battiks&quot; &quot;battles&quot; &quot;battues&quot;
+##  [92] &quot;baubees&quot; &quot;baubles&quot; &quot;bawbees&quot; &quot;bawdies&quot; &quot;bawlers&quot; &quot;bawties&quot; &quot;bayamos&quot;
+##  [99] &quot;bayards&quot; &quot;bazaars&quot; &quot;beaches&quot; &quot;beacons&quot; &quot;beadles&quot; &quot;beagles&quot; &quot;beakers&quot;
+## [106] &quot;beanies&quot; &quot;bearers&quot; &quot;beaters&quot; &quot;beavers&quot; &quot;becalms&quot; &quot;beckets&quot; &quot;beckons&quot;
+## [113] &quot;beclogs&quot; &quot;becomes&quot; &quot;bedamns&quot; &quot;bedaubs&quot; &quot;bedbugs&quot; &quot;bedders&quot; &quot;bedecks&quot;
+## [120] &quot;bedells&quot; &quot;bedlams&quot; &quot;bedless&quot; &quot;bedpans&quot; &quot;bedrugs&quot; &quot;beduins&quot; &quot;bedumbs&quot;
+## [127] &quot;beebees&quot; &quot;beeches&quot; &quot;beepers&quot; &quot;beetles&quot; &quot;befalls&quot; &quot;beflags&quot; &quot;befleas&quot;
+## [134] &quot;befools&quot; &quot;befouls&quot; &quot;befrets&quot; &quot;begalls&quot; &quot;begazes&quot; &quot;beggars&quot; &quot;begirds&quot;
+## [141] &quot;beglads&quot; &quot;begrims&quot; &quot;begulfs&quot; &quot;behaves&quot; &quot;beheads&quot; &quot;behests&quot; &quot;behinds&quot;
+## [148] &quot;beholds&quot; &quot;behoves&quot; &quot;behowls&quot; &quot;beknots&quot; &quot;belauds&quot; &quot;belches&quot; &quot;beldams&quot;
+## [155] &quot;beleaps&quot; &quot;beliefs&quot; &quot;beliers&quot; &quot;bellies&quot; &quot;bellows&quot; &quot;belongs&quot; &quot;belugas&quot;
+## [162] &quot;bemeans&quot; &quot;bemires&quot; &quot;bemists&quot; &quot;bemixes&quot; &quot;bemoans&quot; &quot;bemocks&quot; &quot;bemuses&quot;
+## [169] &quot;benames&quot; &quot;benches&quot; &quot;bendays&quot; &quot;bendees&quot; &quot;benders&quot; &quot;bennets&quot; &quot;bennies&quot;
+## [176] &quot;benthos&quot; &quot;benumbs&quot; &quot;benzins&quot; &quot;benzols&quot; &quot;benzyls&quot; &quot;berakes&quot; &quot;berates&quot;
+## [183] &quot;berimes&quot; &quot;berlins&quot; &quot;berries&quot; &quot;berthas&quot; &quot;beseems&quot; &quot;besides&quot; &quot;besmuts&quot;
+## [190] &quot;besnows&quot; &quot;bestirs&quot; &quot;bestows&quot; &quot;bestuds&quot; &quot;betakes&quot; &quot;bethels&quot; &quot;betides&quot;
+## [197] &quot;betimes&quot; &quot;betises&quot; &quot;betrays&quot; &quot;betters&quot; &quot;bettors&quot; &quot;bewails&quot; &quot;bewares&quot;
+## [204] &quot;beweeps&quot; &quot;beworms&quot; &quot;bewraps&quot; &quot;bewrays&quot; &quot;beylics&quot; &quot;beyliks&quot; &quot;beyonds&quot;
+## [211] &quot;bezants&quot; &quot;bezoars&quot; &quot;bhaktas&quot; &quot;bhaktis&quot; &quot;biasses&quot; &quot;bibbers&quot; &quot;bibless&quot;
+## [218] &quot;bicarbs&quot; &quot;bickers&quot; &quot;bicrons&quot; &quot;bidders&quot; &quot;biddies&quot; &quot;biffies&quot; &quot;biffins&quot;
+## [225] &quot;bigeyes&quot; &quot;biggies&quot; &quot;biggins&quot; &quot;bigness&quot; &quot;bigwigs&quot; &quot;bikinis&quot; &quot;bilboas&quot;
+## [232] &quot;bilboes&quot; &quot;bilious&quot; &quot;bilkers&quot; &quot;billers&quot; &quot;billets&quot; &quot;billies&quot; &quot;billons&quot;
+## [239] &quot;billows&quot; &quot;binders&quot; &quot;bindles&quot; &quot;biogens&quot; &quot;biomass&quot; &quot;bionics&quot; &quot;biotics&quot;
+## [246] &quot;biotins&quot; &quot;bipacks&quot; &quot;birches&quot; &quot;birders&quot; &quot;birdies&quot; &quot;biremes&quot; &quot;birkies&quot;
+## [253] &quot;birlers&quot; &quot;bisects&quot; &quot;bishops&quot; &quot;bisques&quot; &quot;bisters&quot; &quot;bistres&quot; &quot;bistros&quot;
+## [260] &quot;bitches&quot; &quot;bitters&quot; &quot;bizones&quot; &quot;blamers&quot; &quot;blazers&quot; &quot;blazons&quot; &quot;blendes&quot;
+## [267] &quot;blesses&quot; &quot;blights&quot; &quot;blisses&quot; &quot;blitzes&quot; &quot;blondes&quot; &quot;blouses&quot; &quot;blowbys&quot;
+## [274] &quot;blowers&quot; &quot;blowups&quot; &quot;bluings&quot; &quot;blunges&quot; &quot;blushes&quot; &quot;boatels&quot; &quot;boaters&quot;
+## [281] &quot;bobbers&quot; &quot;bobbies&quot; &quot;bobbins&quot; &quot;bobbles&quot; &quot;bobcats&quot; &quot;boccias&quot; &quot;boccies&quot;
+## [288] &quot;bodegas&quot; &quot;bodices&quot; &quot;bodings&quot; &quot;bodkins&quot; &quot;boffins&quot; &quot;boggles&quot; &quot;bohunks&quot;
+## [295] &quot;boilers&quot; &quot;bolases&quot; &quot;boleros&quot; &quot;boletes&quot; &quot;boletus&quot; &quot;bolides&quot; &quot;bolsons&quot;
+## [302] &quot;bolters&quot; &quot;boluses&quot; &quot;bombers&quot; &quot;bonacis&quot; &quot;bonbons&quot; &quot;bonders&quot; &quot;bonducs&quot;
+## [309] &quot;bongoes&quot; &quot;bonitas&quot; &quot;bonitos&quot; &quot;bonkers&quot; &quot;bonnets&quot; &quot;bonuses&quot; &quot;boobies&quot;
+## [316] &quot;booboos&quot; &quot;boodles&quot; &quot;boogers&quot; &quot;boogies&quot; &quot;boohoos&quot; &quot;bookers&quot; &quot;bookies&quot;
+## [323] &quot;boomers&quot; &quot;boonies&quot; &quot;bootees&quot; &quot;booties&quot; &quot;boozers&quot; &quot;boppers&quot; &quot;boraces&quot;
+## [330] &quot;borages&quot; &quot;boranes&quot; &quot;borates&quot; &quot;boraxes&quot; &quot;bordels&quot; &quot;borders&quot; &quot;borides&quot;
+## [337] &quot;borings&quot; &quot;borrows&quot; &quot;bortzes&quot; &quot;borzois&quot; &quot;boskets&quot; &quot;bosques&quot; &quot;bossies&quot;
+## [344] &quot;bostons&quot; &quot;botches&quot; &quot;bothers&quot; &quot;bottles&quot; &quot;bottoms&quot; &quot;boucles&quot; &quot;bouffes&quot;
+## [351] &quot;bougies&quot; &quot;boulles&quot; &quot;bounces&quot; &quot;bournes&quot; &quot;bourses&quot; &quot;bovines&quot; &quot;bowfins&quot;
+## [358] &quot;bowings&quot; &quot;bowlegs&quot; &quot;bowlers&quot; &quot;bowless&quot; &quot;bowpots&quot; &quot;bowwows&quot; &quot;bowyers&quot;
+## [365] &quot;boxcars&quot; &quot;boxfuls&quot; &quot;boxings&quot; &quot;boyards&quot; &quot;bracers&quot; &quot;braches&quot; &quot;brahmas&quot;
+## [372] &quot;braises&quot; &quot;braizes&quot; &quot;brashes&quot; &quot;brasils&quot; &quot;brasses&quot; &quot;bravers&quot; &quot;bravoes&quot;
+## [379] &quot;braxies&quot; &quot;brayers&quot; &quot;brazens&quot; &quot;brazers&quot; &quot;brazils&quot; &quot;breasts&quot; &quot;breaths&quot;
+## [386] &quot;breezes&quot; &quot;brevets&quot; &quot;brewers&quot; &quot;briards&quot; &quot;bribers&quot; &quot;bridals&quot; &quot;bridges&quot;
+## [393] &quot;bridles&quot; &quot;brights&quot; &quot;briners&quot; &quot;brinies&quot; &quot;brogans&quot; &quot;brogues&quot; &quot;brokers&quot;
+## [400] &quot;bromals&quot; &quot;bromids&quot; &quot;bromins&quot; &quot;broncos&quot; &quot;bronzes&quot; &quot;browses&quot; &quot;brucins&quot;
+## [407] &quot;bruises&quot; &quot;brulots&quot; &quot;brumous&quot; &quot;brunets&quot; &quot;brushes&quot; &quot;bubales&quot; &quot;bubalis&quot;
+## [414] &quot;bubbies&quot; &quot;bubbles&quot; &quot;buckers&quot; &quot;buckets&quot; &quot;buckles&quot; &quot;buckoes&quot; &quot;buckras&quot;
+## [421] &quot;budders&quot; &quot;buddies&quot; &quot;buddles&quot; &quot;budgers&quot; &quot;budgets&quot; &quot;budgies&quot; &quot;budless&quot;
+## [428] &quot;buffers&quot; &quot;buffets&quot; &quot;bugeyes&quot; &quot;buggers&quot; &quot;buggies&quot; &quot;buglers&quot; &quot;bugloss&quot;
+## [435] &quot;bugshas&quot; &quot;bulbels&quot; &quot;bulbils&quot; &quot;bulbous&quot; &quot;bulbuls&quot; &quot;bulgers&quot; &quot;bulgurs&quot;
+## [442] &quot;bullets&quot; &quot;bullies&quot; &quot;bullous&quot; &quot;bumbles&quot; &quot;bumkins&quot; &quot;bummers&quot; &quot;bumpers&quot;
+## [449] &quot;bunches&quot; &quot;bundles&quot; &quot;bungles&quot; &quot;bunions&quot; &quot;bunkers&quot; &quot;bunkums&quot; &quot;bunnies&quot;
+## [456] &quot;bunters&quot; &quot;buqshas&quot; &quot;burbles&quot; &quot;burbots&quot; &quot;burdens&quot; &quot;burdies&quot; &quot;bureaus&quot;
+## [463] &quot;burgees&quot; &quot;burgers&quot; &quot;burgess&quot; &quot;burgles&quot; &quot;burgoos&quot; &quot;burials&quot; &quot;buriers&quot;
+## [470] &quot;burkers&quot; &quot;burlaps&quot; &quot;burlers&quot; &quot;burleys&quot; &quot;burners&quot; &quot;burnets&quot; &quot;burnies&quot;
+## [477] &quot;burnous&quot; &quot;burrers&quot; &quot;burrows&quot; &quot;bursars&quot; &quot;burtons&quot; &quot;busbies&quot; &quot;busboys&quot;
+## [484] &quot;bushels&quot; &quot;bushers&quot; &quot;busings&quot; &quot;buskers&quot; &quot;buskins&quot; &quot;busters&quot; &quot;bustics&quot;
+## [491] &quot;bustles&quot; &quot;butanes&quot; &quot;butches&quot; &quot;butenes&quot; &quot;butlers&quot; &quot;buttals&quot; &quot;butters&quot;
+## [498] &quot;butties&quot; &quot;buttons&quot; &quot;buzzers&quot; &quot;byelaws&quot; &quot;bygones&quot; &quot;bylines&quot; &quot;bynames&quot;
+## [505] &quot;bypaths&quot; &quot;byplays&quot; &quot;byrnies&quot; &quot;byroads&quot; &quot;bytalks&quot; &quot;bywords&quot; &quot;byworks&quot;
+## [512] &quot;byzants&quot;
+</code></pre>
+
+<h4>Put into use:</h4>
+
+<p><img src="http://fanappic.com/wp-content/uploads/2012/04/Puzzler-Crosswords-iPhone-App-Review.jpg" alt="Examle Crossword"/></p>
+
+<p>1 Across</p>
+
+<pre><code class="r">crosswordPattern(c(l = 1, v = 3, a = 4), 4)
+</code></pre>
+
+<pre><code>## [1] &quot;lava&quot; &quot;leva&quot;
+</code></pre>
+
+<p>49 Across</p>
+
+<pre><code class="r">crosswordPattern(c(n = 2, a = 3, g = 4), 4)
+</code></pre>
+
+<pre><code>## [1] &quot;snag&quot;
+</code></pre>
+
+<p>57 Across</p>
+
+<pre><code class="r">crosswordPattern(c(e = 1, a = 3, n = 4), 4)
+</code></pre>
+
+<pre><code>## [1] &quot;elan&quot;
+</code></pre>
+
+<p>7 Down</p>
+
+<pre><code class="r">crosswordPattern(c(a = 1, r = 2, c = 3), 4)
+</code></pre>
+
+<pre><code>## [1] &quot;arch&quot; &quot;arco&quot; &quot;arcs&quot;
+</code></pre>
+
+<p>9 Down</p>
+
+<pre><code class="r">crosswordPattern(c(m = 1, a = 2, r = 3, a = 5), 5)
+</code></pre>
+
+<pre><code>## [1] &quot;maria&quot;
+</code></pre>
+
+<p>38 Down</p>
+
+<pre><code class="r">crosswordPattern(c(e = 1, r = 3), 4)
+</code></pre>
+
+<pre><code>##  [1] &quot;earl&quot; &quot;earn&quot; &quot;ears&quot; &quot;ecru&quot; &quot;eery&quot; &quot;errs&quot; &quot;euro&quot; &quot;eyra&quot; &quot;eyre&quot; &quot;eyry&quot;
+</code></pre>
+
+<p>51 Down</p>
+
+<pre><code class="r">crosswordPattern(c(g = 1, l = 2, a = 3, d = 4), 5)
+</code></pre>
+
+<pre><code>## [1] &quot;glade&quot; &quot;glads&quot; &quot;glady&quot;
+</code></pre>
+
+<p>58 Down</p>
+
+<pre><code class="r">crosswordPattern(c(c = 2, e = 4), 4)
+</code></pre>
+
+<pre><code>## [1] &quot;ache&quot; &quot;acme&quot; &quot;acne&quot; &quot;acre&quot; &quot;eche&quot;
+</code></pre>
+
+<h2>Scrabble</h2>
+
+<p>I added an input x which dictates how many letters the desired word will be.</p>
+
+<pre><code class="r">scrabble &lt;- function(v, x) {
+    sub1 &lt;- words[grepl(v[1], words) == TRUE]
+    sub2 &lt;- sub1[grepl(v[2], sub1) == TRUE]
+    sub3 &lt;- sub2[grepl(v[3], sub2) == TRUE]
+    sub4 &lt;- sub3[grepl(v[4], sub3) == TRUE]
+    sub5 &lt;- sub4[grepl(v[5], sub4) == TRUE]
+    sub6 &lt;- sub5[grepl(v[6], sub5) == TRUE]
+    sub7 &lt;- sub6[grepl(v[7], sub6) == TRUE]
+    if (length(sub7) &gt; 10) {
+        return(sub7[1:10])
+    } else {
+        a &lt;- c(sub7, sub6, sub5, sub4)
+    }
+    b &lt;- sapply(a, nchar)
+    c &lt;- as.data.frame(b, row.names = names(b))
+    d &lt;- subset(c, b == x)
+    e &lt;- row.names(d)
+    return(e[1:10])
+}
+
+scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 7)
+</code></pre>
+
+<pre><code>##  [1] &quot;abduced&quot; &quot;abduces&quot; &quot;batched&quot; &quot;beached&quot; &quot;belaced&quot; &quot;blacked&quot; &quot;bracted&quot;
+##  [8] &quot;brocade&quot; &quot;cabined&quot; &quot;carbide&quot;
+</code></pre>
+
+<pre><code class="r">scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 8)
+</code></pre>
+
+<pre><code>##  [1] &quot;boldface&quot; &quot;feedback&quot; &quot;abdicate&quot; &quot;abducens&quot; &quot;abducent&quot; &quot;abducted&quot;
+##  [7] &quot;abidance&quot; &quot;abscised&quot; &quot;ascribed&quot; &quot;baccated&quot;
+</code></pre>
+
+<pre><code class="r">scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 9)
+</code></pre>
+
+<pre><code>##  [1] &quot;backfired&quot; &quot;barefaced&quot; &quot;boldfaced&quot; &quot;boldfaces&quot; &quot;confabbed&quot;
+##  [6] &quot;feedbacks&quot; &quot;abdicated&quot; &quot;abdicates&quot; &quot;abidances&quot; &quot;abreacted&quot;
+</code></pre>
 
 </body>
 

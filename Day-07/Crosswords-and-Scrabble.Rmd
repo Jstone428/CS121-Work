@@ -1,7 +1,196 @@
-Crosswords, Scrabble, and Regular Expressions
-========
-
+# Crosswords, Scrabble, and Regular Expressions
+===========
 ```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+```
+## Summarizing the List
+```{r}
+wordLength <- function(x){
+  list<-c()
+  characters <- sapply(words,nchar)
+  for(k in 1:length(words)){
+    if(characters[[k]]==x){list<-c(list,characters[[k]])}
+    else{}
+    }
+  return(length(list))
+  }  
+```
+#### Testing: The number of words of length 1, of length 2, of length 3, etc.
+```{r}
+# wordLength(1):wordLength(21)
+wordLength(1)
+wordLength(2)
+wordLength(3)
+wordLength(4)
+wordLength(5)
+wordLength(6)
+wordLength(7)
+wordLength(8)
+wordLength(9)
+wordLength(10)
+wordLength(11)
+wordLength(12)
+wordLength(13)
+wordLength(14)
+wordLength(15)
+wordLength(16)
+wordLength(17)
+wordLength(18)
+wordLength(19)
+wordLength(20)
+wordLength(21)
+```
+### The 100 longest words.
+For this function, there isn't a way to get the 100 longest words. 
+```{r}
+ListofWords <- function(x){
+  list<-c()
+  characters <- sapply(words,nchar)
+  for(k in 1:length(words)){
+    if(characters[[k]]==x){list<-c(list,characters[[k]])}
+    else{}
+    }
+  return(list)
+  }  
+HundredWords<-c(ListofWords(21),ListofWords(20),ListofWords(19),ListofWords(18),ListofWords(17))
+```
+#### Testing
+```{r}
+length(HundredWords)
+HundredWords
+```
+### The number of words starting with each of “a”, “b”, “c”, and so on.
+```{r}
+## A
+length(words[grepl("^a",words)==TRUE])
+## B
+length(words[grepl("^b",words)==TRUE])
+## C
+length(words[grepl("^c",words)==TRUE])
+## D
+length(words[grepl("^d",words)==TRUE])
+## E
+length(words[grepl("^e",words)==TRUE])
+## F
+length(words[grepl("^f",words)==TRUE])
+## G
+length(words[grepl("^g",words)==TRUE])
+## H
+length(words[grepl("^h",words)==TRUE])
+## I
+length(words[grepl("^i",words)==TRUE])
+## J
+length(words[grepl("^j",words)==TRUE])
+## K
+length(words[grepl("^k",words)==TRUE])
+## L
+length(words[grepl("^l",words)==TRUE])
+## M
+length(words[grepl("^m",words)==TRUE])
+## N
+length(words[grepl("^n",words)==TRUE])
+## O
+length(words[grepl("^o",words)==TRUE])
+## P
+length(words[grepl("^p",words)==TRUE])
+## Q
+length(words[grepl("^q",words)==TRUE])
+## R
+length(words[grepl("^r",words)==TRUE])
+## S
+length(words[grepl("^s",words)==TRUE])
+## T
+length(words[grepl("^t",words)==TRUE])
+## U
+length(words[grepl("^u",words)==TRUE])
+## V
+length(words[grepl("^v",words)==TRUE])
+## W
+length(words[grepl("^w",words)==TRUE])
+## X
+length(words[grepl("^x",words)==TRUE])
+## Y
+length(words[grepl("^y",words)==TRUE])
+## Z
+length(words[grepl("^z",words)==TRUE])
+```
+### The full list of words with a “q” but no “u” following. 
+```{r}
+ExcludeU<-words[grepl("q[^u]",words)==TRUE]
+ExcludeU
+```
+### Crossword Helper
+```{r}
+crossword <- function(x){
+  a <- grepl(x,words)
+  return(words[a])
+}
+```
+Testing
+```{r}
+crossword("^.s..t.$")
+```
+## A Better Crossword Helper
+```{r}
+crosswordPattern<-function(v,x){
+  a <- rep(".",x)
+  for(k in 1:length(v)){
+    a[v[[k]]]=names(v)[k]
+  }
+  b<-c("^",a,"$")
+  c<-paste(b,collapse="")
+  d<-grepl(c,words)
+  return(words[d])
+}
+crosswordPattern(c(b=1,s=7),7)
+```
+#### Put into use:
+![Examle Crossword](http://fanappic.com/wp-content/uploads/2012/04/Puzzler-Crosswords-iPhone-App-Review.jpg)
+
+Down 14
+```{r}
+crosswordPattern(c(l=3,l=7),8)
+```
+Down 15
+```{r}
+crosswordPattern(c(n=3,e=5),6)
+```
+Down 17
+```{r}
+crosswordPattern(c(y=1,r=5),6)
+```
+Down 20
+```{r}
+crosswordPattern(c(s=3),4)
+```
+### Scrabble
+I added an input x which dictates how many letters the desired word will be.
+```{r}
+Scrabble<-function(v,x){
+  sub1<-words[grepl(v[1],words)==TRUE]
+  sub2<-sub1[grepl(v[2],sub1)==TRUE]
+  sub3<-sub2[grepl(v[3],sub2)==TRUE]
+  sub4<-sub3[grepl(v[4],sub3)==TRUE]
+  sub5<-sub4[grepl(v[5],sub4)==TRUE]
+  sub6<-sub5[grepl(v[6],sub5)==TRUE]
+  sub7<-sub6[grepl(v[7],sub6)==TRUE]
+  if(length(sub7)>10){return(sub7[1:10])}
+  else{a<-c(sub7,sub6,sub5,sub4)}
+  b <- sapply(a,nchar)
+  c <- as.data.frame(b,row.names = names(b))
+  d <- subset(c,b==x)
+  e <- row.names(d)
+  return(e[1:10])
+}
+
+Scrabble(c("l","m","n","a","i","e","r"),8)
+Scrabble(c("a","b","c","d","e","f","g"),6)
+```
+
+
+
+
+
 
 
 

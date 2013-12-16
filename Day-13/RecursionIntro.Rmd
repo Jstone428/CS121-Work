@@ -1,0 +1,311 @@
+# Recursion
+==========
+
+## Loop of Fibonacci Numbers
+#### Given Example:
+```{r}
+fibLoop <- function(n) {
+    Ffirst <- 0
+    Fsecond <- 1
+    for (k in 2:n) {
+        newF <- Ffirst + Fsecond
+        Ffirst <- Fsecond
+        Fsecond <- newF
+    }
+    return(newF)
+}
+```
+Testing
+```{r}
+fibLoop(5)
+fibLoop(20)
+```
+
+#### Loop where the state is maintained by a vector of n+1 slots, with the first two slots initialized to 0 and 1 respectively
+```{r}
+fibLoop2<-function(n){
+  sofar=c(0,1)
+  for(k in 3:n){
+  sofar[k]<-sofar[k-1]+sofar[k-2]
+  sofar[k+1]<-sofar[k]+sofar[k-1]
+  }
+  return(sofar[k+1])
+  }
+```
+Testing
+```{r}
+fibLoop2(5)
+fibLoop2(20)
+```
+
+#### Returns all fibonacci numbers n and below:
+```{r}
+fibLoop2<-function(n){
+  sofar=c(0,1)
+  for(k in 3:n){
+  sofar[k]<-sofar[k-1]+sofar[k-2]
+  sofar[k+1]<-sofar[k]+sofar[k-1]
+  }
+  return(sofar)
+  }
+
+fibLoop2(5)
+fibLoop2(20)
+```
+
+## A Recursive structure for Fn
+#### Given Example:
+```{r}
+fibRecurse <- function(n) {
+    if (n == 1) {
+        return(1)
+    } else {
+        if (n == 0) 
+            return(0)
+    }
+    thisF <- fibRecurse(n - 1) + fibRecurse(n - 2)
+    return(thisF)
+}
+
+fibRecurse(5)
+fibRecurse(20)
+```
+
+#### More concise way:
+```{r}
+fib1 <- function(n) {
+    if (n < 2) 
+        return(n)
+    return(fib1(n - 1) + fib1(n - 2))
+}
+```
+Testing
+```{r}
+fib1(5)
+fib1(20)
+```
+
+## Exercises
+#### Write a recursive function to add up the numbers from n to zero:
+```{r}
+addNSeq <- function(n) {
+  if(n==1){
+    return(1)}
+  else{
+    if(n==0){
+      return(0)
+    }
+  }
+  sum <- addNSeq(n-1)+n
+  return(sum)
+  }
+```
+Testing
+```{r}
+addNSeq(4)
+addNSeq(7)
+```
+
+#### Loop
+```{r}
+addNSeqLoop<-function(n){
+  sum <- 0
+  for(k in 1:n){
+    sum <- n-k + sum
+  }
+  return(sum+n)
+}
+```
+Testing
+```{r}
+addNSeqLoop(3)
+addNSeqLoop(5)
+```
+
+#### Simple Vector
+```{r}
+addNSeqLoop<-function(n){
+  vect <- 1:n
+  return(sum(vect))
+}
+```
+Testing
+```{r}
+addNSeqLoop(5)
+addNSeqLoop(8)
+```
+
+#### Write a recursive function to add up all the numbers in a vector
+```{r}
+addRecursively <- function(v) {
+  if(length(v)==1){
+    return(v[1])
+  }
+  sum <- addRecursively(v[-length(v)])+v[length(v)]
+  return(sum)
+  }
+```
+Testing
+```{r}
+addRecursively(c(3,6,9))
+addRecursively(c(4,7,10))
+```
+
+#### Loop
+```{r}
+addRecLoop<-function(v){
+  sum<-0
+  for(k in 1:length(v)){
+    sum <- v[k]+sum
+  }
+  return(sum)
+}
+```
+Testing
+```{r}
+addRecLoop(c(3,5,8))
+addRecLoop(c(2,5,9))
+```
+
+#### Simple vectorized operational version
+```{r}
+addSimple<-function(v){
+  sum(v)
+}
+
+addRecSimple(c(1,2,3))
+addRecSimple(c(5,7,9))
+```
+
+## Natural Settings for Recursion
+```{r}
+simpleRiemann <- function(f, a = 0, b = 1, n = 3) {
+    rectangleWidth = (b - a)/n
+    midpoints <- seq(a + rectangleWidth/2, b - rectangleWidth/2, length = n)
+    rectangleAreas <- sapply(midpoints, f) * rectangleWidth
+    return(sum(rectangleAreas))
+}
+```
+
+```{r}
+integrateRiemann <- function(f, a = 0, b = 1) {
+    nbins <- 5
+    biggerBins <- simpleRiemann(f, a = a, b = b, n = nbins)
+    for (k in 1:5) {
+        nbins <- nbins * 10  # much smaller bins
+        smallerBins <- simpleRiemann(f, a = a, b = b, n = nbins)
+        if (abs(smallerBins - biggerBins) < 1e-05) 
+            break
+        biggerBins <- smallerBins
+    }
+    return(smallerBins)
+}
+```
+Testing! 
+```{r}
+integrateRiemann(function(x) {
+    3 * x
+}, a = 0, b = 10)
+```
+Testing! 
+```{r}
+integrateRiemann(function(x) {
+    3 * x^2
+}, a = 0, b = 10)
+```
+
+## Your Tasks
+#### Modify integrateRecursive()
+```{r}
+integrateRecursive <- function(f, a = 0, b = 1) {
+    biggerBins <- simpleRiemann(f, a = a, b = b, n = 5)
+    smallerBins <- simpleRiemann(f, a = a, b = b, n = 10)
+    if (abs(biggerBins - smallerBins) < 1e-05) 
+        return(smallerBins) else {
+        mid <- (a + b)/2
+        total <- integrateRecursive(f, a = a, b = mid) + integrateRecursive(f, 
+            a = mid, b = b)
+        if(n==10000){break}
+        return(total)
+    }
+}
+```
+
+#### Demo your Program
+```{r}
+integrateRecursive(function(x) {
+    4 * x
+}, a = 0, b = 10)
+```
+$\int\limits_{0}^{10} 4*x dx = 200$
+
+```{r}
+integrateRiemann(function(x) {
+     x^6
+}, a = 0, b = 10)
+```
+$\int\limits_{0}^{10} 4*x^6 dx = 1428571$
+
+#### A Better Simple Integrator
+```{r}
+gaussQuadrature <- function(f, a = 0, b = 1) {
+    # Just 4 function evaluations!
+
+    # 'Magic' values on z in [0,1]
+    z <- c(c(-1, 1) * sqrt((3 - 2 * sqrt(6/5))/7), c(-1, 1) * sqrt((3 + 2 * 
+        sqrt(6/5))/7))
+    # weights (analogous to bin width)
+    w <- c(rep((18 + sqrt(30))/36, 2), rep((18 - sqrt(30))/36, 2))
+    # Translate to interval x in [a,b]
+    x <- ((b - a)/2) * z + (a + b)/2
+    # evaluate the function at x, multiply by weights, and sum
+    return(((b - a)/2) * sum(w * sapply(x, f)))
+}
+```
+Testing
+```{r}
+gaussQuadrature(function(x) 3 + 0 * x, 0, 10)
+gaussQuadrature(function(x) 3 * x, 0, 10)
+gaussQuadrature(function(x) 3 * x^2, 0, 10)
+```
+
+#### What power of x does gaussQuadrature fail for? Answer: 318
+```{r}
+gaussQuadrature(function(x) x^317,0,10)
+gaussQuadrature(function(x) x^318,0,10)
+```
+
+#### Test out gaussQuadrature() on sine and cosine functions, with a=0 and b successively larger, that is, b=0.1, b=1.0, and so on. How wide can you make the interval, before the result of gaussQuadrature() is not accurate? Answer: $2*pi+0.1$
+```{r}
+gaussQuadrature(function(x) sin(x),0,2*pi+0.1)
+```
+$\int\limits_{0}^{2*pi+0.1}\sin{x}dx = 0.004995$
+
+#### Re-implement integrateRecursive() using gaussQuadrature() as the base integrator. You'll have to be creative, since you can't change the number of bins as in the test-for-simple part of integrateRecursive(). Show that your function works on trigonometric functions with b big.
+```{r}
+integrateRecursive2 <- function(f, a = 0, b = 1) {
+    biggerBins <- gaussQuadrature(f, a = a, b = b, n = 5)
+    smallerBins <- gaussQuadrature(f, a = a, b = b, n = 10)
+    if (abs(biggerBins - smallerBins) < 1e-05) 
+        return(smallerBins) else {
+        mid <- (a + b)/2
+        total <- integrateRecursive2(f, a = a, b = mid) + integrateRecursive2(f, 
+            a = mid, b = b)
+        if(n==10000){break}
+        return(total)
+    }
+}
+```
+
+### Plotting a function
+```{r}
+
+plotF<-function(f,a=0,b=1){
+  diff<-(b-a)
+  x<-seq(a,b,length=(diff*100))
+  y<-f(x)
+  plot(x,y,xlab="x",ylab="f(x)",main="plotF",type="l",pch=20,cex=.2,col="red") 
+}
+
+plotF(function(x)x+x^3,-5,5)
+```
