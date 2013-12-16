@@ -1,0 +1,76 @@
+# Interacting with Loops
+==================
+
+### Looping a Launch
+```{r}
+blastOff<-function(time){
+  while(time !=0){
+    Sys.sleep(1)
+    cat(time, "\n")
+    time<-time-1
+  }
+Sys.sleep(1)
+  cat("Blastoff!!!!!")
+}
+```
+Testing! 
+```{r}
+blastOff(5)
+```
+
+### Testing Human Response Times
+```{r}
+testLatency <- function(N) {
+  readline("Press Enter when you are ready:")
+  result <- rep(0, N)
+  for( k in 1:N) {
+    Sys.sleep(runif(1,min=1,max=5))
+    before <- Sys.time()
+    readline("Press Enter:")
+    after <- Sys.time()
+  delay <- as.numeric(after-before)
+    cat(rep("\n",20))
+    result[k] <- delay
+ 
+    }
+  return(result)
+  }
+
+testLatency(4)
+JessicaData<-testLatency(100)
+save(JessicaData, file = "JessicaData.RData") 
+load("JessicaData.Rdata")
+plot(JessicaData)
+```
+
+### Elaboration
+```{r}
+testLatencyNew <- function(N) {
+    result <- vector(length=N)
+  wordLength <- round(runif(N, 1, 20)) # Creates n random numbers from 1 to 20
+  for (k in 1:N) {
+  x <- sample(letters, wordLength[k])  # Sample takes letters takes of random amount
+  word <- paste (x, collapse="") # Puts words together by amount of space between ""
+  phrase <- paste("Type the word, '", word, "' ", sep=" ")
+  command <- readline(phrase)
+  
+    Sys.sleep(runif(1,min=1,max=5))
+    before <- Sys.time() 
+  
+  while(command !=word){
+    command <- readline("Look Again")} # Waiting for it to look for word
+
+
+    readline("Press Enter:")
+    after <- Sys.time()
+  delay <- as.numeric(after-before)
+    cat(rep("\n",20))
+    result[k] <- delay
+ 
+    }
+
+
+table <- data.frame("Word Length" = WordLength, "Latency" = result )
+return(table)
+}
+```
