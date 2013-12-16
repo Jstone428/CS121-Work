@@ -1,36 +1,78 @@
 # Numbers and Strings
 =================
-# Basic Statistics
+### Basic Statistics
 ```{r}
-outlier(x)
+outliers<-function(x){
+  quant<- quantile(x,probs=c(0.25,0.75))
+    width <- 1.5*(quant[[2]]-quant[[1]])
+    high <- width + quant[[2]]
+    low <- quant[[1]] - width
+    return(x[(x<low)|(x>high)])
+}
+outliers(c(1,5,10,15,20,80))
 ```
-# Numbers and Languages
+### Numbers and Languages
 ```{r}
-digitToWord(v) 
+English <- c("zero","one","two","three","four","five","six","seven","eight","nine")
+Spanish <- c("cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve")
+digitToWord <- function(n,language="French"){
+English <- c("zero","one","two","three","four","five","six","seven","eight","nine")
+Spanish <- c("cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve")
+French <- c("zero","un","deux","trois","quatre","cinq","six","sept","huit","neuf")
+WordstoNum<-switch(language,French=French,English=English,Spanish=Spanish)
+     return(WordstoNum[n+1])
+ }
+digitToWord(4:8,"English")
+digitToWord(1:5,"French")
 ```
-# Help for Crossword Puzzles
+### Help for Crossword Puzzles
 ```{r}
-lettersMatch(words,pattern)
+lettersMatch <- function(pattern){
+  Words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+  answer <- grepl(pattern,Words)
+  return(Words[answer])
+}
+# 7 letter words starting with "b" ending in "ing"
+lettersMatch("^.e..re$")
 ```
-# Have your π two ways
+### Have your π two ways
 One way: A Series
 ```{r}
-piSeries(n)
+piSeries<-function(n){
+  State <- 0
+  for(k in 1:length(n)){
+    Results <- ((-1)^(k+1))/(2*k-1)
+    State <- State + Results
+  }
+  return(State*4)
+}
+piSeries(1:200)
 ```
 How close?
 ```{r}
-howCloseToPi(n)
+howCloseToPi<-function(n){
+  k <- 1:n
+  Answer <- sapply(k, FUN=piSeries)
+  plot(k,Answer,xlab="n",ylab="Approx to pi")
+}
+howCloseToPi(25)
 ```
 Another way: A “Monte Carlo” Method
 ```{r}
-randomApproxToPi(n)
+randomApproxToPi<-function(n){
+  A <- runif(n)
+  B <- runif(n)
+  C <- A^2 + B^2
+  return(4*mean(C<1))
+}
+randomApproxToPi(20)
 ```
 How close? 
 ```{r}
-sapply(x, fun)
+HowCloseApprox<-function(n){
+  k<- 1:n
+  A<-sapply(k,FUN=randomApproxToPi)
+  plot(k,A,xlab="Length",ylab="Approximate to pi")
+}
+HowCloseApprox(700)
 ```
-
-
-
-
-
